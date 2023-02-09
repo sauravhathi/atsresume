@@ -115,4 +115,26 @@
     .exclude-print {
         display: none;
     }
+
+    @page {
+        size: auto;
+        margin: 0mm;
+    }
+
+    .preview {
+        overflow-y: visible !important;
+    }
+
+    .preview::after {
+        content: "Created using https://atsresume.vercel.app/";
+        position: fixed;
+        bottom: 1rem;
+        left: 0;
+        right: 0;
+        opacity: 0.2;
+        font-size: small;
+        text-align: center;
+        z-index: -1;
+    }
+
 }
