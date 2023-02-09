@@ -1,38 +1,108 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# ATSResume
 
-## Getting Started
+A cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers.
 
-First, run the development server:
+## Demo
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-```
+[https://atsresume.com](https://atsresume.com)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Sections
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- [Personal Information](#personal-information)
+- [Social Media](#social-media)
+- [Summary](#summary)
+- [Education](#education)
+- [Work Experience](#work-experience)
+- [Projects](#projects)
+- [Technical Skills](#technical-skills)
+- [Soft Skills](#soft-skills)
+- [Languages](#languages)
+- [Additional Skills](#additional-skills)
+- [Certifications](#certifications)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## Personal Information
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- Name
+- Email
+- Phone
+- Address
+- Profile Picture
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Social Media
 
-## Learn More
+- Social Media Links
 
-To learn more about Next.js, take a look at the following resources:
+## Summary
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Summary
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Education
 
-## Deploy on Vercel
+- Degree
+- Institute
+- Start Date
+- End Date
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Work Experience
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- Company
+- Designation
+- Description
+- Key Achievements
+- Start Date
+- End Date
+
+Description optional
+
+## Projects
+
+- Project Name
+- Description
+- key Achievements
+- Start Date
+- End Date
+
+Description optional
+
+## Technical Skills
+
+- Technical Skills
+
+## Soft Skills
+
+- Soft Skills
+
+## Languages
+
+- Languages
+
+## Additional Skills
+
+- Additional Skills
+
+## Certifications
+
+- Certifications
+
+## How to Add Key Achievements
+
+Key achievements are the most important part of your resume. 
+
+- Add key achievements to your resume to make it more attractive and increase your chances of getting noticed by employers.
+- Add key achievements to your work experience and projects.
+- Add key achievements to your resume by clicking on the new line.
+
+
+## License
+
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Contributing
+
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
+
+## Authors and acknowledgment
+
+- [Saurav Hathi](https://github.com/sauravhathi)
