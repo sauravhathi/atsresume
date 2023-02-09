@@ -1,9 +1,9 @@
 import FormButton from "./FormButton"
 
-const Skill = ({ resumeData, skillType, placeholder, handleSkills, addSkill, removeSkill }) => {
+const Skill = ({ resumeData, skillType, title, placeholder, handleSkills, addSkill, removeSkill }) => {
     return (
       <div className="flex-col-gap-2">
-        <h2 className="input-title">{skillType}</h2>
+        <h2 className="input-title">{title}</h2>
         {resumeData[skillType].map((skill, index) => (
           <div key={index} className="f-col">
             <input
