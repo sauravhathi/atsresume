@@ -96,7 +96,7 @@ Key achievements are the most important part of your resume.
 
 ## License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](https://github.com/sauravhathi/atsresume/blob/main/LICENSE.md)
 
 ## Contributing
 
