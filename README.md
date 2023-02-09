@@ -4,7 +4,7 @@ A cutting-edge resume builder that helps job seekers create a professional, ATS-
 
 ## Demo
 
-[https://atsresume.com](https://atsresume.com)
+[https://atsresume.vercel.app/](https://atsresume.vercel.app/)
 
 ## Sections
 
