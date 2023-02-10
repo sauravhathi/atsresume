@@ -9,7 +9,7 @@ A cutting-edge resume builder that helps job seekers create a professional, ATS-
 
 ### Resume Score
 #### https://www.resumego.net/resume-checker/
-![image](https://user-images.githubusercontent.com/61316762/217863424-4b083e15-48d4-4d09-bd3c-4629e88ab1ef.png)
+![image](https://user-images.githubusercontent.com/61316762/218143206-f0e5e764-52bc-4c25-84f2-6b2fff00cd4b.png)
 
 ## Sections
 
