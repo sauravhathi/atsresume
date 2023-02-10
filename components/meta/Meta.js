@@ -1,7 +1,7 @@
 import Head from "next/head";
 
 export default function Meta({ title, keywords, description }) {
-    const homepage = "https://atsresume.com";
+    const homepage = "https://atsresume.vercel.app/";
     const logo = "https://atsresume.vercel.app/assets/logo.png";
     const fevicon = "https://atsresume.vercel.app/assets/favicon.ico";
 
