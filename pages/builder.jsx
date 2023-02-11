@@ -11,15 +11,17 @@ import PersonalInformation from "../components/form/PersonalInformation";
 import Summary from "../components/form/Summary";
 import Projects from "../components/form/Projects";
 import Education from "../components/form/Education";
-import {MdPictureAsPdf} from "react-icons/md";
 import dynamic from "next/dynamic";
 
 
 
 export default function Builder(props) {
+  // resume data
   const [resumeData, setResumeData] = useState(DefaultResumeData);
+  // form hide/show
   const [formClose, setFormClose] = useState(false);
 
+  // load backup resume data
   const handleLoad = (event) => {
     const file = event.target.files[0];
     const reader = new FileReader();
@@ -30,6 +32,7 @@ export default function Builder(props) {
     reader.readAsText(file);
   };
 
+  // download resume data
   const handleDownload = (data, filename, event) => {
     event.preventDefault();
     const jsonData = JSON.stringify(data);
@@ -40,11 +43,13 @@ export default function Builder(props) {
     link.click();
   };
 
+  // personal information
   const handleChange = (e) => {
     setResumeData({ ...resumeData, [e.target.name]: e.target.value });
     console.log(resumeData);
   };
 
+  // profile picture
   const handleProfilePicture = (e) => {
     const file = e.target.files[0];
     const reader = new FileReader();
@@ -54,43 +59,11 @@ export default function Builder(props) {
     reader.readAsDataURL(file);
   };
 
-  const handleSocialMedia = (e, index) => {
-    const newSocialMedia = [...resumeData.socialMedia];
-    newSocialMedia[index][e.target.name] = e.target.value.replace("https://", "");
-    setResumeData({ ...resumeData, socialMedia: newSocialMedia });
-  };
-
+  // education
   const handleEducation = (e, index) => {
     const newEducation = [...resumeData.education];
     newEducation[index][e.target.name] = e.target.value;
     setResumeData({ ...resumeData, education: newEducation });
-  };
-
-  const handleworkExperience = (e, index) => {
-    const newworkExperience = [...resumeData.workExperience];
-    newworkExperience[index][e.target.name] = e.target.value;
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
-  };
-
-  const handleProjects = (e, index) => {
-    const newProjects = [...resumeData.projects];
-    newProjects[index][e.target.name] = e.target.value;
-    setResumeData({ ...resumeData, projects: newProjects });
-    console.log(resumeData.projects)
-  };
-
-  const addSocialMedia = () => {
-    setResumeData({
-      ...resumeData,
-      socialMedia: [...resumeData.socialMedia, { socialMedia: "", link: "" }],
-    });
-  };
-
-  const removeSocialMedia = (index) => {
-    const newSocialMedia = [...resumeData.socialMedia];
-    newSocialMedia[index] = newSocialMedia[newSocialMedia.length - 1];
-    newSocialMedia.pop();
-    setResumeData({ ...resumeData, socialMedia: newSocialMedia });
   };
 
   const addEducation = () => {
@@ -105,6 +78,13 @@ export default function Builder(props) {
     newEducation[index] = newEducation[newEducation.length - 1];
     newEducation.pop();
     setResumeData({ ...resumeData, education: newEducation });
+  };
+
+  // work experience
+  const handleworkExperience = (e, index) => {
+    const newworkExperience = [...resumeData.workExperience];
+    newworkExperience[index][e.target.name] = e.target.value;
+    setResumeData({ ...resumeData, workExperience: newworkExperience });
   };
 
   const addworkExperience = () => {
@@ -124,6 +104,14 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, workExperience: newworkExperience });
   };
 
+  // projects
+  const handleProjects = (e, index) => {
+    const newProjects = [...resumeData.projects];
+    newProjects[index][e.target.name] = e.target.value;
+    setResumeData({ ...resumeData, projects: newProjects });
+    console.log(resumeData.projects)
+  };
+
   const addProjects = () => {
     setResumeData({
       ...resumeData,
@@ -141,6 +129,28 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, projects: newProjects });
   };
 
+  // social media
+  const handleSocialMedia = (e, index) => {
+    const newSocialMedia = [...resumeData.socialMedia];
+    newSocialMedia[index][e.target.name] = e.target.value.replace("https://", "");
+    setResumeData({ ...resumeData, socialMedia: newSocialMedia });
+  };
+
+  const addSocialMedia = () => {
+    setResumeData({
+      ...resumeData,
+      socialMedia: [...resumeData.socialMedia, { socialMedia: "", link: "" }],
+    });
+  };
+
+  const removeSocialMedia = (index) => {
+    const newSocialMedia = [...resumeData.socialMedia];
+    newSocialMedia[index] = newSocialMedia[newSocialMedia.length - 1];
+    newSocialMedia.pop();
+    setResumeData({ ...resumeData, socialMedia: newSocialMedia });
+  };
+
+  // technical skills
   const handleTechnicalSkills = (e, index) => {
     const newTechnicalSkills = [...resumeData.technicalSkills];
     newTechnicalSkills[index] = e.target.value;
@@ -158,6 +168,7 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, technicalSkills: newTechnicalSkills });
   };
 
+  // soft skills
   const handleSoftSkills = (e, index) => {
     const newSoftSkills = [...resumeData.softSkills];
     newSoftSkills[index] = e.target.value;
@@ -175,6 +186,7 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, softSkills: newSoftSkills });
   };
 
+  // languages
   const handleLanguages = (e, index) => {
     const newLanguages = [...resumeData.languages];
     newLanguages[index] = e.target.value;
@@ -192,6 +204,7 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, languages: newLanguages });
   };
 
+  // additional skills
   const handleAdditionalSkills = (e, index) => {
     const newAdditionalSkills = [...resumeData.additionalSkills];
     newAdditionalSkills[index] = e.target.value;
@@ -209,6 +222,7 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, additionalSkills: newAdditionalSkills });
   };
 
+  // ceritifications
   const handleCertifications = (e, index) => {
     const newCertifications = [...resumeData.certifications];
     newCertifications[index] = e.target.value;
@@ -255,6 +269,7 @@ export default function Builder(props) {
   )
 };
 
+// server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
 });
