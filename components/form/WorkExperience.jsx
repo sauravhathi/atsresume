@@ -34,7 +34,6 @@ const WorkExperience = ({ resumeData, handleWorkExperience, addWorkExperience, r
               name="keyAchievements"
               className="w-full other-input h-40"
               value={workExperience.keyAchievements}
-              maxLength="250"
               onChange={(e) => handleWorkExperience(e, index)} />
             <div className="flex-wrap-gap-2">
               <input

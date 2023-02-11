@@ -10,6 +10,14 @@ const DefaultResumeData = {
       socialMedia: "Github",
       link: "github.com//bedivere-lea",
     },
+    {
+      socialMedia: "LinkedIn",
+      link: "linkedin.com/in/bedivere-lea",
+    },
+    {
+      socialMedia: "Website",
+      link: "bedivere-lea.github.io",
+    },
   ],
   summary: "Resourceful Developer with 11 years of experience in designing and developing user interfaces, testing and training employees. Skilled at utilizing a wide variety of tools and programs to provide effective applications.",
   education: [

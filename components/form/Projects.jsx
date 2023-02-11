@@ -34,7 +34,6 @@ const Projects = ({ resumeData, handleProjects, addProjects, removeProjects }) =
               name="keyAchievements"
               className="w-full other-input h-40"
               value={project.keyAchievements}
-              maxLength="250"
               onChange={(e) => handleProjects(e, index)} />
             <div className="flex-wrap-gap-2">
               <input
