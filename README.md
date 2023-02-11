@@ -97,6 +97,11 @@ Key achievements are the most important part of your resume.
 - Add key achievements to your work experience and projects.
 - Add key achievements to your resume by clicking on the new line.
 
+## PageSpeed Insights
+
+![image](https://user-images.githubusercontent.com/61316762/218244257-e85172dc-46bd-4f4b-b9c2-9bd17c693cc8.png)
+
+![image](https://user-images.githubusercontent.com/61316762/218244267-c46f5d02-b742-4b4c-ba7e-ae1bfb1e04d4.png)
 
 ## License
 
