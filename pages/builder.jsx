@@ -13,8 +13,6 @@ import Projects from "../components/form/Projects";
 import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
 
-
-
 export default function Builder(props) {
   // resume data
   const [resumeData, setResumeData] = useState(DefaultResumeData);
@@ -52,11 +50,16 @@ export default function Builder(props) {
   // profile picture
   const handleProfilePicture = (e) => {
     const file = e.target.files[0];
-    const reader = new FileReader();
-    reader.onload = (event) => {
-      setResumeData({ ...resumeData, profilePicture: event.target.result });
-    };
-    reader.readAsDataURL(file);
+
+    if (file instanceof Blob) {
+      const reader = new FileReader();
+      reader.onload = (event) => {
+        setResumeData({ ...resumeData, profilePicture: event.target.result });
+      };
+      reader.readAsDataURL(file);
+    } else {
+      console.error("Invalid file type");
+    }
   };
 
   // education
@@ -69,7 +72,10 @@ export default function Builder(props) {
   const addEducation = () => {
     setResumeData({
       ...resumeData,
-      education: [...resumeData.education, { school: "", degree: "", startYear: "", endYear: "" }],
+      education: [
+        ...resumeData.education,
+        { school: "", degree: "", startYear: "", endYear: "" },
+      ],
     });
   };
 
@@ -92,7 +98,14 @@ export default function Builder(props) {
       ...resumeData,
       workExperience: [
         ...resumeData.workExperience,
-        { company: "", position: "", description: "", keyAchievements: "", startYear: "", endYear: "" },
+        {
+          company: "",
+          position: "",
+          description: "",
+          keyAchievements: "",
+          startYear: "",
+          endYear: "",
+        },
       ],
     });
   };
@@ -109,7 +122,7 @@ export default function Builder(props) {
     const newProjects = [...resumeData.projects];
     newProjects[index][e.target.name] = e.target.value;
     setResumeData({ ...resumeData, projects: newProjects });
-    console.log(resumeData.projects)
+    console.log(resumeData.projects);
   };
 
   const addProjects = () => {
@@ -117,7 +130,14 @@ export default function Builder(props) {
       ...resumeData,
       projects: [
         ...resumeData.projects,
-        { name: "", description: "", keyAchievements: "", link: "", startYear: "", endYear: "" },
+        {
+          name: "",
+          description: "",
+          keyAchievements: "",
+          link: "",
+          startYear: "",
+          endYear: "",
+        },
       ],
     });
   };
@@ -132,7 +152,10 @@ export default function Builder(props) {
   // social media
   const handleSocialMedia = (e, index) => {
     const newSocialMedia = [...resumeData.socialMedia];
-    newSocialMedia[index][e.target.name] = e.target.value.replace("https://", "");
+    newSocialMedia[index][e.target.name] = e.target.value.replace(
+      "https://",
+      ""
+    );
     setResumeData({ ...resumeData, socialMedia: newSocialMedia });
   };
 
@@ -158,12 +181,16 @@ export default function Builder(props) {
   };
 
   const addTechnicalSkill = () => {
-    setResumeData({ ...resumeData, technicalSkills: [...resumeData.technicalSkills, ""] });
+    setResumeData({
+      ...resumeData,
+      technicalSkills: [...resumeData.technicalSkills, ""],
+    });
   };
 
   const removeTechnicalSkill = (index) => {
     const newTechnicalSkills = [...resumeData.technicalSkills];
-    newTechnicalSkills[index] = newTechnicalSkills[newTechnicalSkills.length - 1];
+    newTechnicalSkills[index] =
+      newTechnicalSkills[newTechnicalSkills.length - 1];
     newTechnicalSkills.pop();
     setResumeData({ ...resumeData, technicalSkills: newTechnicalSkills });
   };
@@ -176,7 +203,10 @@ export default function Builder(props) {
   };
 
   const addSoftSkill = () => {
-    setResumeData({ ...resumeData, softSkills: [...resumeData.softSkills, ""] });
+    setResumeData({
+      ...resumeData,
+      softSkills: [...resumeData.softSkills, ""],
+    });
   };
 
   const removeSoftSkill = (index) => {
@@ -212,12 +242,16 @@ export default function Builder(props) {
   };
 
   const addAdditionalSkill = () => {
-    setResumeData({ ...resumeData, additionalSkills: [...resumeData.additionalSkills, ""] });
+    setResumeData({
+      ...resumeData,
+      additionalSkills: [...resumeData.additionalSkills, ""],
+    });
   };
 
   const removeAdditionalSkill = (index) => {
     const newAdditionalSkills = [...resumeData.additionalSkills];
-    newAdditionalSkills[index] = newAdditionalSkills[newAdditionalSkills.length - 1];
+    newAdditionalSkills[index] =
+      newAdditionalSkills[newAdditionalSkills.length - 1];
     newAdditionalSkills.pop();
     setResumeData({ ...resumeData, additionalSkills: newAdditionalSkills });
   };
@@ -230,7 +264,10 @@ export default function Builder(props) {
   };
 
   const addCertification = () => {
-    setResumeData({ ...resumeData, certifications: [...resumeData.certifications, ""] });
+    setResumeData({
+      ...resumeData,
+      certifications: [...resumeData.certifications, ""],
+    });
   };
 
   const removeCertification = (index) => {
@@ -240,34 +277,105 @@ export default function Builder(props) {
     setResumeData({ ...resumeData, certifications: newCertifications });
   };
 
-
   return (
     <>
-    <Meta title="ATSResume | Get hired with an ATS-optimized resume" description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers." keywords="ATS-friendly, Resume optimization, Keyword-rich resume, Applicant Tracking System, ATS resume builder, ATS resume templates, ATS-compliant resume, ATS-optimized CV, ATS-friendly format, ATS resume tips, Resume writing services, Career guidance, Job search in India, Resume tips for India, Professional resume builder, Cover letter writing, Interview preparation, Job interview tips, Career growth, Online job applications, resume builder, free resume builder, resume ats, best free resume builder, resume creator, resume cv, resume design, resume editor, resume maker" />
-      <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen" >
+      <Meta
+        title="ATSResume | Get hired with an ATS-optimized resume"
+        description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
+        keywords="ATS-friendly, Resume optimization, Keyword-rich resume, Applicant Tracking System, ATS resume builder, ATS resume templates, ATS-compliant resume, ATS-optimized CV, ATS-friendly format, ATS resume tips, Resume writing services, Career guidance, Job search in India, Resume tips for India, Professional resume builder, Cover letter writing, Interview preparation, Job interview tips, Career growth, Online job applications, resume builder, free resume builder, resume ats, best free resume builder, resume creator, resume cv, resume design, resume editor, resume maker"
+      />
+      <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
         {!formClose && (
           <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
-            <LoadUnload handleLoad={handleLoad} handleDownload={handleDownload} resumeData={resumeData} />
-            <PersonalInformation resumeData={resumeData} handleChange={handleChange} handleProfilePicture={handleProfilePicture} />
-            <SocialMedia resumeData={resumeData} handleSocialMedia={handleSocialMedia} addSocialMedia={addSocialMedia} removeSocialMedia={removeSocialMedia} />
+            <LoadUnload
+              handleLoad={handleLoad}
+              handleDownload={handleDownload}
+              resumeData={resumeData}
+            />
+            <PersonalInformation
+              resumeData={resumeData}
+              handleChange={handleChange}
+              handleProfilePicture={handleProfilePicture}
+            />
+            <SocialMedia
+              resumeData={resumeData}
+              handleSocialMedia={handleSocialMedia}
+              addSocialMedia={addSocialMedia}
+              removeSocialMedia={removeSocialMedia}
+            />
             <Summary resumeData={resumeData} handleChange={handleChange} />
-            <Education resumeData={resumeData} handleEducation={handleEducation} addEducation={addEducation} removeEducation={removeEducation} />
-            <WorkExperience resumeData={resumeData} handleWorkExperience={handleworkExperience} addWorkExperience={addworkExperience} removeWorkExperience={removeworkExperience} />
-            <Projects resumeData={resumeData} handleProjects={handleProjects} addProjects={addProjects} removeProjects={removeProjects} />
-            <Skill resumeData={resumeData} skillType="technicalSkills" title="Technical Skills" placeholder="Skill" handleSkills={handleTechnicalSkills} addSkill={addTechnicalSkill} removeSkill={removeTechnicalSkill} />
-            <Skill resumeData={resumeData} skillType="softSkills" title="Soft Skills" placeholder="Skill" handleSkills={handleSoftSkills} addSkill={addSoftSkill} removeSkill={removeSoftSkill} />
-            <Skill resumeData={resumeData} skillType="languages" title="Languages" placeholder="Language" handleSkills={handleLanguages} addSkill={addLanguage} removeSkill={removeLanguage} />
-            <Skill resumeData={resumeData} skillType="additionalSkills" title="Additional Skills" placeholder="Skill" handleSkills={handleAdditionalSkills} addSkill={addAdditionalSkill} removeSkill={removeAdditionalSkill} />
-            <Skill resumeData={resumeData} skillType="certifications" title="Certifications" placeholder="Certification" handleSkills={handleCertifications} addSkill={addCertification} removeSkill={removeCertification} />
+            <Education
+              resumeData={resumeData}
+              handleEducation={handleEducation}
+              addEducation={addEducation}
+              removeEducation={removeEducation}
+            />
+            <WorkExperience
+              resumeData={resumeData}
+              handleWorkExperience={handleworkExperience}
+              addWorkExperience={addworkExperience}
+              removeWorkExperience={removeworkExperience}
+            />
+            <Projects
+              resumeData={resumeData}
+              handleProjects={handleProjects}
+              addProjects={addProjects}
+              removeProjects={removeProjects}
+            />
+            <Skill
+              resumeData={resumeData}
+              skillType="technicalSkills"
+              title="Technical Skills"
+              placeholder="Skill"
+              handleSkills={handleTechnicalSkills}
+              addSkill={addTechnicalSkill}
+              removeSkill={removeTechnicalSkill}
+            />
+            <Skill
+              resumeData={resumeData}
+              skillType="softSkills"
+              title="Soft Skills"
+              placeholder="Skill"
+              handleSkills={handleSoftSkills}
+              addSkill={addSoftSkill}
+              removeSkill={removeSoftSkill}
+            />
+            <Skill
+              resumeData={resumeData}
+              skillType="languages"
+              title="Languages"
+              placeholder="Language"
+              handleSkills={handleLanguages}
+              addSkill={addLanguage}
+              removeSkill={removeLanguage}
+            />
+            <Skill
+              resumeData={resumeData}
+              skillType="additionalSkills"
+              title="Additional Skills"
+              placeholder="Skill"
+              handleSkills={handleAdditionalSkills}
+              addSkill={addAdditionalSkill}
+              removeSkill={removeAdditionalSkill}
+            />
+            <Skill
+              resumeData={resumeData}
+              skillType="certifications"
+              title="Certifications"
+              placeholder="Certification"
+              handleSkills={handleCertifications}
+              addSkill={addCertification}
+              removeSkill={removeCertification}
+            />
           </form>
         )}
         <Preview resumeData={resumeData} />
       </div>
       <FormCP formClose={formClose} setFormClose={setFormClose} />
-      <Print/>
+      <Print />
     </>
-  )
-};
+  );
+}
 
 // server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
