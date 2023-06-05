@@ -1,6 +1,9 @@
 import FormButton from "./FormButton"
+import React, { useContext } from "react";
+import { ResumeContext } from "../../pages/builder";
 
-const SocialMedia = ({ resumeData, handleSocialMedia, addSocialMedia, removeSocialMedia }) => {
+const SocialMedia = () => {
+    const { resumeData, setResumeData, handleSocialMedia, addSocialMedia, removeSocialMedia } = useContext(ResumeContext);
     return (
         <div className="flex-col-gap-2">
             <h2 className="input-title">Social Media</h2>

@@ -13,8 +13,11 @@ import DateRange from "../utility/DateRange";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
+import React, { useContext } from "react";
+import { ResumeContext } from "../../pages/builder";
 
-const Preview = ({ resumeData }) => {
+const Preview = () => {
+  const { resumeData, setResumeData } = useContext(ResumeContext);
   const icons = [
     { name: "github", icon: <FaGithub /> },
     { name: "linkedin", icon: <FaLinkedin /> },

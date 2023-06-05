@@ -1,6 +1,9 @@
 import FormButton from "./FormButton"
+import React, { useContext } from "react";
+import { ResumeContext } from "../../pages/builder";
 
-const WorkExperience = ({ resumeData, handleWorkExperience, addWorkExperience, removeWorkExperience }) => {
+const WorkExperience = () => {
+    const { resumeData, setResumeData, handleWorkExperience, addWorkExperience, removeWorkExperience } = useContext(ResumeContext);
     return (
       <div className="flex-col-gap-2">
         <h2 className="input-title">Work Experience</h2>

@@ -1,7 +1,9 @@
-import React, {  } from "react";
 import { FaCloudUploadAlt, FaCloudDownloadAlt } from "react-icons/fa";
+import React, { useContext } from "react";
+import { ResumeContext } from "../../pages/builder";
 
-const LoadUnload = ({ handleLoad, handleDownload, resumeData }) => {
+const LoadUnload = ({ handleLoad, handleDownload}) => {
+    const { resumeData, setResumeData } = useContext(ResumeContext);
     return (
       <div className="flex flex-wrap gap-4 mb-2 justify-center">
         <div className="inline-flex flex-row items-center gap-2">

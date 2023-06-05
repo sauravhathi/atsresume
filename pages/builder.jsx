@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, createContext, useContext } from "react";
 import Meta from "../components/meta/Meta";
 import FormCP from "../components/form/FormCP";
 import LoadUnload from "../components/form/LoadUnload";
@@ -13,9 +13,12 @@ import Projects from "../components/form/Projects";
 import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
 
+const ResumeContext = createContext(DefaultResumeData);
+
 export default function Builder(props) {
   // resume data
   const [resumeData, setResumeData] = useState(DefaultResumeData);
+  const contextValue = useContext(ResumeContext);
   // form hide/show
   const [formClose, setFormClose] = useState(false);
 
@@ -279,6 +282,39 @@ export default function Builder(props) {
 
   return (
     <>
+    <ResumeContext.Provider value={{
+      resumeData,
+      setResumeData,
+      handleChange,
+      handleProfilePicture,
+      handleEducation,
+      addEducation,
+      removeEducation,
+      handleworkExperience,
+      addworkExperience,
+      removeworkExperience,
+      handleProjects,
+      addProjects,
+      removeProjects,
+      handleSocialMedia,
+      addSocialMedia,
+      removeSocialMedia,
+      handleTechnicalSkills,
+      addTechnicalSkill,
+      removeTechnicalSkill,
+      handleSoftSkills,
+      addSoftSkill,
+      removeSoftSkill,
+      handleLanguages,
+      addLanguage,
+      removeLanguage,
+      handleAdditionalSkills,
+      addAdditionalSkill,
+      removeAdditionalSkill,
+      handleCertifications,
+      addCertification,
+      removeCertification,
+    }}>
       <Meta
         title="ATSResume | Get hired with an ATS-optimized resume"
         description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
@@ -290,92 +326,55 @@ export default function Builder(props) {
             <LoadUnload
               handleLoad={handleLoad}
               handleDownload={handleDownload}
-              resumeData={resumeData}
             />
             <PersonalInformation
-              resumeData={resumeData}
-              handleChange={handleChange}
-              handleProfilePicture={handleProfilePicture}
+
             />
             <SocialMedia
-              resumeData={resumeData}
-              handleSocialMedia={handleSocialMedia}
-              addSocialMedia={addSocialMedia}
-              removeSocialMedia={removeSocialMedia}
             />
-            <Summary resumeData={resumeData} handleChange={handleChange} />
+            <Summary/>
             <Education
-              resumeData={resumeData}
-              handleEducation={handleEducation}
-              addEducation={addEducation}
-              removeEducation={removeEducation}
             />
             <WorkExperience
-              resumeData={resumeData}
-              handleWorkExperience={handleworkExperience}
-              addWorkExperience={addworkExperience}
-              removeWorkExperience={removeworkExperience}
             />
             <Projects
-              resumeData={resumeData}
-              handleProjects={handleProjects}
-              addProjects={addProjects}
-              removeProjects={removeProjects}
             />
             <Skill
-              resumeData={resumeData}
               skillType="technicalSkills"
               title="Technical Skills"
               placeholder="Skill"
-              handleSkills={handleTechnicalSkills}
-              addSkill={addTechnicalSkill}
-              removeSkill={removeTechnicalSkill}
             />
             <Skill
-              resumeData={resumeData}
               skillType="softSkills"
               title="Soft Skills"
               placeholder="Skill"
-              handleSkills={handleSoftSkills}
-              addSkill={addSoftSkill}
-              removeSkill={removeSoftSkill}
             />
             <Skill
-              resumeData={resumeData}
               skillType="languages"
               title="Languages"
               placeholder="Language"
-              handleSkills={handleLanguages}
-              addSkill={addLanguage}
-              removeSkill={removeLanguage}
             />
             <Skill
-              resumeData={resumeData}
               skillType="additionalSkills"
               title="Additional Skills"
               placeholder="Skill"
-              handleSkills={handleAdditionalSkills}
-              addSkill={addAdditionalSkill}
-              removeSkill={removeAdditionalSkill}
             />
             <Skill
-              resumeData={resumeData}
               skillType="certifications"
               title="Certifications"
               placeholder="Certification"
-              handleSkills={handleCertifications}
-              addSkill={addCertification}
-              removeSkill={removeCertification}
             />
           </form>
         )}
-        <Preview resumeData={resumeData} />
+        <Preview/>
       </div>
       <FormCP formClose={formClose} setFormClose={setFormClose} />
       <Print />
+    </ResumeContext.Provider>
     </>
   );
 }
+export { ResumeContext };
 
 // server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
