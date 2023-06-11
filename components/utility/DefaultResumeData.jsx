@@ -55,21 +55,29 @@ const DefaultResumeData = {
     }
   ],
   projects: [],
-
-  technicalSkills: [
-    "JavaScript", "Python", "Web Services", "C++", "HTML5", "CSS", "SQL", "User Interface", "Creativity"
-  ],
-  softSkills: [
-    "Collaboration", "Problem-solving", "Communication", "Time management", "Result-oriented"
+  skills: [
+    {
+      title: "Technical Skills",
+      skills: [
+        "JavaScript", "Python", "Web Services", "C++", "HTML5", "CSS", "SQL", "User Interface", "Creativity"
+      ]
+    },
+    {
+      title: "Soft Skills",
+      skills: [
+        "Collaboration", "Problem-solving", "Communication", "Time management", "Result-oriented"
+      ]
+    },
+    {
+      title: "Additional Skills",
+      skills: [
+        "Public Speaking", "Writing", "Research"
+      ] 
+    }
   ],
   languages: [
     "English",
     "Hindi",
-  ],
-  additionalSkills: [
-    "Public Speaking",
-    "Writing",
-    "Research",
   ],
   certifications: [
     "Certified Web Professional-Web Developer",

@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { ResumeContext } from "../../pages/builder";
 const PersonalInformation = ({}) => {
-  const { resumeData, setResumeData, handleProfilePicture, handleChange } = useContext(ResumeContext);
+  const { resumeData, setResumeData, handleProfilePicture, handleChange } =
+    useContext(ResumeContext);
+
   return (
     <div className="flex-col-gap-2">
       <h2 className="input-title">Personal Information</h2>

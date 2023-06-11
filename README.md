@@ -6,6 +6,10 @@ A cutting-edge resume builder that helps job seekers create a professional, ATS-
 
 [https://atsresume.vercel.app/](https://atsresume.vercel.app/)
 
+## Change Log
+
+- Drag and drop sections to reorder them in the resume(Work Experience, Projects, Skills)
+
 ## Sections
 
 - [Personal Information](#personal-information)
