@@ -70,6 +70,10 @@
         @apply grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4;
     }
 
+    .editable{
+        @apply hover:bg-gray-100 hover:cursor-text outline-none;
+    }
+
 }
 
 .name{
@@ -116,9 +120,13 @@
         display: none;
     }
 
+    .rm-padding-print {
+        padding: 0;
+    }
+
     @page {
-        size: auto;
-        margin: 0mm;
+        size: A4;
+        margin: 10mm;
     }
 
     .preview {
@@ -128,13 +136,11 @@
     .preview::after {
         content: "Created using https://atsresume.vercel.app/";
         position: fixed;
-        bottom: 1rem;
-        left: 0;
+        bottom: 0;
         right: 0;
         opacity: 0.2;
         font-size: small;
         text-align: center;
         z-index: -1;
     }
-
 }

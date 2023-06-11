@@ -22,7 +22,7 @@
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx"
-, "components/form/SocialMedia.jsx"  ],
+  ],
   "exclude": [
     "node_modules"
   ]
