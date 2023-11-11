@@ -170,7 +170,7 @@ const Preview = () => {
                   <h2 className="section-title mb-1 border-b-2 border-gray-300">
                     Summary
                   </h2>
-                  <p className="content">{resumeData.summary}</p>
+                  <p className="content break-words">{resumeData.summary}</p>
                 </div>
               )}
               <div>
@@ -262,7 +262,7 @@ const Preview = () => {
                                 endYear={item.endYear}
                                 id={`work-experience-start-end-date`}
                               />
-                              <p className="content">{item.description}</p>
+                              <p className="content hyphens-auto">{item.description}</p>
                               <Droppable
                                 droppableId={`WORK_EXPERIENCE_KEY_ACHIEVEMENT-${index}`}
                                 type="WORK_EXPERIENCE_KEY_ACHIEVEMENT"
