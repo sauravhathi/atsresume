@@ -1,10 +1,12 @@
+/* eslint-disable react/jsx-no-undef */
 import {
   FaGithub,
   FaLinkedin,
   FaTwitter,
   FaFacebook,
   FaInstagram,
-  FaYoutube,
+  FaYoutube, FaBold, FaItalic, FaPlus, FaMinus, FaAlignLeft , FaAlignCenter, FaAlignRight,
+  FaUnderline,
 } from "react-icons/fa";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
@@ -13,11 +15,13 @@ import DateRange from "../utility/DateRange";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ResumeContext } from "../../pages/builder";
 import dynamic from "next/dynamic";
 import Language from "./Language";
 import Certification from "./Certification";
+import { HighlightMenu } from "react-highlight-menu";
+import useKeyboardShortcut from "../../hooks/useKeyboardShortcut";
 
 const DragDropContext = dynamic(
   () =>
@@ -43,7 +47,7 @@ const Draggable = dynamic(
 
 const Preview = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
-
+  const [content, setContent] = useState(resumeData);
   const icons = [
     { name: "github", icon: <FaGithub /> },
     { name: "linkedin", icon: <FaLinkedin /> },
@@ -110,9 +114,89 @@ const Preview = () => {
     }
   };
 
+  const MenuButton = ({ title, icon, onClick }) => (
+    <button 
+      onClick={onClick} 
+      title={title}
+      className="p-2 hover:bg-gray-200 rounded font-semibold"
+    >
+      {icon}
+    </button>
+  );
+
+  const formatText = (command, value = null) => {
+    document.execCommand(command, false, value);
+  };
+  
+  const toggleBold = () => formatText('bold');
+  const toggleItalic = () => formatText('italic');
+  const toggleUnderline = () => formatText('underline');
+  const changeFontSize = (size) => formatText('fontSize', size);
+  const alignText = (alignment) => formatText(`justify${alignment}`);
+
+  useKeyboardShortcut('b', true, toggleBold);
+  useKeyboardShortcut('i', true, toggleItalic);
+  useKeyboardShortcut('u', true, toggleUnderline);
+
   return (
     <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
       <A4PageWrapper>
+        <HighlightMenu
+          styles={{
+            borderColor: "#C026D3",
+            backgroundColor: "#C026D3",
+            boxShadow: "0px 5px 5px 0px rgba(0, 0, 0, 0.15)",
+            zIndex: 10,
+            borderRadius: "5px",
+            padding: "3px",
+          }}
+          target="body"
+          menu={() => (
+            <>
+              <MenuButton
+        title="Bold (Ctrl+B)"
+        icon={<FaBold />}
+        onClick={toggleBold}
+      />
+      <MenuButton 
+        title="Italic (Ctrl+I)"
+        icon={<FaItalic />}
+        onClick={toggleItalic}
+      />
+      <MenuButton
+        title="Underline (Ctrl+U)"
+        icon={<FaUnderline />}
+        onClick={toggleUnderline}
+      />
+      <MenuButton
+        title="Increase Font Size"
+        icon={<FaPlus/>}
+        onClick={() => changeFontSize(4)} 
+      />
+      <MenuButton
+        title="Decrease Font Size"
+        icon={<FaMinus/>}
+        onClick={() => changeFontSize(2)} 
+      />
+
+      <MenuButton
+        title="Align Left"
+        icon={<FaAlignLeft/>}
+        onClick={() => alignText('Left')}
+      />
+      <MenuButton
+        title="Align Center"
+        icon={<FaAlignCenter/>}
+        onClick={() => alignText('Center')}
+      />
+      <MenuButton
+        title="Align Right"
+        icon={<FaAlignRight/>}
+        onClick={() => alignText('Right')}
+      />
+            </>
+          )}
+        />
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="f-col items-center mb-1">
             {resumeData.profilePicture.length > 0 && (
@@ -148,11 +232,11 @@ const Preview = () => {
                     title={socialMedia.socialMedia}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-1 social-media"
+                    className="inline-flex items-center gap-1 social-media align-center justify-center "
                     // Prevent text overflowing, If the socialMedia.link string is longer than 32 characters, apply the wordWrap and display styles to this <a> tag.
                     // wordWrap: "break-word" breaks the text onto the next line if it's too long,
                     // display: "inline-block" is necessary for wordWrap to work on an inline element like <a>.
-                    style={socialMedia.link.length > 32 ? { wordWrap: "break-word", display: "inline-block" } : {}}
+                    
                   >
                     {icons.map((icon, index) => {
                       if (icon.name === socialMedia.socialMedia.toLowerCase()) {
@@ -231,6 +315,7 @@ const Preview = () => {
                 certifications={resumeData.certifications}
               />
             </div>
+            
             <div className="col-span-2 space-y-2">
               {resumeData.workExperience.length > 0 && (
                 <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
@@ -259,14 +344,18 @@ const Preview = () => {
                                 "outline-dashed outline-2 outline-gray-400 bg-white"
                               }`}
                             >
-                              <p className="content i-bold">{item.company}</p>
+                              <div className="flex flex-row justify-between space-y-1">
+                                <p className="content i-bold">{item.company}</p>
+                                <DateRange
+                                  startYear={item.startYear}
+                                  endYear={item.endYear}
+                                  id={`work-experience-start-end-date`}
+                                />
+                              </div>
                               <p className="content">{item.position}</p>
-                              <DateRange
-                                startYear={item.startYear}
-                                endYear={item.endYear}
-                                id={`work-experience-start-end-date`}
-                              />
-                              <p className="content hyphens-auto">{item.description}</p>
+                              <p className="content hyphens-auto">
+                                {item.description}
+                              </p>
                               <Droppable
                                 droppableId={`WORK_EXPERIENCE_KEY_ACHIEVEMENT-${index}`}
                                 type="WORK_EXPERIENCE_KEY_ACHIEVEMENT"
@@ -298,7 +387,12 @@ const Preview = () => {
                                             "outline-dashed outline-2 outline-gray-400 bg-white"
                                           }`}
                                               >
-                                                {achievement}
+                                                <div
+                                                  dangerouslySetInnerHTML={{
+                                                    __html: achievement,
+                                                  }}
+                                                  contentEditable
+                                                />
                                               </li>
                                             )}
                                           </Draggable>
@@ -343,12 +437,15 @@ const Preview = () => {
                                 "outline-dashed outline-2 outline-gray-400 bg-white"
                               }`}
                             >
-                              <p className="content i-bold">{item.name}</p>
-                              <DateRange
-                                startYear={item.startYear}
-                                endYear={item.endYear}
-                                id={`work-experience-start-end-date`}
-                              />
+                              <div className="flex flex-row justify-between space-y-1">
+                                <p className="content i-bold">{item.name}</p>
+                                <DateRange
+                                  startYear={item.startYear}
+                                  endYear={item.endYear}
+                                  id={`work-experience-start-end-date`}
+                                />
+                              </div>
+                             
                               <Link
                                 href={item.link}
                                 target="_blank"
@@ -389,7 +486,12 @@ const Preview = () => {
                                             "outline-dashed outline-2 outline-gray-400 bg-white"
                                           }`}
                                               >
-                                                {achievement}
+                                                <div
+                                                  dangerouslySetInnerHTML={{
+                                                    __html: achievement,
+                                                  }}
+                                                  contentEditable
+                                                />
                                               </li>
                                             )}
                                           </Draggable>
@@ -399,7 +501,9 @@ const Preview = () => {
                                 )}
                               </Droppable>
                             </div>
+                            
                           )}
+                          
                         </Draggable>
                       ))}
                       {provided.placeholder}
@@ -408,6 +512,7 @@ const Preview = () => {
                 </Droppable>
               )}
             </div>
+            
           </div>
         </DragDropContext>
       </A4PageWrapper>
@@ -416,7 +521,6 @@ const Preview = () => {
 };
 
 const A4PageWrapper = ({ children }) => {
-
   const alertA4Size = () => {
     const preview = document.querySelector(".preview");
     const previewHeight = preview.offsetHeight;
@@ -426,7 +530,13 @@ const A4PageWrapper = ({ children }) => {
     }
   };
 
-  return <div className="w-8.5in" onLoad={alertA4Size}>{children}</div>;
+  return (
+    <div className="w-8.5in" onLoad={alertA4Size}>
+      {children}
+    </div>
+  );
 };
+
+
 
 export default Preview;
