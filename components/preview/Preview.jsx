@@ -5,8 +5,16 @@ import {
   FaTwitter,
   FaFacebook,
   FaInstagram,
-  FaYoutube, FaBold, FaItalic, FaPlus, FaMinus, FaAlignLeft , FaAlignCenter, FaAlignRight,
+  FaYoutube,
+  FaBold,
+  FaItalic,
+  FaPlus,
+  FaMinus,
+  FaAlignLeft,
+  FaAlignCenter,
+  FaAlignRight,
   FaUnderline,
+  FaLink, // Added FaLink
 } from "react-icons/fa";
 import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
 import { CgWebsite } from "react-icons/cg";
@@ -15,7 +23,7 @@ import DateRange from "../utility/DateRange";
 import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext, useState } from "react";
+import React, { useContext, useState, useEffect } from "react"; // Added useEffect
 import { ResumeContext } from "../../pages/builder";
 import dynamic from "next/dynamic";
 import Language from "./Language";
@@ -47,6 +55,12 @@ const Draggable = dynamic(
 
 const Preview = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
+  const [isClient, setIsClient] = useState(false); // State to track client-side rendering
+
+  useEffect(() => {
+    setIsClient(true); // Set to true once component mounts on client
+  }, []);
+
   const [content, setContent] = useState(resumeData);
   const icons = [
     { name: "github", icon: <FaGithub /> },
@@ -115,8 +129,8 @@ const Preview = () => {
   };
 
   const MenuButton = ({ title, icon, onClick }) => (
-    <button 
-      onClick={onClick} 
+    <button
+      onClick={onClick}
       title={title}
       className="p-2 hover:bg-gray-200 rounded font-semibold"
     >
@@ -127,16 +141,89 @@ const Preview = () => {
   const formatText = (command, value = null) => {
     document.execCommand(command, false, value);
   };
-  
-  const toggleBold = () => formatText('bold');
-  const toggleItalic = () => formatText('italic');
-  const toggleUnderline = () => formatText('underline');
-  const changeFontSize = (size) => formatText('fontSize', size);
+
+  const toggleBold = () => formatText("bold");
+  const toggleItalic = () => formatText("italic");
+  const toggleUnderline = () => formatText("underline");
+  const changeFontSize = (size) => formatText("fontSize", size);
   const alignText = (alignment) => formatText(`justify${alignment}`);
 
-  useKeyboardShortcut('b', true, toggleBold);
-  useKeyboardShortcut('i', true, toggleItalic);
-  useKeyboardShortcut('u', true, toggleUnderline);
+  const insertLink = () => {
+    const url = prompt("Enter the URL:");
+    if (url) {
+      const selection = window.getSelection();
+      if (selection.rangeCount > 0) {
+        const range = selection.getRangeAt(0);
+        let container = range.commonAncestorContainer;
+        while (
+          container &&
+          !(container instanceof Element && container.isContentEditable)
+        ) {
+          container = container.parentNode;
+        }
+        if (container) {
+          const formattedUrl = /^https?:\/\//i.test(url)
+            ? url
+            : `https://${url}`;
+          document.execCommand("createLink", false, formattedUrl);
+
+          const links = container.querySelectorAll(
+            'a[href="' + formattedUrl + '"]'
+          );
+          links.forEach((link) => {
+            if (!link.hasAttribute("target")) {
+              link.setAttribute("target", "_blank");
+              link.setAttribute("rel", "noopener noreferrer");
+            }
+          });
+        } else {
+          alert(
+            "Please select text within an editable area (like Key Achievements) to insert a link."
+          );
+        }
+      }
+    }
+  };
+
+  const handleKeyAchievementChange = (e, type, index, subIndex) => {
+    const updatedHtml = e.target.innerHTML;
+
+    if (type === "WORK_EXPERIENCE_KEY_ACHIEVEMENT") {
+      const newWorkExperience = JSON.parse(
+        JSON.stringify(resumeData.workExperience)
+      );
+      const keyAchievements = newWorkExperience[index].keyAchievements.split(
+        "\n"
+      );
+      if (subIndex < keyAchievements.length) {
+        keyAchievements[subIndex] = updatedHtml;
+        newWorkExperience[index].keyAchievements = keyAchievements.join("\n");
+        setResumeData((prevData) => ({
+          ...prevData,
+          workExperience: newWorkExperience,
+        }));
+      }
+    } else if (type === "PROJECTS_KEY_ACHIEVEMENT") {
+      const newProjects = JSON.parse(JSON.stringify(resumeData.projects));
+      const keyAchievements = newProjects[index].keyAchievements.split("\n");
+      if (subIndex < keyAchievements.length) {
+        keyAchievements[subIndex] = updatedHtml;
+        newProjects[index].keyAchievements = keyAchievements.join("\n");
+        setResumeData((prevData) => ({
+          ...prevData,
+          projects: newProjects,
+        }));
+      }
+    }
+  };
+
+  useKeyboardShortcut("b", true, toggleBold);
+  useKeyboardShortcut("i", true, toggleItalic);
+  useKeyboardShortcut("u", true, toggleUnderline);
+
+  if (!isClient || !resumeData) {
+    return <div>Loading Preview...</div>;
+  }
 
   return (
     <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
@@ -150,50 +237,54 @@ const Preview = () => {
             borderRadius: "5px",
             padding: "3px",
           }}
-          target="body"
+          target=".editable-achievement"
           menu={() => (
             <>
               <MenuButton
-        title="Bold (Ctrl+B)"
-        icon={<FaBold />}
-        onClick={toggleBold}
-      />
-      <MenuButton 
-        title="Italic (Ctrl+I)"
-        icon={<FaItalic />}
-        onClick={toggleItalic}
-      />
-      <MenuButton
-        title="Underline (Ctrl+U)"
-        icon={<FaUnderline />}
-        onClick={toggleUnderline}
-      />
-      <MenuButton
-        title="Increase Font Size"
-        icon={<FaPlus/>}
-        onClick={() => changeFontSize(4)} 
-      />
-      <MenuButton
-        title="Decrease Font Size"
-        icon={<FaMinus/>}
-        onClick={() => changeFontSize(2)} 
-      />
-
-      <MenuButton
-        title="Align Left"
-        icon={<FaAlignLeft/>}
-        onClick={() => alignText('Left')}
-      />
-      <MenuButton
-        title="Align Center"
-        icon={<FaAlignCenter/>}
-        onClick={() => alignText('Center')}
-      />
-      <MenuButton
-        title="Align Right"
-        icon={<FaAlignRight/>}
-        onClick={() => alignText('Right')}
-      />
+                title="Bold (Ctrl+B)"
+                icon={<FaBold />}
+                onClick={toggleBold}
+              />
+              <MenuButton
+                title="Italic (Ctrl+I)"
+                icon={<FaItalic />}
+                onClick={toggleItalic}
+              />
+              <MenuButton
+                title="Underline (Ctrl+U)"
+                icon={<FaUnderline />}
+                onClick={toggleUnderline}
+              />
+              <MenuButton
+                title="Insert Link"
+                icon={<FaLink />}
+                onClick={insertLink}
+              />
+              <MenuButton
+                title="Increase Font Size"
+                icon={<FaPlus />}
+                onClick={() => changeFontSize(4)}
+              />
+              <MenuButton
+                title="Decrease Font Size"
+                icon={<FaMinus />}
+                onClick={() => changeFontSize(2)}
+              />
+              <MenuButton
+                title="Align Left"
+                icon={<FaAlignLeft />}
+                onClick={() => alignText("Left")}
+              />
+              <MenuButton
+                title="Align Center"
+                icon={<FaAlignCenter />}
+                onClick={() => alignText("Center")}
+              />
+              <MenuButton
+                title="Align Right"
+                icon={<FaAlignRight />}
+                onClick={() => alignText("Right")}
+              />
             </>
           )}
         />
@@ -233,10 +324,6 @@ const Preview = () => {
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1 social-media align-center justify-center "
-                    // Prevent text overflowing, If the socialMedia.link string is longer than 32 characters, apply the wordWrap and display styles to this <a> tag.
-                    // wordWrap: "break-word" breaks the text onto the next line if it's too long,
-                    // display: "inline-block" is necessary for wordWrap to work on an inline element like <a>.
-                    
                   >
                     {icons.map((icon, index) => {
                       if (icon.name === socialMedia.socialMedia.toLowerCase()) {
@@ -250,7 +337,6 @@ const Preview = () => {
             </div>
           </div>
           <hr className="border-dashed my-2" />
-          {/* two column start */}
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-1 space-y-2">
               {resumeData.summary.length > 0 && (
@@ -315,7 +401,6 @@ const Preview = () => {
                 certifications={resumeData.certifications}
               />
             </div>
-            
             <div className="col-span-2 space-y-2">
               {resumeData.workExperience.length > 0 && (
                 <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
@@ -360,11 +445,11 @@ const Preview = () => {
                                 droppableId={`WORK_EXPERIENCE_KEY_ACHIEVEMENT-${index}`}
                                 type="WORK_EXPERIENCE_KEY_ACHIEVEMENT"
                               >
-                                {(provided) => (
+                                {(providedList) => (
                                   <ul
                                     className="list-disc ul-padding content"
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
+                                    {...providedList.droppableProps}
+                                    ref={providedList.innerRef}
                                   >
                                     {typeof item.keyAchievements === "string" &&
                                       item.keyAchievements
@@ -392,12 +477,22 @@ const Preview = () => {
                                                     __html: achievement,
                                                   }}
                                                   contentEditable
+                                                  suppressContentEditableWarning
+                                                  className="editable-achievement"
+                                                  onBlur={(e) =>
+                                                    handleKeyAchievementChange(
+                                                      e,
+                                                      "WORK_EXPERIENCE_KEY_ACHIEVEMENT",
+                                                      index,
+                                                      subIndex
+                                                    )
+                                                  }
                                                 />
                                               </li>
                                             )}
                                           </Draggable>
                                         ))}
-                                    {provided.placeholder}
+                                    {providedList.placeholder}
                                   </ul>
                                 )}
                               </Droppable>
@@ -445,7 +540,6 @@ const Preview = () => {
                                   id={`work-experience-start-end-date`}
                                 />
                               </div>
-                             
                               <Link
                                 href={item.link}
                                 target="_blank"
@@ -459,11 +553,11 @@ const Preview = () => {
                                 droppableId={`PROJECTS_KEY_ACHIEVEMENT-${index}`}
                                 type="PROJECTS_KEY_ACHIEVEMENT"
                               >
-                                {(provided) => (
+                                {(providedList) => (
                                   <ul
                                     className="list-disc ul-padding content"
-                                    {...provided.droppableProps}
-                                    ref={provided.innerRef}
+                                    {...providedList.droppableProps}
+                                    ref={providedList.innerRef}
                                   >
                                     {typeof item.keyAchievements === "string" &&
                                       item.keyAchievements
@@ -491,19 +585,27 @@ const Preview = () => {
                                                     __html: achievement,
                                                   }}
                                                   contentEditable
+                                                  suppressContentEditableWarning
+                                                  className="editable-achievement"
+                                                  onBlur={(e) =>
+                                                    handleKeyAchievementChange(
+                                                      e,
+                                                      "PROJECTS_KEY_ACHIEVEMENT",
+                                                      index,
+                                                      subIndex
+                                                    )
+                                                  }
                                                 />
                                               </li>
                                             )}
                                           </Draggable>
                                         ))}
-                                    {provided.placeholder}
+                                    {providedList.placeholder}
                                   </ul>
                                 )}
                               </Droppable>
                             </div>
-                            
                           )}
-                          
                         </Draggable>
                       ))}
                       {provided.placeholder}
@@ -512,7 +614,6 @@ const Preview = () => {
                 </Droppable>
               )}
             </div>
-            
           </div>
         </DragDropContext>
       </A4PageWrapper>
@@ -536,7 +637,5 @@ const A4PageWrapper = ({ children }) => {
     </div>
   );
 };
-
-
 
 export default Preview;
