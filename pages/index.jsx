@@ -1,13 +1,10 @@
-import React, {  } from "react";
-import Builder from "./builder";
+import React from "react";
 
 const ResumeBuilder = () => {
   return (
     <>
-    <Builder />
     </>
   );
 };
 
 export default ResumeBuilder;
-
