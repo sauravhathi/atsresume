@@ -9,7 +9,7 @@ const print = () => {
 return (
     <button
         aria-label="Download Resume"
-        className="exclude-print fixed bottom-5 right-10 font-bold rounded-full bg-white text-fuchsia-600 shadow-lg border-2 border-white"
+        className="exclude-print fixed bottom-5 right-10 font-bold rounded-full bg-white text-blue-600 shadow-lg border-2 border-white"
         onClick={print}
       >
        <MdPictureAsPdf className="w-10 h-10" title="Download Resume"/>

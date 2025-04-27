@@ -143,8 +143,8 @@ const Preview = () => {
       <A4PageWrapper>
         <HighlightMenu
           styles={{
-            borderColor: "#C026D3",
-            backgroundColor: "#C026D3",
+            borderColor: "#2563EB",
+            backgroundColor: "#2563EB",
             boxShadow: "0px 5px 5px 0px rgba(0, 0, 0, 0.15)",
             zIndex: 10,
             borderRadius: "5px",
@@ -200,7 +200,7 @@ const Preview = () => {
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="f-col items-center mb-1">
             {resumeData.profilePicture.length > 0 && (
-              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-fuchsia-700">
+              <div className="w-24 h-24 rounded-full overflow-hidden border-2 border-blue-700">
                 <Image
                   src={resumeData.profilePicture}
                   alt="profile"

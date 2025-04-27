@@ -95,11 +95,12 @@ Description optional
 
 ## How to Add Key Achievements
 
-Key achievements are the most important part of your resume. 
+Key achievements are the most important part of your resume.
 
 - Add key achievements to your resume to make it more attractive and increase your chances of getting noticed by employers.
-- Add key achievements to your work experience and projects.
-- Add key achievements to your resume by clicking on the new line.
+- Add key achievements to your work experience and projects sections.
+- Separate individual achievements by pressing Enter (creating a new line) in the text area.
+- **To add clickable links**: Embed standard HTML `<a>` tags directly within your achievement text. For example: `Implemented feature X which improved performance by Y%. <a href='https://your-link.com' target='_blank' rel='noopener noreferrer'>[See Demo]</a>`
 
 ## PageSpeed Insights
 

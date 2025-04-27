@@ -17,11 +17,11 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply bg-fuchsia-600;
+        @apply bg-blue-600;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        @apply bg-fuchsia-700;
+        @apply bg-blue-700;
     }
 
     textarea, input:focus {
@@ -43,7 +43,7 @@
     }
 
     .profileInput{
-        @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
+        @apply pi file:border-0 file:bg-blue-500 file:text-white file:rounded-sm;
     }
 
     .flex-col-gap-2{
@@ -126,21 +126,13 @@
 
     @page {
         size: A4;
-        margin: 10mm;
+        /* Remove default browser margins */
+        margin: 0; 
     }
 
     .preview {
         overflow-y: visible !important;
-    }
-
-    .preview::after {
-        content: "Created using https://atsresume.vercel.app/";
-        position: fixed;
-        bottom: 0;
-        right: 0;
-        opacity: 0.2;
-        font-size: small;
-        text-align: center;
-        z-index: -1;
+        /* Add some padding back for content if needed, adjust as necessary */
+        padding: 10mm; 
     }
 }
