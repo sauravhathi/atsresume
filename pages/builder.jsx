@@ -1,4 +1,4 @@
-import React, { useState, createContext, useContext } from "react";
+import React, { useState, createContext, useContext, useEffect } from "react";
 import Language from "../components/form/Language";
 import Meta from "../components/meta/Meta";
 import FormCP from "../components/form/FormCP";
@@ -15,7 +15,7 @@ import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
 import Certification from "../components/form/certification";
 
-const ResumeContext = createContext(DefaultResumeData);
+const ResumeContext = createContext(null);
 
 // server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
@@ -23,8 +23,33 @@ const Print = dynamic(() => import("../components/utility/WinPrint"), {
 });
 
 export default function Builder(props) {
-  // resume data
-  const [resumeData, setResumeData] = useState(DefaultResumeData);
+  // resume data - Initialize with null or a loading state initially
+  const [resumeData, setResumeData] = useState(null);
+
+  // Load data from localStorage on initial mount (client-side only)
+  useEffect(() => {
+    const savedData = localStorage.getItem("resumeData");
+    if (savedData) {
+      try {
+        setResumeData(JSON.parse(savedData));
+      } catch (error) {
+        console.error("Error parsing resume data from localStorage:", error);
+        // Fallback to default data if parsing fails
+        setResumeData(DefaultResumeData);
+      }
+    } else {
+      // Use default data if nothing is saved
+      setResumeData(DefaultResumeData);
+    }
+  }, []); // Empty dependency array ensures this runs only once on mount
+
+  // Save data to localStorage whenever resumeData changes (client-side only)
+  useEffect(() => {
+    // Ensure resumeData is not null before saving
+    if (resumeData) {
+      localStorage.setItem("resumeData", JSON.stringify(resumeData));
+    }
+  }, [resumeData]); // Dependency array ensures this runs whenever resumeData changes
 
   // form hide/show
   const [formClose, setFormClose] = useState(false);
@@ -36,7 +61,7 @@ export default function Builder(props) {
     if (file instanceof Blob) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        setResumeData({ ...resumeData, profilePicture: event.target.result });
+        setResumeData((prevData) => ({ ...prevData, profilePicture: event.target.result })); // Use functional update
       };
       reader.readAsDataURL(file);
     } else {
@@ -45,9 +70,14 @@ export default function Builder(props) {
   };
 
   const handleChange = (e) => {
-    setResumeData({ ...resumeData, [e.target.name]: e.target.value });
+    setResumeData((prevData) => ({ ...prevData, [e.target.name]: e.target.value })); // Use functional update
     console.log(resumeData);
   };
+
+  // Render loading state or null if resumeData is not yet loaded
+  if (!resumeData) {
+    return <div>Loading...</div>; // Or any other loading indicator
+  }
 
   return (
     <>
