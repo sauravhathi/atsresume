@@ -101,6 +101,7 @@ Key achievements are the most important part of your resume.
 - Add key achievements to your work experience and projects sections.
 - Separate individual achievements by pressing Enter (creating a new line) in the text area.
 - **To add clickable links**: Embed standard HTML `<a>` tags directly within your achievement text. For example: `Implemented feature X which improved performance by Y%. <a href='https://your-link.com' target='_blank' rel='noopener noreferrer'>[See Demo]</a>`
+- **ATS Tip**: While you can use bold, italics, and links, keep formatting simple. Avoid overly complex HTML structures within achievements for best compatibility with Applicant Tracking Systems.
 
 ## PageSpeed Insights
 

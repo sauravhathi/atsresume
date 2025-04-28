@@ -5,7 +5,8 @@
 @layer base {
     
     body {
-        @apply font-[sans-serif];
+        /* Correct syntax for Tailwind arbitrary font stack */
+        @apply font-[Arial,Helvetica,sans-serif];
     }
 
     ::-webkit-scrollbar {
@@ -30,6 +31,11 @@
 
     .ul-padding{
         padding-inline-start: 0.9rem;
+    }
+
+    /* Add spacing below list items within content sections */
+    .ul-padding li {
+        @apply mb-1;
     }
 
     .ul-padding-none{
@@ -104,6 +110,8 @@
 .content{
     font-size: 14px;
     font-weight: 400;
+    /* Ensure reasonable line-height for readability */
+    @apply leading-normal; 
 }
 
 .sub-content{

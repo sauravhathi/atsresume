@@ -309,9 +309,6 @@ const Preview = () => {
               teldata={resumeData.contactInformation}
               emaildata={resumeData.email}
               addressdata={resumeData.address}
-              telicon={<MdPhone />}
-              emailicon={<MdEmail />}
-              addressicon={<MdLocationOn />}
             />
             <div className="flex flex-wrap justify-center gap-x-3 gap-y-1 social-media">
               {resumeData.socialMedia.map((socialMedia, index) => {
@@ -396,7 +393,7 @@ const Preview = () => {
                               >
                                 {(providedList) => (
                                   <ul
-                                    className="list-disc ul-padding content space-y-1"
+                                    className="list-disc ul-padding content"
                                     {...providedList.droppableProps}
                                     ref={providedList.innerRef}
                                   >
@@ -515,7 +512,7 @@ const Preview = () => {
                               >
                                 {(providedList) => (
                                   <ul
-                                    className="list-disc ul-padding content space-y-1"
+                                    className="list-disc ul-padding content"
                                     {...providedList.droppableProps}
                                     ref={providedList.innerRef}
                                   >
