@@ -1,22 +1,15 @@
-import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import React from "react";
 
 const Skills = ({ title, skills }) => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
-
-  const handleTitleChange = (e) => {
-    const newSkills = [...resumeData.skills];
-    newSkills.find((skillType) => skillType.title === title).title = e.target.innerText;
-    setResumeData({ ...resumeData, skills: newSkills });
-  };
+  const filteredSkills = skills.filter(skill => skill && skill.trim() !== '');
 
   return (
-    skills.length > 0 && (
+    filteredSkills.length > 0 && (
       <>
-        <h2 className="section-title mb-1 border-b-2 border-gray-300 editable" contentEditable suppressContentEditableWarning onBlur={handleTitleChange}>
+        <h2 className="section-title mb-1 border-b-2 border-gray-300">
           {title}
         </h2>
-        <p className="sub-content">{skills.join(", ")}</p>
+        <p className="sub-content">{filteredSkills.join(", ")}</p>
       </>
     )
   );
