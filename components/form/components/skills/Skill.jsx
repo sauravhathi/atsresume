@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import {ResumeContext} from "../../../pages/builder";
-import FormButton from "./FormButton";
+import {ResumeContext} from "../../../../pages/builder";
+import FormButton from "../FormButton";
 
 const Skill = ({ title }) => {
   const { resumeData, setResumeData } = useContext(ResumeContext);

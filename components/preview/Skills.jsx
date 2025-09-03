@@ -11,7 +11,7 @@ const Skills = ({ title, skills }) => {
   };
 
   return (
-    skills.length > 0 && (
+    skills && skills.length > 0 && (
       <>
         <h2 className="section-title mb-1 border-b-2 border-gray-300 editable" contentEditable suppressContentEditableWarning onBlur={handleTitleChange}>
           {title}
