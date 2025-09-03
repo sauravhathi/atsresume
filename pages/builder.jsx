@@ -13,7 +13,7 @@ const Print = dynamic(() => import("../components/utility/WinPrint"), {
   ssr: false,
 });
 
-export default function Builder(props) {
+export default function Builder() {
   // resume data
   const [resumeData, setResumeData] = useState(DefaultResumeData);
 
