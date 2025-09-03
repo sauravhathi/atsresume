@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
-import LoadUnload from "./LoadUnload";
-import PersonalInformation from "./PersonalInformation";
-import SocialMedia from "./SocialMedia";
-import Summary from "./Summary";
-import Education from "./Education";
-import WorkExperience from "./WorkExperience";
-import Projects from "./Projects";
-import Skill from "./Skill";
-import Language from "./Language";
-import Certification from "./certification";
-import {ResumeContext} from "../../pages/builder";
+import LoadUnload from "../components/LoadUnload";
+import PersonalInformation from "../components/PersonalInformation";
+import SocialMedia from "../components/SocialMedia";
+import Summary from "../components/Summary";
+import Education from "../components/Education";
+import WorkExperience from "../components/WorkExperience";
+import Projects from "../components/Projects";
+import Skill from "../components/Skill";
+import Language from "../components/Language";
+import Certification from "../components/certification";
+import {ResumeContext} from "../../../pages/builder";
 
 
 const Form = () => {

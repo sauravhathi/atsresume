@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import {ResumeContext} from "../../../pages/builder";
+
 const Summary = () => {
   const { resumeData, setResumeData, handleChange } = useContext(ResumeContext);
   return (

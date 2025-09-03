@@ -1,6 +1,6 @@
 import FormButton from "./FormButton";
-import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import React, {useContext} from "react";
+import {ResumeContext} from "../../../pages/builder";
 
 const WorkExperience = () => {
   const {
@@ -11,7 +11,7 @@ const WorkExperience = () => {
   const handleWorkExperience = (e, index) => {
     const newworkExperience = [...resumeData.workExperience];
     newworkExperience[index][e.target.name] = e.target.value;
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    setResumeData({...resumeData, workExperience: newworkExperience});
   };
 
   const addWorkExperience = () => {
@@ -35,7 +35,7 @@ const WorkExperience = () => {
     const newworkExperience = [...resumeData.workExperience];
     newworkExperience[index] = newworkExperience[newworkExperience.length - 1];
     newworkExperience.pop();
-    setResumeData({ ...resumeData, workExperience: newworkExperience });
+    setResumeData({...resumeData, workExperience: newworkExperience});
   };
 
   return (

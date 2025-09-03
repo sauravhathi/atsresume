@@ -1,6 +1,6 @@
 import React, {createContext, useState} from "react";
 import Meta from "../components/meta/Meta";
-import FormCP from "../components/form/FormCP";
+import FormCP from "../components/FormCP";
 import Preview from "../components/preview/Preview";
 import DefaultResumeData from "../components/utility/DefaultResumeData";
 import dynamic from "next/dynamic";

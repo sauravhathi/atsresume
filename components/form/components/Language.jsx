@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import {ResumeContext} from "../../../pages/builder";
 import FormButton from "./FormButton";
 
 const Language = () => {
@@ -22,7 +22,7 @@ const Language = () => {
     const newSkills = [...resumeData[skillType]];
     newSkills.splice(-1, 1);
     setResumeData({ ...resumeData, [skillType]: newSkills });
-  };  
+  };
 
   return (
     <div className="flex-col-gap-2">

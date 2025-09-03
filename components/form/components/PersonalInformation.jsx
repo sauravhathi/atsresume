@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
-import { ResumeContext } from "../../pages/builder";
+import React, {useContext} from "react";
+import {ResumeContext} from "../../../pages/builder";
+
 const PersonalInformation = ({}) => {
-  const { resumeData, setResumeData, handleProfilePicture, handleChange } =
+  const {resumeData, setResumeData, handleProfilePicture, handleChange} =
     useContext(ResumeContext);
 
   return (
