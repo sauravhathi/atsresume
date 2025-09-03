@@ -1,19 +1,10 @@
-import React, { useState, createContext, useContext } from "react";
-import Language from "../components/form/Language";
+import React, {createContext, useState} from "react";
 import Meta from "../components/meta/Meta";
 import FormCP from "../components/form/FormCP";
-import LoadUnload from "../components/form/LoadUnload";
 import Preview from "../components/preview/Preview";
 import DefaultResumeData from "../components/utility/DefaultResumeData";
-import SocialMedia from "../components/form/SocialMedia";
-import WorkExperience from "../components/form/WorkExperience";
-import Skill from "../components/form/Skill";
-import PersonalInformation from "../components/form/PersonalInformation";
-import Summary from "../components/form/Summary";
-import Projects from "../components/form/Projects";
-import Education from "../components/form/Education";
 import dynamic from "next/dynamic";
-import Certification from "../components/form/certification";
+import Form from "../components/form/ui/Form";
 
 const ResumeContext = createContext(DefaultResumeData);
 
@@ -36,7 +27,7 @@ export default function Builder(props) {
     if (file instanceof Blob) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        setResumeData({ ...resumeData, profilePicture: event.target.result });
+        setResumeData({...resumeData, profilePicture: event.target.result});
       };
       reader.readAsDataURL(file);
     } else {
@@ -45,7 +36,7 @@ export default function Builder(props) {
   };
 
   const handleChange = (e) => {
-    setResumeData({ ...resumeData, [e.target.name]: e.target.value });
+    setResumeData({...resumeData, [e.target.name]: e.target.value});
     console.log(resumeData);
   };
 
@@ -66,32 +57,14 @@ export default function Builder(props) {
         />
         <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
           {!formClose && (
-            <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
-              <LoadUnload/>
-              <PersonalInformation />
-              <SocialMedia />
-              <Summary />
-              <Education />
-              <WorkExperience />
-              <Projects />
-              {
-                resumeData.skills.map((skill, index) => (
-                  <Skill
-                    title={skill.title}
-                    key={index}
-                  />
-                ))
-              }
-              <Language />
-              <Certification />
-            </form>
+            <Form/>
           )}
-          <Preview />
+          <Preview/>
         </div>
-        <FormCP formClose={formClose} setFormClose={setFormClose} />
-        <Print />
+        <FormCP formClose={formClose} setFormClose={setFormClose}/>
+        <Print/>
       </ResumeContext.Provider>
     </>
   );
 }
-export { ResumeContext };
+export {ResumeContext};
