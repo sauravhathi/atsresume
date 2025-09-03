@@ -1,6 +1,6 @@
 import React, {createContext, useState} from "react";
 import Meta from "../components/meta/Meta";
-import FormCP from "../components/FormCP";
+import FormCloseOpenBtn from "../components/FormCloseOpenBtn";
 import Preview from "../components/preview/Preview";
 import DefaultResumeData from "../components/utility/DefaultResumeData";
 import dynamic from "next/dynamic";
@@ -61,7 +61,7 @@ export default function Builder() {
           )}
           <Preview/>
         </div>
-        <FormCP formClose={formClose} setFormClose={setFormClose}/>
+        <FormCloseOpenBtn formClose={formClose} setFormClose={setFormClose}/>
         <Print/>
       </ResumeContext.Provider>
     </>

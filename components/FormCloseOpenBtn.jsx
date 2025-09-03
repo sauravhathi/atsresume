@@ -1,7 +1,7 @@
 import React, { } from "react";
 import { BsFillArrowRightCircleFill, BsFillArrowLeftCircleFill } from "react-icons/bs"
 
-const FormCP = ({ formClose, setFormClose }) => {
+const FormCloseOpenBtn = ({ formClose, setFormClose }) => {
   return (
     <button
       aria-label="Form Open/Close"
@@ -13,4 +13,4 @@ const FormCP = ({ formClose, setFormClose }) => {
   )
 }
 
-export default FormCP;
+export default FormCloseOpenBtn;
