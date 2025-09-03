@@ -1,6 +1,6 @@
 import FormButton from "./FormButton";
 import React, {useContext} from "react";
-import {ResumeContext} from "../../../pages/builder";
+import {ResumeContext} from "../../builder";
 
 const WorkExperience = () => {
   const {

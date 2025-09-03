@@ -16,7 +16,7 @@ import ContactInfo from "./ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
 import React, { useContext, useState } from "react";
-import { ResumeContext } from "../../pages/builder";
+import {ResumeContext} from "../builder";
 import dynamic from "next/dynamic";
 import Language from "./Language";
 import Certification from "./Certification";
@@ -115,8 +115,8 @@ const Preview = () => {
   };
 
   const MenuButton = ({ title, icon, onClick }) => (
-    <button 
-      onClick={onClick} 
+    <button
+      onClick={onClick}
       title={title}
       className="p-2 hover:bg-gray-200 rounded font-semibold"
     >
@@ -127,7 +127,7 @@ const Preview = () => {
   const formatText = (command, value = null) => {
     document.execCommand(command, false, value);
   };
-  
+
   const toggleBold = () => formatText('bold');
   const toggleItalic = () => formatText('italic');
   const toggleUnderline = () => formatText('underline');
@@ -158,7 +158,7 @@ const Preview = () => {
         icon={<FaBold />}
         onClick={toggleBold}
       />
-      <MenuButton 
+      <MenuButton
         title="Italic (Ctrl+I)"
         icon={<FaItalic />}
         onClick={toggleItalic}
@@ -171,12 +171,12 @@ const Preview = () => {
       <MenuButton
         title="Increase Font Size"
         icon={<FaPlus/>}
-        onClick={() => changeFontSize(4)} 
+        onClick={() => changeFontSize(4)}
       />
       <MenuButton
         title="Decrease Font Size"
         icon={<FaMinus/>}
-        onClick={() => changeFontSize(2)} 
+        onClick={() => changeFontSize(2)}
       />
 
       <MenuButton
@@ -236,7 +236,7 @@ const Preview = () => {
                     // Prevent text overflowing, If the socialMedia.link string is longer than 32 characters, apply the wordWrap and display styles to this <a> tag.
                     // wordWrap: "break-word" breaks the text onto the next line if it's too long,
                     // display: "inline-block" is necessary for wordWrap to work on an inline element like <a>.
-                    
+
                   >
                     {icons.map((icon, index) => {
                       if (icon.name === socialMedia.socialMedia.toLowerCase()) {
@@ -315,7 +315,7 @@ const Preview = () => {
                 certifications={resumeData.certifications}
               />
             </div>
-            
+
             <div className="col-span-2 space-y-2">
               {resumeData.workExperience.length > 0 && (
                 <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
@@ -445,7 +445,7 @@ const Preview = () => {
                                   id={`work-experience-start-end-date`}
                                 />
                               </div>
-                             
+
                               <Link
                                 href={item.link}
                                 target="_blank"
@@ -501,9 +501,9 @@ const Preview = () => {
                                 )}
                               </Droppable>
                             </div>
-                            
+
                           )}
-                          
+
                         </Draggable>
                       ))}
                       {provided.placeholder}
@@ -512,7 +512,7 @@ const Preview = () => {
                 </Droppable>
               )}
             </div>
-            
+
           </div>
         </DragDropContext>
       </A4PageWrapper>

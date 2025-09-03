@@ -1,3 +1,5 @@
+"use client"
+
 import React, {createContext, useState} from "react";
 import Meta from "../components/meta/Meta";
 import FormCloseOpenBtn from "../components/FormCloseOpenBtn";
