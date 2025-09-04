@@ -7,7 +7,7 @@ import Education from "../components/Education";
 import WorkExperience from "../components/WorkExperience";
 import Projects from "../components/Projects";
 import Skills from "../components/skills/ui/Skills";
-import Language from "../components/languages/ui/Language";
+import Languages from "../components/languages/ui/Languages";
 import Certification from "../components/certification";
 
 const Form = () => {
@@ -21,7 +21,7 @@ const Form = () => {
       <WorkExperience/>
       <Projects/>
       <Skills/>
-      <Language/>
+      <Languages/>
       <Certification/>
     </form>
   );

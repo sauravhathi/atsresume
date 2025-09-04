@@ -5,7 +5,7 @@ import {addLanguage} from "../utils/addLanguage";
 import {removeLanguage} from "../utils/removeLanguage";
 import {handleLanguage} from "../utils/handleLanguage";
 
-const Language = () => {
+const Languages = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
   const languageType = "languages";
   const title = "Languages";
@@ -39,4 +39,4 @@ const Language = () => {
   );
 };
 
-export default Language;
+export default Languages;
