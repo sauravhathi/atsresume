@@ -1,57 +1,12 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import FormButton from "../../FormButton";
+import {removeSkill} from "../utlis/removeSkill";
+import {addSkill} from "../utlis/addSkill";
+import {handleSkill} from "../utlis/handleSkill";
 
-const SkillsGroup = ({ title }) => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
-
-  // skills
-  const handleSkill = (e, index, title) => {
-    const newSkills = [
-      ...resumeData.skills.find((skillType) => skillType.title === title)
-        .skills,
-    ];
-    newSkills[index] = e.target.value;
-    setResumeData((prevData) => ({
-      ...prevData,
-      skills: prevData.skills.map((skill) =>
-        skill.title === title ? { ...skill, skills: newSkills } : skill
-      ),
-    }));
-  };
-
-  const addSkill = (title) => {
-    setResumeData((prevData) => {
-      const skillType = prevData.skills.find(
-        (skillType) => skillType.title === title
-      );
-      const newSkills = [...skillType.skills, ""];
-      const updatedSkills = prevData.skills.map((skill) =>
-        skill.title === title ? { ...skill, skills: newSkills } : skill
-      );
-      return {
-        ...prevData,
-        skills: updatedSkills,
-      };
-    });
-  };
-
-  const removeSkill = (title, index) => {
-    setResumeData((prevData) => {
-      const skillType = prevData.skills.find(
-        (skillType) => skillType.title === title
-      );
-      const newSkills = [...skillType.skills];
-      newSkills.pop();
-      const updatedSkills = prevData.skills.map((skill) =>
-        skill.title === title ? { ...skill, skills: newSkills } : skill
-      );
-      return {
-        ...prevData,
-        skills: updatedSkills,
-      };
-    });
-  };
+const SkillsGroup = ({title}) => {
+  const {resumeData, setResumeData} = useContext(ResumeContext);
 
   const skillType = resumeData.skills.find(
     (skillType) => skillType.title === title
@@ -68,14 +23,14 @@ const SkillsGroup = ({ title }) => {
             name={title}
             className="w-full other-input"
             value={skill}
-            onChange={(e) => handleSkill(e, index, title)}
+            onChange={(e) => handleSkill(e, index, title, resumeData, setResumeData)}
           />
         </div>
       ))}
       <FormButton
         size={skillType.skills.length}
-        add={() => addSkill(title)}
-        remove={() => removeSkill(title)}
+        add={() => addSkill(title, setResumeData)}
+        remove={() => removeSkill(title, setResumeData)}
       />
     </div>
   );
