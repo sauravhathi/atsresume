@@ -3,7 +3,7 @@
 import React, {createContext, useState} from "react";
 import Meta from "../components/meta/Meta";
 import FormCloseOpenBtn from "../components/FormCloseOpenBtn";
-import Preview from "../components/preview/Preview";
+import Preview from "../components/preview/ui/Preview";
 import DefaultResumeData from "../components/utility/DefaultResumeData";
 import dynamic from "next/dynamic";
 import Form from "../components/form/ui/Form";
