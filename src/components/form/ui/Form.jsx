@@ -7,11 +7,10 @@ import Education from "../components/Education";
 import WorkExperience from "../components/WorkExperience";
 import Projects from "../components/Projects";
 import Skills from "../components/skills/ui/Skills";
-import Language from "../components/Language";
+import Language from "../components/languages/ui/Language";
 import Certification from "../components/certification";
 
 const Form = () => {
-
   return (
     <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
       <LoadUnload/>
