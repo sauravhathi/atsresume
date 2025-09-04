@@ -1,9 +1,8 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
-import FormButton from "./../../FormButton";
 import {addCertificate} from "../utils/addCertificate";
-import {removeCertificate} from "../utils/removeCertificate";
 import TestAndCertifiateLine from "../components/TestAndCertifiateLine";
+import {MdAddCircle} from "react-icons/md";
 
 const TestsAndCertifications = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -21,14 +20,14 @@ const TestsAndCertifications = () => {
           index={index}
         />
       ))}
-      <FormButton
-        size={resumeData["certifications"].length}
-        add={() => {
-          addCertificate(resumeData, setResumeData)
-        }}
-        remove={() => {
-          removeCertificate(resumeData, setResumeData)
-        }}/>
+      <button type="button"
+              onClick={() => {
+                addCertificate(resumeData, setResumeData)
+              }}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   );
 };
