@@ -1,45 +1,40 @@
-import React, { useContext } from "react";
+import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import FormButton from "./../../FormButton";
+import {addLanguage} from "../utils/addLanguage";
+import {removeLanguage} from "../utils/removeLanguage";
+import {handleLanguage} from "../utils/handleLanguage";
 
 const Language = () => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
-  const skillType = "languages";
+  const {resumeData, setResumeData} = useContext(ResumeContext);
+  const languageType = "languages";
   const title = "Languages";
   const placeholder = "Language";
-
-  const handleLanguage = (e, index, skillType) => {
-    const newSkills = [...resumeData[skillType]];
-    newSkills[index] = e.target.value;
-    setResumeData({ ...resumeData, [skillType]: newSkills });
-  };
-
-  const addLanguage = () => {
-    setResumeData({ ...resumeData, [skillType]: [...resumeData[skillType], ""] });
-  };
-
-  const removeLanguage = (index) => {
-    const newSkills = [...resumeData[skillType]];
-    newSkills.splice(-1, 1);
-    setResumeData({ ...resumeData, [skillType]: newSkills });
-  };
 
   return (
     <div className="flex-col-gap-2">
       <h2 className="input-title">{title}</h2>
-      {resumeData[skillType].map((skill, index) => (
+      {resumeData[languageType].map((lang, index) => (
         <div key={index} className="f-col">
           <input
             type="text"
             placeholder={placeholder}
-            name="skill"
+            name="language"
             className="w-full other-input"
-            value={skill}
-            onChange={(e) => handleLanguage(e, index, skillType)}
+            value={lang}
+            onChange={(e) => handleLanguage(resumeData, setResumeData, e, index, languageType)}
           />
         </div>
       ))}
-      <FormButton size={resumeData[skillType].length} add={addLanguage} remove={removeLanguage} />
+      <FormButton
+        size={resumeData[languageType].length}
+        add={() => {
+          addLanguage(resumeData, setResumeData, languageType)
+        }}
+        remove={() => {
+          removeLanguage(resumeData, setResumeData, languageType)
+        }}
+      />
     </div>
   );
 };
