@@ -6,7 +6,7 @@ import Summary from "../components/Summary";
 import Education from "../components/Education";
 import WorkExperience from "../components/WorkExperience";
 import Projects from "../components/Projects";
-import Skills from "../components/skills/Skills";
+import Skills from "../components/skills/ui/Skills";
 import Language from "../components/Language";
 import Certification from "../components/certification";
 
