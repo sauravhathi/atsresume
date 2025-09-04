@@ -1,9 +1,8 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
-import FormButton from "./../../FormButton";
 import {addLanguage} from "../utils/addLanguage";
-import {removeLanguage} from "../utils/removeLanguage";
-import LanguageLine from "./LanguageLine";
+import LanguageLine from "../components/LanguageLine";
+import {MdAddCircle} from "react-icons/md";
 
 const Languages = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -21,15 +20,14 @@ const Languages = () => {
           index={index}
         />
       ))}
-      <FormButton
-        size={resumeData["languages"].length}
-        add={() => {
-          addLanguage(resumeData, setResumeData, "languages")
-        }}
-        remove={() => {
-          removeLanguage(resumeData, setResumeData, "languages")
-        }}
-      />
+      <button type="button"
+              onClick={() => {
+                addLanguage(resumeData, setResumeData, "languages")
+              }}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   );
 };

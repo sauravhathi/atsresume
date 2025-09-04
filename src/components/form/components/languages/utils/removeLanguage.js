@@ -1,5 +1,5 @@
-export const removeLanguage = (resumeData, setResumeData, languageType) => {
-  const newSkills = [...resumeData[languageType]];
-  newSkills.splice(-1, 1);
-  setResumeData({ ...resumeData, [languageType]: newSkills });
+export const removeLanguage = (resumeData, setResumeData, index) => {
+  // TODO replace hardcoded variables
+  const newSkills = [...resumeData["languages"]].filter((_, idx) => idx !== index);
+  setResumeData({...resumeData, ["languages"]: newSkills});
 };
