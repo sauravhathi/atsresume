@@ -1,9 +1,8 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
-import FormButton from "../../FormButton";
-import {removeSkill} from "../utlis/removeSkill";
 import {addSkill} from "../utlis/addSkill";
 import SkillLine from "./SkillLine";
+import {MdAddCircle} from "react-icons/md";
 
 const SkillsGroup = ({title}) => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -18,11 +17,12 @@ const SkillsGroup = ({title}) => {
       {skillType.skills.map((skill, index) => (
         <SkillLine key={index} skill={skill} title={title} index={index}/>
       ))}
-      <FormButton
-        size={skillType.skills.length}
-        add={() => addSkill(title, setResumeData)}
-        remove={() => removeSkill(title, setResumeData)}
-      />
+      {/* Add new skill button */}
+      <button type="button" onClick={() => addSkill(title, setResumeData)}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   );
 };
