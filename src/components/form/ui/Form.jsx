@@ -8,7 +8,7 @@ import WorkExperience from "../components/WorkExperience";
 import Projects from "../components/Projects";
 import Skills from "../components/skills/ui/Skills";
 import Languages from "../components/languages/ui/Languages";
-import TestsAndCertifications from "../components/TestsAndCertifications";
+import TestsAndCertifications from "../components/testsAndCertifications/ui/TestsAndCertifications";
 
 const Form = () => {
   return (
