@@ -8,17 +8,17 @@ const Language = () => {
   const title = "Languages";
   const placeholder = "Language";
 
-  const handleSkills = (e, index, skillType) => {
+  const handleLanguage = (e, index, skillType) => {
     const newSkills = [...resumeData[skillType]];
     newSkills[index] = e.target.value;
     setResumeData({ ...resumeData, [skillType]: newSkills });
   };
 
-  const addSkill = () => {
+  const addLanguage = () => {
     setResumeData({ ...resumeData, [skillType]: [...resumeData[skillType], ""] });
   };
 
-  const removeSkill = (index) => {
+  const removeLanguage = (index) => {
     const newSkills = [...resumeData[skillType]];
     newSkills.splice(-1, 1);
     setResumeData({ ...resumeData, [skillType]: newSkills });
@@ -35,11 +35,11 @@ const Language = () => {
             name="skill"
             className="w-full other-input"
             value={skill}
-            onChange={(e) => handleSkills(e, index, skillType)}
+            onChange={(e) => handleLanguage(e, index, skillType)}
           />
         </div>
       ))}
-      <FormButton size={resumeData[skillType].length} add={addSkill} remove={removeSkill} />
+      <FormButton size={resumeData[skillType].length} add={addLanguage} remove={removeLanguage} />
     </div>
   );
 };
