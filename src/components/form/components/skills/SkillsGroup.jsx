@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import {ResumeContext} from "../../../builder";
 import FormButton from "../FormButton";
 
-const Skill = ({ title }) => {
+const SkillsGroup = ({ title }) => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
 
   // skills
@@ -81,4 +81,4 @@ const Skill = ({ title }) => {
   );
 };
 
-export default Skill;
+export default SkillsGroup;

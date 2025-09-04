@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import {ResumeContext} from "../../../builder";
-import Skill from "./Skill";
+import SkillsGroup from "./SkillsGroup";
 
 const Skills = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -9,7 +9,7 @@ const Skills = () => {
     <div>
       {
         resumeData.skills.map((skill, index) => (
-          <Skill
+          <SkillsGroup
             title={skill.title}
             key={index}
           />
