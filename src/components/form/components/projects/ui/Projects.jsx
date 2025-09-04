@@ -1,14 +1,14 @@
-import FormButton from "./FormButton";
-import React, { useContext } from "react";
-import {ResumeContext} from "../../builder";
+import FormButton from "../../FormButton";
+import React, {useContext} from "react";
+import {ResumeContext} from "../../../../builder";
 
 const Projects = () => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
+  const {resumeData, setResumeData} = useContext(ResumeContext);
 
   const handleProjects = (e, index) => {
     const newProjects = [...resumeData.projects];
     newProjects[index][e.target.name] = e.target.value;
-    setResumeData({ ...resumeData, projects: newProjects });
+    setResumeData({...resumeData, projects: newProjects});
   };
 
   const addProjects = () => {
@@ -32,7 +32,7 @@ const Projects = () => {
     const newProjects = [...resumeData.projects];
     newProjects[index] = newProjects[newProjects.length - 1];
     newProjects.pop();
-    setResumeData({ ...resumeData, projects: newProjects });
+    setResumeData({...resumeData, projects: newProjects});
   };
 
   return (
