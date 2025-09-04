@@ -1,65 +1,56 @@
 /* eslint-disable react/jsx-no-undef */
-import {
-  FaGithub,
-  FaLinkedin,
-  FaTwitter,
-  FaFacebook,
-  FaInstagram,
-  FaYoutube, FaBold, FaItalic, FaPlus, FaMinus, FaAlignLeft , FaAlignCenter, FaAlignRight,
-  FaUnderline,
-} from "react-icons/fa";
-import { MdEmail, MdLocationOn, MdPhone } from "react-icons/md";
-import { CgWebsite } from "react-icons/cg";
+import {FaFacebook, FaGithub, FaInstagram, FaLinkedin, FaTwitter, FaYoutube,} from "react-icons/fa";
+import {MdEmail, MdLocationOn, MdPhone} from "react-icons/md";
+import {CgWebsite} from "react-icons/cg";
 import Skills from "../components/Skills";
 import DateRange from "../../utility/DateRange";
 import ContactInfo from "../components/ContactInfo";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useContext, useState } from "react";
+import React, {useContext, useState} from "react";
 import {ResumeContext} from "../../builder";
 import dynamic from "next/dynamic";
 import Language from "../components/Language";
 import Certification from "../components/Certification";
-import { HighlightMenu } from "react-highlight-menu";
-import useKeyboardShortcut from "../../../hooks/useKeyboardShortcut";
+import ModalHighlightMenu from "../components/ModalHighlightMenu";
 
 const DragDropContext = dynamic(
   () =>
     import("react-beautiful-dnd").then((mod) => {
       return mod.DragDropContext;
     }),
-  { ssr: false }
+  {ssr: false}
 );
 const Droppable = dynamic(
   () =>
     import("react-beautiful-dnd").then((mod) => {
       return mod.Droppable;
     }),
-  { ssr: false }
+  {ssr: false}
 );
 const Draggable = dynamic(
   () =>
     import("react-beautiful-dnd").then((mod) => {
       return mod.Draggable;
     }),
-  { ssr: false }
+  {ssr: false}
 );
 
 const Preview = () => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
+  const {resumeData, setResumeData} = useContext(ResumeContext);
   const [content, setContent] = useState(resumeData);
   const icons = [
-    { name: "github", icon: <FaGithub /> },
-    { name: "linkedin", icon: <FaLinkedin /> },
-    { name: "twitter", icon: <FaTwitter /> },
-    { name: "facebook", icon: <FaFacebook /> },
-    { name: "instagram", icon: <FaInstagram /> },
-    { name: "youtube", icon: <FaYoutube /> },
-    { name: "website", icon: <CgWebsite /> },
+    {name: "github", icon: <FaGithub/>},
+    {name: "linkedin", icon: <FaLinkedin/>},
+    {name: "twitter", icon: <FaTwitter/>},
+    {name: "facebook", icon: <FaFacebook/>},
+    {name: "instagram", icon: <FaInstagram/>},
+    {name: "youtube", icon: <FaYoutube/>},
+    {name: "website", icon: <CgWebsite/>},
   ];
 
   const onDragEnd = (result) => {
-    const { destination, source } = result;
+    const {destination, source} = result;
 
     if (!destination) return;
 
@@ -73,7 +64,7 @@ const Preview = () => {
       const newWorkExperience = [...resumeData.workExperience];
       const [removed] = newWorkExperience.splice(source.index, 1);
       newWorkExperience.splice(destination.index, 0, removed);
-      setResumeData({ ...resumeData, workExperience: newWorkExperience });
+      setResumeData({...resumeData, workExperience: newWorkExperience});
     }
 
     if (source.droppableId.includes("WORK_EXPERIENCE_KEY_ACHIEVEMENT")) {
@@ -85,21 +76,21 @@ const Preview = () => {
       keyAchievements.splice(destination.index, 0, removed);
       newWorkExperience[workExperienceIndex].keyAchievements =
         keyAchievements.join("\n");
-      setResumeData({ ...resumeData, workExperience: newWorkExperience });
+      setResumeData({...resumeData, workExperience: newWorkExperience});
     }
 
     if (source.droppableId === "skills") {
       const newSkills = [...resumeData.skills];
       const [removed] = newSkills.splice(source.index, 1);
       newSkills.splice(destination.index, 0, removed);
-      setResumeData({ ...resumeData, skills: newSkills });
+      setResumeData({...resumeData, skills: newSkills});
     }
 
     if (source.droppableId.includes("projects")) {
       const newProjects = [...resumeData.projects];
       const [removed] = newProjects.splice(source.index, 1);
       newProjects.splice(destination.index, 0, removed);
-      setResumeData({ ...resumeData, projects: newProjects });
+      setResumeData({...resumeData, projects: newProjects});
     }
 
     if (source.droppableId.includes("PROJECTS_KEY_ACHIEVEMENT")) {
@@ -110,93 +101,14 @@ const Preview = () => {
       const [removed] = keyAchievements.splice(source.index, 1);
       keyAchievements.splice(destination.index, 0, removed);
       newProjects[projectIndex].keyAchievements = keyAchievements.join("\n");
-      setResumeData({ ...resumeData, projects: newProjects });
+      setResumeData({...resumeData, projects: newProjects});
     }
   };
-
-  const MenuButton = ({ title, icon, onClick }) => (
-    <button
-      onClick={onClick}
-      title={title}
-      className="p-2 hover:bg-gray-200 rounded font-semibold"
-    >
-      {icon}
-    </button>
-  );
-
-  const formatText = (command, value = null) => {
-    document.execCommand(command, false, value);
-  };
-
-  const toggleBold = () => formatText('bold');
-  const toggleItalic = () => formatText('italic');
-  const toggleUnderline = () => formatText('underline');
-  const changeFontSize = (size) => formatText('fontSize', size);
-  const alignText = (alignment) => formatText(`justify${alignment}`);
-
-  useKeyboardShortcut('b', true, toggleBold);
-  useKeyboardShortcut('i', true, toggleItalic);
-  useKeyboardShortcut('u', true, toggleUnderline);
 
   return (
     <div className="md:max-w-[60%] sticky top-0 preview rm-padding-print p-6 md:overflow-y-scroll md:h-screen">
       <A4PageWrapper>
-        <HighlightMenu
-          styles={{
-            borderColor: "#C026D3",
-            backgroundColor: "#C026D3",
-            boxShadow: "0px 5px 5px 0px rgba(0, 0, 0, 0.15)",
-            zIndex: 10,
-            borderRadius: "5px",
-            padding: "3px",
-          }}
-          target="body"
-          menu={() => (
-            <>
-              <MenuButton
-        title="Bold (Ctrl+B)"
-        icon={<FaBold />}
-        onClick={toggleBold}
-      />
-      <MenuButton
-        title="Italic (Ctrl+I)"
-        icon={<FaItalic />}
-        onClick={toggleItalic}
-      />
-      <MenuButton
-        title="Underline (Ctrl+U)"
-        icon={<FaUnderline />}
-        onClick={toggleUnderline}
-      />
-      <MenuButton
-        title="Increase Font Size"
-        icon={<FaPlus/>}
-        onClick={() => changeFontSize(4)}
-      />
-      <MenuButton
-        title="Decrease Font Size"
-        icon={<FaMinus/>}
-        onClick={() => changeFontSize(2)}
-      />
-
-      <MenuButton
-        title="Align Left"
-        icon={<FaAlignLeft/>}
-        onClick={() => alignText('Left')}
-      />
-      <MenuButton
-        title="Align Center"
-        icon={<FaAlignCenter/>}
-        onClick={() => alignText('Center')}
-      />
-      <MenuButton
-        title="Align Right"
-        icon={<FaAlignRight/>}
-        onClick={() => alignText('Right')}
-      />
-            </>
-          )}
-        />
+        <ModalHighlightMenu/>
         <DragDropContext onDragEnd={onDragEnd}>
           <div className="f-col items-center mb-1">
             {resumeData.profilePicture.length > 0 && (
@@ -218,9 +130,9 @@ const Preview = () => {
               teldata={resumeData.contactInformation}
               emaildata={resumeData.email}
               addressdata={resumeData.address}
-              telicon={<MdPhone />}
-              emailicon={<MdEmail />}
-              addressicon={<MdLocationOn />}
+              telicon={<MdPhone/>}
+              emailicon={<MdEmail/>}
+              addressicon={<MdLocationOn/>}
             />
             <div className="grid grid-cols-3 gap-1">
               {resumeData.socialMedia.map((socialMedia, index) => {
@@ -249,7 +161,7 @@ const Preview = () => {
               })}
             </div>
           </div>
-          <hr className="border-dashed my-2" />
+          <hr className="border-dashed my-2"/>
           {/* two column start */}
           <div className="grid grid-cols-3 gap-6">
             <div className="col-span-1 space-y-2">
@@ -300,7 +212,7 @@ const Preview = () => {
                               "outline-dashed outline-2 outline-gray-400 bg-white"
                             }`}
                           >
-                            <Skills title={skill.title} skills={skill.skills} />
+                            <Skills title={skill.title} skills={skill.skills}/>
                           </div>
                         )}
                       </Draggable>
@@ -309,7 +221,7 @@ const Preview = () => {
                   </div>
                 )}
               </Droppable>
-              <Language title="Languages" languages={resumeData.languages} />
+              <Language title="Languages" languages={resumeData.languages}/>
               <Certification
                 title="Certifications"
                 certifications={resumeData.certifications}
@@ -383,9 +295,9 @@ const Preview = () => {
                                                 className={`
                                           hover:outline-dashed hover:outline-2 hover:outline-gray-400
                                           ${
-                                            snapshot.isDragging &&
-                                            "outline-dashed outline-2 outline-gray-400 bg-white"
-                                          }`}
+                                                  snapshot.isDragging &&
+                                                  "outline-dashed outline-2 outline-gray-400 bg-white"
+                                                }`}
                                               >
                                                 <div
                                                   dangerouslySetInnerHTML={{
@@ -482,9 +394,9 @@ const Preview = () => {
                                                 className={`
                                           hover:outline-dashed hover:outline-2 hover:outline-gray-400
                                           ${
-                                            snapshot.isDragging &&
-                                            "outline-dashed outline-2 outline-gray-400 bg-white"
-                                          }`}
+                                                  snapshot.isDragging &&
+                                                  "outline-dashed outline-2 outline-gray-400 bg-white"
+                                                }`}
                                               >
                                                 <div
                                                   dangerouslySetInnerHTML={{
@@ -520,7 +432,7 @@ const Preview = () => {
   );
 };
 
-const A4PageWrapper = ({ children }) => {
+const A4PageWrapper = ({children}) => {
   const alertA4Size = () => {
     const preview = document.querySelector(".preview");
     const previewHeight = preview.offsetHeight;
@@ -536,7 +448,6 @@ const A4PageWrapper = ({ children }) => {
     </div>
   );
 };
-
 
 
 export default Preview;
