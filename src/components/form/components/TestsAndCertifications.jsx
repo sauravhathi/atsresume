@@ -4,41 +4,40 @@ import FormButton from "./FormButton";
 
 const TestsAndCertifications = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
-  const skillType = "certifications";
   const title = "Tests & Certifications";
 
-  const handleSkills = (e, index, skillType) => {
-    const newSkills = [...resumeData[skillType]];
+  const handleCertificate = (e, index) => {
+    const newSkills = [...resumeData["certifications"]];
     newSkills[index] = e.target.value;
-    setResumeData({ ...resumeData, [skillType]: newSkills });
+    setResumeData({ ...resumeData, ["certifications"]: newSkills });
   };
 
-  const addSkill = () => {
-    setResumeData({ ...resumeData, [skillType]: [...resumeData[skillType], ""] });
+  const addCertificate = () => {
+    setResumeData({ ...resumeData, ["certifications"]: [...resumeData["certifications"], ""] });
   };
 
-  const removeSkill = (index) => {
-    const newSkills = [...resumeData[skillType]];
+  const removeCertificate = () => {
+    const newSkills = [...resumeData["certifications"]];
     newSkills.splice(-1, 1);
-    setResumeData({ ...resumeData, [skillType]: newSkills });
+    setResumeData({ ...resumeData, ["certifications"]: newSkills });
   };
 
   return (
     <div className="flex-col-gap-2">
       <h2 className="input-title">{title}</h2>
-      {resumeData[skillType].map((skill, index) => (
+      {resumeData["certifications"].map((cert, index) => (
         <div key={index} className="f-col">
           <input
             type="text"
             placeholder={title}
             name={title}
             className="w-full other-input"
-            value={skill}
-            onChange={(e) => handleSkills(e, index, skillType)}
+            value={cert}
+            onChange={(e) => handleCertificate(e, index, "certifications")}
           />
         </div>
       ))}
-      <FormButton size={resumeData[skillType].length} add={addSkill} remove={removeSkill} />
+      <FormButton size={resumeData["certifications"].length} add={addCertificate} remove={removeCertificate} />
     </div>
   );
 };
