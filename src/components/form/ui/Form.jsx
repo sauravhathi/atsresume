@@ -8,7 +8,7 @@ import WorkExperience from "../components/WorkExperience";
 import Projects from "../components/Projects";
 import Skills from "../components/skills/ui/Skills";
 import Languages from "../components/languages/ui/Languages";
-import Certification from "../components/certification";
+import TestsAndCertifications from "../components/TestsAndCertifications";
 
 const Form = () => {
   return (
@@ -22,7 +22,7 @@ const Form = () => {
       <Projects/>
       <Skills/>
       <Languages/>
-      <Certification/>
+      <TestsAndCertifications/>
     </form>
   );
 };

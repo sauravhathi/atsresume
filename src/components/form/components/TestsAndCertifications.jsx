@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import {ResumeContext} from "../../builder";
 import FormButton from "./FormButton";
 
-const Certification = () => {
+const TestsAndCertifications = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
   const skillType = "certifications";
-  const title = "Certifications";
+  const title = "Tests & Certifications";
 
   const handleSkills = (e, index, skillType) => {
     const newSkills = [...resumeData[skillType]];
@@ -43,4 +43,4 @@ const Certification = () => {
   );
 };
 
-export default Certification;
+export default TestsAndCertifications;
