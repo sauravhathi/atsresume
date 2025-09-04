@@ -8,6 +8,7 @@ import ModalHighlightMenu from "../components/ModalHighlightMenu";
 import Header from "../components/Header";
 import LeftSide from "../components/LeftSide";
 import RightSide from "../components/RightSide";
+import A4PageWrapper from "../components/A4PageWrapper";
 
 const DragDropContext = dynamic(
   () =>
@@ -101,23 +102,5 @@ const Preview = () => {
     </div>
   );
 };
-
-const A4PageWrapper = ({children}) => {
-  const alertA4Size = () => {
-    const preview = document.querySelector(".preview");
-    const previewHeight = preview.offsetHeight;
-    console.log(previewHeight);
-    if (previewHeight > 1122) {
-      alert("A4 size exceeded");
-    }
-  };
-
-  return (
-    <div className="w-8.5in" onLoad={alertA4Size}>
-      {children}
-    </div>
-  );
-};
-
 
 export default Preview;
