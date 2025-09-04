@@ -4,7 +4,7 @@ import {removeLanguage} from "../../languages/utils/removeLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeCertificate} from "../utils/removeCertificate";
 
-const TestAndCertifiateLine = ({resumeData, setResumeData, cert, index}) => {
+const TestAndCertificateLine = ({resumeData, setResumeData, cert, index}) => {
   return (
     <div
       className="flex gap-5 items-center"
@@ -31,4 +31,4 @@ const TestAndCertifiateLine = ({resumeData, setResumeData, cert, index}) => {
   );
 };
 
-export default TestAndCertifiateLine;
+export default TestAndCertificateLine;

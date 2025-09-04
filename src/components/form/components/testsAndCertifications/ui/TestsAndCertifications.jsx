@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import {addCertificate} from "../utils/addCertificate";
-import TestAndCertifiateLine from "../components/TestAndCertifiateLine";
+import TestAndCertificateLine from "../components/TestAndCertificateLine";
 import {MdAddCircle} from "react-icons/md";
 
 const TestsAndCertifications = () => {
@@ -12,7 +12,7 @@ const TestsAndCertifications = () => {
     <div className="flex-col-gap-2">
       <h2 className="input-title">{title}</h2>
       {resumeData["certifications"].map((cert, index) => (
-        <TestAndCertifiateLine
+        <TestAndCertificateLine
           key={index}
           resumeData={resumeData}
           setResumeData={setResumeData}
