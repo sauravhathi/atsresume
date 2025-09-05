@@ -2,7 +2,7 @@ import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 
-const WorkExperience = () => {
+const WorkExperiences = () => {
   const {
     resumeData,
     setResumeData,
@@ -105,4 +105,4 @@ const WorkExperience = () => {
   );
 };
 
-export default WorkExperience;
+export default WorkExperiences;

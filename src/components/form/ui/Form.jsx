@@ -4,7 +4,7 @@ import PersonalInformation from "../components/PersonalInformation";
 import SocialMedia from "../components/SocialMedia";
 import Summary from "../components/Summary";
 import Education from "../components/Education";
-import WorkExperience from "../components/workExperience/ui/WorkExperience";
+import WorkExperiences from "../components/workExperience/ui/WorkExperiences";
 import Projects from "../components/projects/ui/Projects";
 import Skills from "../components/skills/ui/Skills";
 import Languages from "../components/languages/ui/Languages";
@@ -18,7 +18,7 @@ const Form = () => {
       <SocialMedia/>
       <Summary/>
       <Education/>
-      <WorkExperience/>
+      <WorkExperiences/>
       <Projects/>
       <Skills/>
       <Languages/>
