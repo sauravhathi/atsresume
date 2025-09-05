@@ -1,39 +1,12 @@
 import FormButton from "../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
+import {handleProject} from "../utils/handleProject";
+import {addProject} from "../utils/addProject";
+import {removeProject} from "../utils/removeProject";
 
 const Projects = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
-
-  const handleProjects = (e, index) => {
-    const newProjects = [...resumeData.projects];
-    newProjects[index][e.target.name] = e.target.value;
-    setResumeData({...resumeData, projects: newProjects});
-  };
-
-  const addProjects = () => {
-    setResumeData({
-      ...resumeData,
-      projects: [
-        ...resumeData.projects,
-        {
-          title: "",
-          link: "",
-          description: "",
-          keyAchievements: "",
-          startYear: "",
-          endYear: "",
-        },
-      ],
-    });
-  };
-
-  const removeProjects = (index) => {
-    const newProjects = [...resumeData.projects];
-    newProjects[index] = newProjects[newProjects.length - 1];
-    newProjects.pop();
-    setResumeData({...resumeData, projects: newProjects});
-  };
 
   return (
     <div className="flex-col-gap-2">
@@ -46,7 +19,7 @@ const Projects = () => {
             name="name"
             className="w-full other-input"
             value={project.name}
-            onChange={(e) => handleProjects(e, index)}
+            onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
           <input
             type="text"
@@ -54,7 +27,7 @@ const Projects = () => {
             name="link"
             className="w-full other-input"
             value={project.link}
-            onChange={(e) => handleProjects(e, index)}
+            onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
           <textarea
             type="text"
@@ -63,7 +36,7 @@ const Projects = () => {
             className="w-full other-input h-32"
             value={project.description}
             maxLength="250"
-            onChange={(e) => handleProjects(e, index)}
+            onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
           <textarea
             type="text"
@@ -71,7 +44,7 @@ const Projects = () => {
             name="keyAchievements"
             className="w-full other-input h-40"
             value={project.keyAchievements}
-            onChange={(e) => handleProjects(e, index)}
+            onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
           <div className="flex-wrap-gap-2">
             <input
@@ -80,7 +53,7 @@ const Projects = () => {
               name="startYear"
               className="other-input"
               value={project.startYear}
-              onChange={(e) => handleProjects(e, index)}
+              onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
             />
             <input
               type="date"
@@ -88,15 +61,20 @@ const Projects = () => {
               name="endYear"
               className="other-input"
               value={project.endYear}
-              onChange={(e) => handleProjects(e, index)}
+              onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
             />
           </div>
         </div>
       ))}
       <FormButton
         size={resumeData.projects.length}
-        add={addProjects}
-        remove={removeProjects}
+        add={() => {
+          addProject(resumeData, setResumeData)
+        }}
+        remove={() => {
+          // TODO add an index
+          removeProject(resumeData, setResumeData)
+        }}
       />
     </div>
   );
