@@ -1,9 +1,8 @@
-import FormButton from "../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import {addProject} from "../utils/addProject";
-import {removeProject} from "../utils/removeProject";
 import Project from "../components/Project";
+import {MdAddCircle} from "react-icons/md";
 
 const Projects = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -18,16 +17,14 @@ const Projects = () => {
           index={index}
         />
       ))}
-      <FormButton
-        size={resumeData.projects.length}
-        add={() => {
-          addProject(resumeData, setResumeData)
-        }}
-        remove={() => {
-          // TODO add an index
-          removeProject(resumeData, setResumeData)
-        }}
-      />
+      <button type="button"
+              onClick={() => {
+                addProject(resumeData, setResumeData)
+              }}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   );
 };

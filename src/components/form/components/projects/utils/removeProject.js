@@ -1,6 +1,4 @@
 export const removeProject = (resumeData, setResumeData, index) => {
-  const newProjects = [...resumeData.projects];
-  newProjects[index] = newProjects[newProjects.length - 1];
-  newProjects.pop();
+  const newProjects = [...resumeData.projects].filter((_, idx) => idx !== index)
   setResumeData({...resumeData, projects: newProjects});
 };
