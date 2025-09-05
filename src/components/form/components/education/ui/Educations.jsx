@@ -1,9 +1,8 @@
-import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import {addEducation} from "../units/addEducation";
-import {removeEducation} from "../units/removeEducation";
 import Education from "../components/Education";
+import {MdAddCircle} from "react-icons/md";
 
 const Educations = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -18,16 +17,14 @@ const Educations = () => {
           index={index}
         />
       ))}
-      <FormButton
-        size={resumeData.education.length}
-        add={() => {
-          addEducation(resumeData, setResumeData)
-        }}
-        remove={() => {
-          // TODO add the index
-          removeEducation(resumeData, setResumeData)
-        }}
-      />
+      <button type="button"
+              onClick={() => {
+                addEducation(resumeData, setResumeData)
+              }}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   )
 }
