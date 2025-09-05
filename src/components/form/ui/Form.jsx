@@ -3,7 +3,7 @@ import LoadUnload from "../components/LoadUnload";
 import PersonalInformation from "../components/PersonalInformation";
 import SocialMedia from "../components/SocialMedia";
 import Summary from "../components/Summary";
-import Education from "../components/Education";
+import Education from "../components/education/ui/Education";
 import WorkExperiences from "../components/workExperience/ui/WorkExperiences";
 import Projects from "../components/projects/ui/Projects";
 import Skills from "../components/skills/ui/Skills";
