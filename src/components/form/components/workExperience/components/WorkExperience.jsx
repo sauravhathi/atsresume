@@ -1,7 +1,6 @@
 import React, {useContext} from 'react';
 import {handleWorkExperience} from "../units/handleWorkExperience";
 import {ResumeContext} from "../../../../builder";
-import {removeProject} from "../../projects/utils/removeProject";
 import {BsTrash3} from "react-icons/bs";
 import {removeWorkExperience} from "../units/removeResumeExperience";
 
@@ -56,12 +55,14 @@ const WorkExperience = ({workExperience, index}) => {
             handleWorkExperience(resumeData, setResumeData, e, index)
           }
         />
-        <div className="flex-wrap-gap-2">
+        <div
+          className={"w-fill flex-wrap-gap-2"}
+        >
           <input
             type="date"
             placeholder="Start Year"
             name="startYear"
-            className="other-input"
+            className="flex-1 m-0 other-input"
             value={workExperience.startYear}
             onChange={(e) =>
               handleWorkExperience(resumeData, setResumeData, e, index)
@@ -71,7 +72,7 @@ const WorkExperience = ({workExperience, index}) => {
             type="date"
             placeholder="End Year"
             name="endYear"
-            className="other-input"
+            className="flex-1 m-0 other-input"
             value={workExperience.endYear}
             onChange={(e) =>
               handleWorkExperience(resumeData, setResumeData, e, index)
