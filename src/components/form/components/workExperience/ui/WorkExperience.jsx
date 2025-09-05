@@ -1,6 +1,6 @@
-import FormButton from "./FormButton";
+import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
-import {ResumeContext} from "../../builder";
+import {ResumeContext} from "../../../../builder";
 
 const WorkExperience = () => {
   const {
