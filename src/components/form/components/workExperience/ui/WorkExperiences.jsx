@@ -1,9 +1,8 @@
-import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
-import {addWorkExperience} from "../units/addWorkExperience";
-import {removeWorkExperience} from "../units/removeResumeExperience";
 import WorkExperience from "../components/WorkExperience";
+import {MdAddCircle} from "react-icons/md";
+import {addWorkExperience} from "../units/addWorkExperience";
 
 const WorkExperiences = () => {
   const {
@@ -21,16 +20,15 @@ const WorkExperiences = () => {
           index={index}
         />
       ))}
-      <FormButton
-        size={resumeData.workExperience.length}
-        add={() => {
-          addWorkExperience(resumeData, setResumeData)
-        }}
-        remove={() => {
-          // TODO add index
-          removeWorkExperience(resumeData, setResumeData)
-        }}
-      />
+      <button type="button"
+              onClick={() => {
+                // TODO add index
+                addWorkExperience(resumeData, setResumeData)
+              }}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   );
 };
