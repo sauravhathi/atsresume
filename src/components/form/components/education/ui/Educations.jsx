@@ -1,32 +1,12 @@
 import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
+import {handleEducation} from "../units/handleEducation";
+import {addEducation} from "../units/addEducation";
+import {removeEducation} from "../units/removeEducation";
 
 const Educations = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
-
-  const handleEducation = (e, index) => {
-    const newEducation = [...resumeData.education];
-    newEducation[index][e.target.name] = e.target.value;
-    setResumeData({...resumeData, education: newEducation});
-  };
-
-  const addEducation = () => {
-    setResumeData({
-      ...resumeData,
-      education: [
-        ...resumeData.education,
-        {school: "", degree: "", startYear: "", endYear: ""},
-      ],
-    });
-  };
-
-  const removeEducation = (index) => {
-    const newEducation = [...resumeData.education];
-    newEducation[index] = newEducation[newEducation.length - 1];
-    newEducation.pop();
-    setResumeData({...resumeData, education: newEducation});
-  };
 
   return (
     <div className="flex-col-gap-2">
@@ -39,14 +19,20 @@ const Educations = () => {
             name="school"
             className="w-full other-input"
             value={education.school}
-            onChange={(e) => handleEducation(e, index)}/>
+            onChange={(e) =>
+              handleEducation(resumeData, setResumeData, e, index)
+            }
+          />
           <input
             type="text"
             placeholder="Degree"
             name="degree"
             className="w-full other-input"
             value={education.degree}
-            onChange={(e) => handleEducation(e, index)}/>
+            onChange={(e) =>
+              handleEducation(resumeData, setResumeData, e, index)
+            }
+          />
           <div className="flex-wrap-gap-2">
             <input
               type="date"
@@ -54,18 +40,33 @@ const Educations = () => {
               name="startYear"
               className="other-input"
               value={education.startYear}
-              onChange={(e) => handleEducation(e, index)}/>
+              onChange={(e) =>
+                handleEducation(resumeData, setResumeData, e, index)
+              }
+            />
             <input
               type="date"
               placeholder="End Year"
               name="endYear"
               className="other-input"
               value={education.endYear}
-              onChange={(e) => handleEducation(e, index)}/>
+              onChange={(e) =>
+                handleEducation(resumeData, setResumeData, e, index)
+              }
+            />
           </div>
         </div>
       ))}
-      <FormButton size={resumeData.education.length} add={addEducation} remove={removeEducation}/>
+      <FormButton
+        size={resumeData.education.length}
+        add={() => {
+          addEducation(resumeData, setResumeData)
+        }}
+        remove={() => {
+          // TODO add the index
+          removeEducation(resumeData, setResumeData)
+        }}
+      />
     </div>
   )
 }
