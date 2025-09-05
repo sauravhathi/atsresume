@@ -32,7 +32,7 @@ const Education = ({education, index}) => {
           type="date"
           placeholder="Start Year"
           name="startYear"
-          className="other-input"
+          className="flex-1 m-0 other-input"
           value={education.startYear}
           onChange={(e) =>
             handleEducation(resumeData, setResumeData, e, index)
@@ -42,7 +42,7 @@ const Education = ({education, index}) => {
           type="date"
           placeholder="End Year"
           name="endYear"
-          className="other-input"
+          className="flex-1 m-0 other-input"
           value={education.endYear}
           onChange={(e) =>
             handleEducation(resumeData, setResumeData, e, index)
