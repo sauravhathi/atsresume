@@ -2,7 +2,7 @@ import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 
-const Education = () => {
+const Educations = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
 
   const handleEducation = (e, index) => {
@@ -70,4 +70,4 @@ const Education = () => {
   )
 }
 
-export default Education;
+export default Educations;
