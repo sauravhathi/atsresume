@@ -20,7 +20,7 @@ A cutting-edge resume builder that helps job seekers create a professional, ATS-
 - [Personal Information](#personal-information)
 - [Social Media](#social-media)
 - [Summary](#summary)
-- [Education](#education)
+- [Educations](#education)
 - [Work Experience](#work-experience)
 - [Projects](#projects)
 - [Technical Skills](#technical-skills)
@@ -45,7 +45,7 @@ A cutting-edge resume builder that helps job seekers create a professional, ATS-
 
 - Summary
 
-## Education
+## Educations
 
 - Degree
 - Institute

@@ -3,8 +3,8 @@ import LoadUnload from "../components/LoadUnload";
 import PersonalInformation from "../components/PersonalInformation";
 import SocialMedia from "../components/SocialMedia";
 import Summary from "../components/Summary";
-import Education from "../components/Education";
-import WorkExperience from "../components/WorkExperience";
+import Educations from "../components/education/ui/Educations";
+import WorkExperiences from "../components/workExperience/ui/WorkExperiences";
 import Projects from "../components/projects/ui/Projects";
 import Skills from "../components/skills/ui/Skills";
 import Languages from "../components/languages/ui/Languages";
@@ -17,8 +17,8 @@ const Form = () => {
       <PersonalInformation/>
       <SocialMedia/>
       <Summary/>
-      <Education/>
-      <WorkExperience/>
+      <Educations/>
+      <WorkExperiences/>
       <Projects/>
       <Skills/>
       <Languages/>

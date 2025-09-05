@@ -1,32 +1,32 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
-import {addProject} from "../utils/addProject";
-import Project from "../components/Project";
+import {addEducation} from "../units/addEducation";
+import Education from "../components/Education";
 import {MdAddCircle} from "react-icons/md";
 
-const Projects = () => {
+const Educations = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
 
   return (
     <div className="flex-col-gap-2">
-      <h2 className="input-title">Projects</h2>
-      {resumeData.projects.map((project, index) => (
-        <Project
+      <h2 className="input-title">Education</h2>
+      {resumeData.education.map((education, index) => (
+        <Education
           key={index}
-          project={project}
+          education={education}
           index={index}
         />
       ))}
       <button type="button"
               onClick={() => {
-                addProject(resumeData, setResumeData)
+                addEducation(resumeData, setResumeData)
               }}
               aria-label="Add"
               className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
         <MdAddCircle/>
       </button>
     </div>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Educations;
