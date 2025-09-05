@@ -61,7 +61,7 @@ const Project = ({project, index}) => {
             type="date"
             placeholder="Start Year"
             name="startYear"
-            className="other-input"
+            className="flex-1 m-0 other-input"
             value={project.startYear}
             onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
@@ -70,7 +70,7 @@ const Project = ({project, index}) => {
             type="date"
             placeholder="End Year"
             name="endYear"
-            className="other-input"
+            className="flex-1 m-0 other-input"
             value={project.endYear}
             onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
