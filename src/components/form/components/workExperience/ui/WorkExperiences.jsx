@@ -1,42 +1,15 @@
 import FormButton from "./../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
+import {handleWorkExperience} from "../units/handleWorkExperience";
+import {addWorkExperience} from "../units/addWorkExperience";
+import {removeWorkExperience} from "../units/removeResumeExperience";
 
 const WorkExperiences = () => {
   const {
     resumeData,
     setResumeData,
   } = useContext(ResumeContext);
-
-  const handleWorkExperience = (e, index) => {
-    const newworkExperience = [...resumeData.workExperience];
-    newworkExperience[index][e.target.name] = e.target.value;
-    setResumeData({...resumeData, workExperience: newworkExperience});
-  };
-
-  const addWorkExperience = () => {
-    setResumeData({
-      ...resumeData,
-      workExperience: [
-        ...resumeData.workExperience,
-        {
-          company: "",
-          position: "",
-          description: "",
-          keyAchievements: "",
-          startYear: "",
-          endYear: "",
-        },
-      ],
-    });
-  };
-
-  const removeWorkExperience = (index) => {
-    const newworkExperience = [...resumeData.workExperience];
-    newworkExperience[index] = newworkExperience[newworkExperience.length - 1];
-    newworkExperience.pop();
-    setResumeData({...resumeData, workExperience: newworkExperience});
-  };
 
   return (
     <div className="flex-col-gap-2">
@@ -49,7 +22,9 @@ const WorkExperiences = () => {
             name="company"
             className="w-full other-input"
             value={workExperience.company}
-            onChange={(e) => handleWorkExperience(e, index)}
+            onChange={(e) =>
+              handleWorkExperience(resumeData, setResumeData, e, index)
+            }
           />
           <input
             type="text"
@@ -57,7 +32,9 @@ const WorkExperiences = () => {
             name="position"
             className="w-full other-input"
             value={workExperience.position}
-            onChange={(e) => handleWorkExperience(e, index)}
+            onChange={(e) =>
+              handleWorkExperience(resumeData, setResumeData, e, index)
+            }
           />
           <textarea
             type="text"
@@ -66,7 +43,9 @@ const WorkExperiences = () => {
             className="w-full other-input h-32"
             value={workExperience.description}
             maxLength="250"
-            onChange={(e) => handleWorkExperience(e, index)}
+            onChange={(e) =>
+              handleWorkExperience(resumeData, setResumeData, e, index)
+            }
           />
           <textarea
             type="text"
@@ -74,7 +53,9 @@ const WorkExperiences = () => {
             name="keyAchievements"
             className="w-full other-input h-40"
             value={workExperience.keyAchievements}
-            onChange={(e) => handleWorkExperience(e, index)}
+            onChange={(e) =>
+              handleWorkExperience(resumeData, setResumeData, e, index)
+            }
           />
           <div className="flex-wrap-gap-2">
             <input
@@ -83,7 +64,9 @@ const WorkExperiences = () => {
               name="startYear"
               className="other-input"
               value={workExperience.startYear}
-              onChange={(e) => handleWorkExperience(e, index)}
+              onChange={(e) =>
+                handleWorkExperience(resumeData, setResumeData, e, index)
+              }
             />
             <input
               type="date"
@@ -91,15 +74,22 @@ const WorkExperiences = () => {
               name="endYear"
               className="other-input"
               value={workExperience.endYear}
-              onChange={(e) => handleWorkExperience(e, index)}
+              onChange={(e) =>
+                handleWorkExperience(resumeData, setResumeData, e, index)
+              }
             />
           </div>
         </div>
       ))}
       <FormButton
         size={resumeData.workExperience.length}
-        add={addWorkExperience}
-        remove={removeWorkExperience}
+        add={() => {
+          addWorkExperience(resumeData, setResumeData)
+        }}
+        remove={() => {
+          // TODO add index
+          removeWorkExperience(resumeData, setResumeData)
+        }}
       />
     </div>
   );
