@@ -1,9 +1,8 @@
-import FormButton from "../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import {addSocialMedia} from "../units/addSocialMedia";
-import {removeSocialMedia} from "../units/removeSocialMedia";
 import SocialMedia from "../components/SocialMedia";
+import {MdAddCircle} from "react-icons/md";
 
 const SocialMedias = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -18,15 +17,14 @@ const SocialMedias = () => {
           index={index}
         />
       ))}
-      <FormButton
-        size={resumeData.socialMedia.length}
-        add={() => {
-          addSocialMedia(resumeData, setResumeData)
-        }}
-        remove={() => {
-          removeSocialMedia(resumeData, setResumeData)
-        }}
-      />
+      <button type="button"
+              onClick={() => {
+                addSocialMedia(resumeData, setResumeData)
+              }}
+              aria-label="Add"
+              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
+        <MdAddCircle/>
+      </button>
     </div>
   );
 };
