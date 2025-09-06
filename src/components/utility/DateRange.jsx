@@ -1,15 +1,25 @@
-const DateRange = ({ startYear, endYear, id }) => {
-    if (!startYear) {
-        return <p id={id} className="sub-content"></p>;
-    }
+const DateRange = ({startYear, endYear, id}) => {
+  // TODO make as an app param
+  const lang = 'en-Us' // 'default'
 
-    const start = new Date(startYear);
-    const end = new Date(endYear);
-    return (
-        <p id={id} className="sub-content">
-            {start.toLocaleString('default', { month: 'short' })}, {start.getFullYear()} - {end != "Invalid Date" ? end.toLocaleString('default', { month: 'short' }) + ', ' + end.getFullYear() : 'Present'}
-        </p>
-    );
+  if (!startYear) {
+    return <p id={id} className="sub-content"></p>;
+  }
+
+  const start = new Date(startYear);
+  const startStr = `${start.toLocaleString(lang, {month: 'short'})} ${start.getFullYear()}`
+  const end = new Date(endYear);
+  let endStr = 'Present'
+
+  if (end != "Invalid Date") {
+    endStr = `${end.toLocaleString(lang, {month: 'short'})} ${end.getFullYear()}`
+  }
+
+  return (
+    <p id={id} className="sub-content">
+      {startStr} — {endStr}
+    </p>
+  );
 };
 
 export default DateRange;
