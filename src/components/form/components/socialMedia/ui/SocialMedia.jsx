@@ -1,9 +1,9 @@
-import FormButton from "./FormButton";
-import React, { useContext } from "react";
-import {ResumeContext} from "../../builder";
+import FormButton from "../../FormButton";
+import React, {useContext} from "react";
+import {ResumeContext} from "../../../../builder";
 
 const SocialMedia = () => {
-  const { resumeData, setResumeData } = useContext(ResumeContext);
+  const {resumeData, setResumeData} = useContext(ResumeContext);
 
   // social media
   const handleSocialMedia = (e, index) => {
@@ -12,13 +12,13 @@ const SocialMedia = () => {
       "https://",
       ""
     );
-    setResumeData({ ...resumeData, socialMedia: newSocialMedia });
+    setResumeData({...resumeData, socialMedia: newSocialMedia});
   };
 
   const addSocialMedia = () => {
     setResumeData({
       ...resumeData,
-      socialMedia: [...resumeData.socialMedia, { socialMedia: "", link: "" }],
+      socialMedia: [...resumeData.socialMedia, {socialMedia: "", link: ""}],
     });
   };
 
@@ -26,7 +26,7 @@ const SocialMedia = () => {
     const newSocialMedia = [...resumeData.socialMedia];
     newSocialMedia[index] = newSocialMedia[newSocialMedia.length - 1];
     newSocialMedia.pop();
-    setResumeData({ ...resumeData, socialMedia: newSocialMedia });
+    setResumeData({...resumeData, socialMedia: newSocialMedia});
   };
 
   return (
