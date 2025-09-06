@@ -2,7 +2,7 @@ import FormButton from "../../FormButton";
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 
-const SocialMedia = () => {
+const SocialMedias = () => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
 
   // social media
@@ -61,4 +61,4 @@ const SocialMedia = () => {
   );
 };
 
-export default SocialMedia;
+export default SocialMedias;

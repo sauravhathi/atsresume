@@ -1,7 +1,7 @@
 import React from 'react';
 import LoadUnload from "../components/LoadUnload";
 import PersonalInformation from "../components/PersonalInformation";
-import SocialMedia from "../components/socialMedia/ui/SocialMedia";
+import SocialMedias from "../components/socialMedia/ui/SocialMedias";
 import Summary from "../components/Summary";
 import Educations from "../components/education/ui/Educations";
 import WorkExperiences from "../components/workExperience/ui/WorkExperiences";
@@ -15,7 +15,7 @@ const Form = () => {
     <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
       <LoadUnload/>
       <PersonalInformation/>
-      <SocialMedia/>
+      <SocialMedias/>
       <Summary/>
       <Educations/>
       <WorkExperiences/>
