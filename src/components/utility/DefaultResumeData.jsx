@@ -76,8 +76,14 @@ const DefaultResumeData = {
     }
   ],
   languages: [
-    "English",
-    "Hindi",
+    {
+      name: "English",
+      level: "C2"
+    },
+    {
+      name: "Hindi",
+      level: "Native"
+    }
   ],
   certifications: [
     "Certified Web Professional-Web Developer",

@@ -15,8 +15,8 @@ const LanguageLine = ({resumeData, setResumeData, lang, index}) => {
         placeholder={"Language"}
         name="language"
         className="w-full mb-0 other-input"
-        value={lang}
-        onChange={(e) => handleLanguage(resumeData, setResumeData, e, index, "languages")}
+        value={lang.name}
+        onChange={(e) => handleLanguage(resumeData, setResumeData, e, index)}
       />
       <button
         type="button"
