@@ -22,21 +22,6 @@ export default function Builder() {
   // form hide/show
   const [formClose, setFormClose] = useState(false);
 
-  // profile picture
-  const handleProfilePicture = (e) => {
-    const file = e.target.files[0];
-
-    if (file instanceof Blob) {
-      const reader = new FileReader();
-      reader.onload = (event) => {
-        setResumeData({...resumeData, profilePicture: event.target.result});
-      };
-      reader.readAsDataURL(file);
-    } else {
-      console.error("Invalid file type");
-    }
-  };
-
   const handleChange = (e) => {
     setResumeData({...resumeData, [e.target.name]: e.target.value});
     console.log(resumeData);
@@ -48,7 +33,6 @@ export default function Builder() {
         value={{
           resumeData,
           setResumeData,
-          handleProfilePicture,
           handleChange,
         }}
       >

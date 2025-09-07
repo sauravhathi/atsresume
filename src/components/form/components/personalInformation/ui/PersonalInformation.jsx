@@ -1,8 +1,9 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
+import {handleProfilePicture} from "../utils/handleProfilePicture";
 
 const PersonalInformation = ({}) => {
-  const {resumeData, setResumeData, handleProfilePicture, handleChange} =
+  const {resumeData, setResumeData, handleChange} =
     useContext(ResumeContext);
 
   return (
@@ -56,7 +57,9 @@ const PersonalInformation = ({}) => {
           name="profileImage"
           accept="image/*"
           className="profileInput"
-          onChange={handleProfilePicture}
+          onChange={(e) => {
+            handleProfilePicture(resumeData, setResumeData, e)
+          }}
           placeholder="Profile Picture"
         />
       </div>
