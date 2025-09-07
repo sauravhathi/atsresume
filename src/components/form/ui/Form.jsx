@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import LoadUnload from "../components/LoadUnload";
-import PersonalInformation from "../components/PersonalInformation";
+import PersonalInformation from "../components/personalInformation/ui/PersonalInformation";
 import SocialMedias from "../components/socialMedia/ui/SocialMedias";
 import Summary from "../components/Summary";
 import Educations from "../components/education/ui/Educations";
