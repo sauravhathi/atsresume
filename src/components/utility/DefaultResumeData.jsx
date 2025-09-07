@@ -72,7 +72,7 @@ const DefaultResumeData = {
       title: "Additional Skills",
       skills: [
         "Public Speaking", "Writing", "Research"
-      ] 
+      ]
     }
   ],
   languages: [
@@ -83,6 +83,7 @@ const DefaultResumeData = {
     "Certified Web Professional-Web Developer",
     "Java Development Certified Professional",
   ],
+  navigationActiveIdx: 0
 };
 
 export default DefaultResumeData;
