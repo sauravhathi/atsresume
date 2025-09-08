@@ -1,7 +1,7 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
-import {handleProfilePicture} from "../utils/handleProfilePicture";
 import ParamBlock from "../components/ParamBlock";
+import PhotoUploader from "../components/PhotoUploader";
 
 const PersonalInformation = ({}) => {
   const {resumeData, setResumeData, handleChange} =
@@ -11,6 +11,7 @@ const PersonalInformation = ({}) => {
     <div className="flex-col-gap-2">
       <h2 className="input-title">Personal Information</h2>
       <div className="flex flex-col gap-2">
+        <PhotoUploader/>
         <ParamBlock>
           <label htmlFor={"personalInfo-fullName"}>Full name</label>
           <input
@@ -71,20 +72,6 @@ const PersonalInformation = ({}) => {
             className="pi"
             value={resumeData.address}
             onChange={handleChange}
-          />
-        </ParamBlock>
-        <ParamBlock>
-          <label htmlFor="personalInfo-phote">Photo</label>
-          <input
-            id={"personalInfo-photo"}
-            type="file"
-            name="profileImage"
-            accept="image/*"
-            className="profileInput"
-            onChange={(e) => {
-              handleProfilePicture(resumeData, setResumeData, e)
-            }}
-            placeholder="Profile Picture"
           />
         </ParamBlock>
       </div>
