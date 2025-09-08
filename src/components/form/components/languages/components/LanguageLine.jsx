@@ -2,6 +2,9 @@ import React from 'react';
 import {handleLanguage} from "../utils/handleLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeLanguage} from "../utils/removeLanguage";
+import Dropdown from "./Dropdown";
+import {LANGUAGE_LEVELS} from "../constants/languages";
+import {handleLanguageLevel} from "../utils/handleLanguageLevel";
 
 const LanguageLine = ({resumeData, setResumeData, lang, index}) => {
   // TODO replace hardcoded variables
@@ -17,6 +20,13 @@ const LanguageLine = ({resumeData, setResumeData, lang, index}) => {
         className="w-full mb-0 other-input"
         value={lang.name}
         onChange={(e) => handleLanguage(resumeData, setResumeData, e, index)}
+      />
+      <Dropdown
+        options={LANGUAGE_LEVELS}
+        activeOption={resumeData.languages[index].level}
+        onChange={(newLevel) => {
+          handleLanguageLevel(resumeData, setResumeData, index, newLevel)
+        }}
       />
       <button
         type="button"
