@@ -1,6 +1,7 @@
 import React, {useContext} from "react";
 import {ResumeContext} from "../../../../builder";
 import {handleProfilePicture} from "../utils/handleProfilePicture";
+import ParamBlock from "../components/ParamBlock";
 
 const PersonalInformation = ({}) => {
   const {resumeData, setResumeData, handleChange} =
@@ -9,59 +10,83 @@ const PersonalInformation = ({}) => {
   return (
     <div className="flex-col-gap-2">
       <h2 className="input-title">Personal Information</h2>
-      <div className="grid-4">
-        <input
-          type="text"
-          placeholder="Full Name"
-          name="name"
-          className="pi"
-          value={resumeData.name}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Job Title"
-          name="position"
-          className="pi"
-          value={resumeData.position}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Contact Information"
-          name="contactInformation"
-          className="pi"
-          value={resumeData.contactInformation}
-          onChange={handleChange}
-          minLength="10"
-          maxLength="15"
-        />
-        <input
-          type="email"
-          placeholder="Email"
-          name="email"
-          className="pi"
-          value={resumeData.email}
-          onChange={handleChange}
-        />
-        <input
-          type="text"
-          placeholder="Address"
-          name="address"
-          className="pi"
-          value={resumeData.address}
-          onChange={handleChange}
-        />
-        <input
-          type="file"
-          name="profileImage"
-          accept="image/*"
-          className="profileInput"
-          onChange={(e) => {
-            handleProfilePicture(resumeData, setResumeData, e)
-          }}
-          placeholder="Profile Picture"
-        />
+      <div className="flex flex-col gap-2">
+        <ParamBlock>
+          <label htmlFor={"personalInfo-fullName"}>Full name</label>
+          <input
+            id={"personalInfo-fullName"}
+            type="text"
+            placeholder="Full Name"
+            name="name"
+            className="pi"
+            value={resumeData.name}
+            onChange={handleChange}
+          />
+        </ParamBlock>
+        <ParamBlock>
+          <label htmlFor={"personalInfo-jobTitle"}>Job title</label>
+          <input
+            id={"personalInfo-jobTitle"}
+            type="text"
+            placeholder="Job Title"
+            name="position"
+            className="pi"
+            value={resumeData.position}
+            onChange={handleChange}
+          />
+        </ParamBlock>
+        <ParamBlock>
+          <label htmlFor={"personalInfo-phone"}>Phone</label>
+          <input
+            id={"personalInfo-phone"}
+            type="text"
+            placeholder="Phone number"
+            name="contactInformation"
+            className="pi"
+            value={resumeData.contactInformation}
+            onChange={handleChange}
+            minLength="10"
+            maxLength="15"
+          />
+        </ParamBlock>
+        <ParamBlock>
+          <label htmlFor={"personalInfo-email"}>Email</label>
+          <input
+            id={"personalInfo-email"}
+            type="email"
+            placeholder="Email"
+            name="email"
+            className="pi"
+            value={resumeData.email}
+            onChange={handleChange}
+          />
+        </ParamBlock>
+        <ParamBlock>
+          <label htmlFor="personalInfo-address">Address</label>
+          <input
+            id={"personalInfo-address"}
+            type="text"
+            placeholder="Address"
+            name="address"
+            className="pi"
+            value={resumeData.address}
+            onChange={handleChange}
+          />
+        </ParamBlock>
+        <ParamBlock>
+          <label htmlFor="personalInfo-phote">Photo</label>
+          <input
+            id={"personalInfo-photo"}
+            type="file"
+            name="profileImage"
+            accept="image/*"
+            className="profileInput"
+            onChange={(e) => {
+              handleProfilePicture(resumeData, setResumeData, e)
+            }}
+            placeholder="Profile Picture"
+          />
+        </ParamBlock>
       </div>
     </div>
   );

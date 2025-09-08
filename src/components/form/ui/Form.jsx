@@ -56,7 +56,10 @@ const Form = () => {
 
   return (
     <form
-      className="flex flex-col justify-between bg-fuchsia-600 exclude-print md:w-[400px] md:h-screen"
+      className={
+        "form " +
+        "flex flex-col justify-between bg-fuchsia-600 exclude-print md:w-[400px] md:h-screen"
+      }
     >
       <LoadUnload/>
       <div

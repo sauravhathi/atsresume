@@ -3,7 +3,6 @@
 @tailwind utilities;
 
 @layer base {
-    
     body {
         @apply font-[sans-serif];
     }
@@ -28,90 +27,94 @@
         @apply focus:outline-none;
     }
 
-    .ul-padding{
+    .ul-padding {
         padding-inline-start: 0.9rem;
     }
 
-    .ul-padding-none{
+    .ul-padding-none {
         padding-inline-start: 0;
     }
 }
 
-@layer components{
-    .pi{
+@layer components {
+    .form label {
+        @apply block text-gray-200 font-medium;
+    }
+
+    .pi {
         @apply p-2 mb-2 text-black bg-white rounded text-[0.9rem];
     }
 
-    .profileInput{
+    .profileInput {
         @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
     }
 
-    .flex-col-gap-2{
+    .flex-col-gap-2 {
         @apply flex flex-col gap-2;
     }
 
-    .flex-wrap-gap-2{
+    .flex-wrap-gap-2 {
         @apply flex flex-wrap gap-2;
     }
 
-    .other-input{
+    .other-input {
         @apply p-2 mb-2 text-black bg-white rounded focus:placeholder-transparent;
     }
 
-    .input-title{
+    .input-title {
         @apply text-[1rem] text-white font-semibold;
     }
 
-    .f-col{
+    .f-col {
         @apply flex flex-col;
     }
 
-    .grid-4{
+    .grid-4 {
         @apply grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4;
     }
 
-    .editable{
+    .editable {
         @apply hover:bg-gray-100 hover:cursor-text outline-none;
     }
 
 }
 
-.name{
+.name {
     font-size: 20px;
     font-weight: 700;
 }
 
-.profession{
+.profession {
     font-size: 16px;
     font-weight: 500;
 }
 
-.contact{
+.contact {
     font-size: 14px;
     font-weight: 400;
 }
 
-.social-media{
+.social-media {
     font-size: 12px;
     font-weight: 400;
 }
 
-.section-title{
+.section-title {
     font-size: 16px;
     font-weight: 700;
 }
 
-.content{
+.content {
     font-size: 14px;
     font-weight: 400;
 }
 
-.sub-content{
+.sub-content {
     font-size: 12px;
     font-weight: 400;
 }
 
-.i-bold{
+.i-bold {
     font-weight: 700 !important;
 }
 
