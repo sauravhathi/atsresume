@@ -1,4 +1,4 @@
-import Skills from "../components/Skills";
+import Skills from "../components/skills/ui/Skills";
 import DateRange from "../../utility/DateRange";
 import Language from "../components/Language";
 import Certification from "../components/Certification";
