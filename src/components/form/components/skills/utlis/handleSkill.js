@@ -8,7 +8,7 @@ export const handleSkill = (e, index, title, resumeData, setResumeData) => {
   setResumeData((prevData) => ({
     ...prevData,
     skills: prevData.skills.map((skill) =>
-      skill.title === title ? { ...skill, skills: newSkills } : skill
+      skill.title === title ? { ...skill, skills: newSkills } : skill,
     ),
   }));
 };

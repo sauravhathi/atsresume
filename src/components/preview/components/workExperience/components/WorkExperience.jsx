@@ -1,17 +1,17 @@
 import React from 'react';
-import DateRange from "../../../../utility/DateRange";
-import dynamic from "next/dynamic";
+import DateRange from '../../../../utility/DateRange';
+import dynamic from 'next/dynamic';
 
 const Droppable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Droppable),
-  {ssr: false}
+  () => import('react-beautiful-dnd').then((mod) => mod.Droppable),
+  { ssr: false },
 );
 const Draggable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Draggable),
-  {ssr: false}
+  () => import('react-beautiful-dnd').then((mod) => mod.Draggable),
+  { ssr: false },
 );
 
-const WorkExperience = ({item, index}) => {
+const WorkExperience = ({ item, index }) => {
   return (
     <Draggable
       key={`${item.company}-${index}`}
@@ -25,7 +25,7 @@ const WorkExperience = ({item, index}) => {
           {...provided.dragHandleProps}
           className={`mb-1 ${
             snapshot.isDragging &&
-            "outline-dashed outline-2 outline-gray-400 bg-white"
+            'outline-dashed outline-2 outline-gray-400 bg-white'
           }`}
         >
           <div className="flex flex-row justify-between space-y-1">
@@ -49,9 +49,9 @@ const WorkExperience = ({item, index}) => {
                 {...provided.droppableProps}
                 ref={provided.innerRef}
               >
-                {typeof item.keyAchievements === "string" &&
+                {typeof item.keyAchievements === 'string' &&
                   item.keyAchievements
-                    .split("\n")
+                    .split('\n')
                     .map((achievement, subIndex) => (
                       <Draggable
                         key={`${item.company}-${index}-${subIndex}`}
@@ -66,9 +66,9 @@ const WorkExperience = ({item, index}) => {
                             className={`
                                           hover:outline-dashed hover:outline-2 hover:outline-gray-400
                                           ${
-                              snapshot.isDragging &&
-                              "outline-dashed outline-2 outline-gray-400 bg-white"
-                            }`}
+                                            snapshot.isDragging &&
+                                            'outline-dashed outline-2 outline-gray-400 bg-white'
+                                          }`}
                           >
                             <div
                               dangerouslySetInnerHTML={{

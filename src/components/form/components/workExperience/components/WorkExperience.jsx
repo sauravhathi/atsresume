@@ -1,19 +1,15 @@
-import React, {useContext} from 'react';
-import {handleWorkExperience} from "../units/handleWorkExperience";
-import {ResumeContext} from "../../../../builder";
-import {BsTrash3} from "react-icons/bs";
-import {removeWorkExperience} from "../units/removeResumeExperience";
+import React, { useContext } from 'react';
+import { handleWorkExperience } from '../units/handleWorkExperience';
+import { ResumeContext } from '../../../../builder';
+import { BsTrash3 } from 'react-icons/bs';
+import { removeWorkExperience } from '../units/removeResumeExperience';
 
-const WorkExperience = ({workExperience, index}) => {
-  const {resumeData, setResumeData,} = useContext(ResumeContext);
+const WorkExperience = ({ workExperience, index }) => {
+  const { resumeData, setResumeData } = useContext(ResumeContext);
 
   return (
-    <div
-      className="flex w-fill gap-5 items-top"
-    >
-      <div
-        className="flex-1"
-      >
+    <div className="flex w-fill gap-5 items-top">
+      <div className="flex-1">
         <input
           type="text"
           placeholder="Company"
@@ -55,9 +51,7 @@ const WorkExperience = ({workExperience, index}) => {
             handleWorkExperience(resumeData, setResumeData, e, index)
           }
         />
-        <div
-          className={"w-fill flex-wrap-gap-2"}
-        >
+        <div className={'w-fill flex-wrap-gap-2'}>
           <input
             type="date"
             placeholder="Start Year"
@@ -83,12 +77,12 @@ const WorkExperience = ({workExperience, index}) => {
       <button
         type="button"
         onClick={() => {
-          removeWorkExperience(resumeData, setResumeData, index)
+          removeWorkExperience(resumeData, setResumeData, index);
         }}
         aria-label="Remove"
         className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
       >
-        <BsTrash3/>
+        <BsTrash3 />
       </button>
     </div>
   );

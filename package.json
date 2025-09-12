@@ -30,6 +30,7 @@
     "eslint-plugin-prettier": "^5",
     "eslint-plugin-react": "^7",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "espree": "^10.4.0",
     "globals": "^10.4.0",
     "postcss": "^8.4.21",
     "prettier": "^3",

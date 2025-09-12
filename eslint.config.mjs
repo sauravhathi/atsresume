@@ -1,6 +1,3 @@
-
-
-
 import js from "@eslint/js";
 import globals from "globals";
 import tseslint from "typescript-eslint";
@@ -10,6 +7,8 @@ import prettierPlugin from "eslint-plugin-prettier";
 import prettierConfig from "eslint-config-prettier";
 import nextPlugin from "@next/eslint-plugin-next";
 import jsxA11y from "eslint-plugin-jsx-a11y";
+// import espree from 'espree';
+
 
 export default [
   {
@@ -32,7 +31,9 @@ export default [
   },
 
   {
-    files: ["**/*.{js,jsx,ts,tsx}"],
+    // TODO change for the TS project
+    // files: ["**/*.{js,jsx,ts,tsx}"],
+    files: ["**/*.{js,jsx}"],
     languageOptions: {
       globals: {
         ...globals.browser,
@@ -50,12 +51,24 @@ export default [
       "jsx-a11y": jsxA11y,
       prettier: prettierPlugin,
     },
+    // files: ['**/*.{js,jsx}'],
+    // languageOptions: {
+    //   parser: espree,
+    //   parserOptions: {
+    //     ecmaVersion: 'latest',
+    //     sourceType: 'module',
+    //     ecmaFeatures: { jsx: true },
+    //   },
+    // },
+    // plugins: { react, 'react-hooks': reactHooks, 'jsx-a11y': jsxA11y }, // при необходимости
     rules: {
       ...react.configs.recommended.rules,
       ...reactHooks.configs.recommended.rules,
       ...jsxA11y.configs.recommended.rules,
       "prettier/prettier": "error",
       "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off", // TODO delete with TS
+      "react/require-default-props": "off", // TODO delete with TS
       // Необязательно: смягчить правило под Next.js <Link>
       // "jsx-a11y/anchor-is-valid": ["warn", {
       //   "components": ["Link"],

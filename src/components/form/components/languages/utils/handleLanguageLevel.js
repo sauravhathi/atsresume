@@ -1,5 +1,10 @@
-export function handleLanguageLevel(resumeData, setResumeData, index, newLevel) {
+export function handleLanguageLevel(
+  resumeData,
+  setResumeData,
+  index,
+  newLevel,
+) {
   const newLanguages = [...resumeData.languages];
   newLanguages[index].level = newLevel;
-  setResumeData({...resumeData, languages: newLanguages});
+  setResumeData({ ...resumeData, languages: newLanguages });
 }

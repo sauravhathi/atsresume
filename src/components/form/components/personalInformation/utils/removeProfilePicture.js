@@ -1,3 +1,3 @@
 export function removeProfilePicture(resumeData, setResumeData) {
-  setResumeData({...resumeData, profilePicture: ""});
+  setResumeData({ ...resumeData, profilePicture: '' });
 }

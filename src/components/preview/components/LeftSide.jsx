@@ -1,16 +1,16 @@
-import Skills from "../components/skills/ui/Skills";
-import DateRange from "../../utility/DateRange";
-import Language from "../components/Language";
-import Certification from "../components/Certification";
-import dynamic from "next/dynamic";
+import Skills from '../components/skills/ui/Skills';
+import DateRange from '../../utility/DateRange';
+import Language from '../components/Language';
+import Certification from '../components/Certification';
+import dynamic from 'next/dynamic';
 
 const Droppable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Droppable),
-  { ssr: false }
+  () => import('react-beautiful-dnd').then((mod) => mod.Droppable),
+  { ssr: false },
 );
 const Draggable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Draggable),
-  { ssr: false }
+  () => import('react-beautiful-dnd').then((mod) => mod.Draggable),
+  { ssr: false },
 );
 
 const LeftSide = ({ resumeData }) => {
@@ -60,7 +60,7 @@ const LeftSide = ({ resumeData }) => {
                     {...provided.dragHandleProps}
                     className={`mb-1 ${
                       snapshot.isDragging &&
-                      "outline-dashed outline-2 outline-gray-400 bg-white"
+                      'outline-dashed outline-2 outline-gray-400 bg-white'
                     }`}
                   >
                     <Skills title={skill.title} skills={skill.skills} />

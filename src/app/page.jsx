@@ -1,10 +1,10 @@
 import React from 'react';
-import Builder from "../components/builder";
+import Builder from '../components/builder';
 
 const Page = () => {
   return (
     <div>
-      <Builder/>
+      <Builder />
     </div>
   );
 };

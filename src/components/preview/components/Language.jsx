@@ -1,4 +1,4 @@
-const Language = ({title, languages}) => {
+const Language = ({ title, languages }) => {
   return (
     languages.length > 0 && (
       <div>
@@ -6,12 +6,12 @@ const Language = ({title, languages}) => {
           {title}
         </h2>
         {languages.map((lang, index) => {
-          const languageStr = `${lang.name || "Noname"}: ${lang.level}`
+          const languageStr = `${lang.name || 'Noname'}: ${lang.level}`;
           return (
-            <p
-              key={index}
-              className="sub-content"
-            >{languageStr}</p>)
+            <p key={index} className="sub-content">
+              {languageStr}
+            </p>
+          );
         })}
       </div>
     )

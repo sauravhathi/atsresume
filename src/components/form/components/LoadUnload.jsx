@@ -1,6 +1,6 @@
-import { FaCloudUploadAlt, FaCloudDownloadAlt } from "react-icons/fa";
-import React, { useContext } from "react";
-import {ResumeContext} from "../../builder";
+import { FaCloudUploadAlt, FaCloudDownloadAlt } from 'react-icons/fa';
+import React, { useContext } from 'react';
+import { ResumeContext } from '../../builder';
 
 const LoadUnload = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -20,8 +20,8 @@ const LoadUnload = () => {
   const handleDownload = (data, filename, event) => {
     event.preventDefault();
     const jsonData = JSON.stringify(data);
-    const blob = new Blob([jsonData], { type: "application/json" });
-    const link = document.createElement("a");
+    const blob = new Blob([jsonData], { type: 'application/json' });
+    const link = document.createElement('a');
     link.href = URL.createObjectURL(blob);
     link.download = filename;
     link.click();
@@ -50,8 +50,8 @@ const LoadUnload = () => {
           onClick={(event) =>
             handleDownload(
               resumeData,
-              resumeData.name + " by ATSResume.json",
-              event
+              resumeData.name + ' by ATSResume.json',
+              event,
             )
           }
         >

@@ -1,14 +1,11 @@
-import React, {useContext} from "react";
-import {ResumeContext} from "../../../../builder";
-import WorkExperience from "../components/WorkExperience";
-import {MdAddCircle} from "react-icons/md";
-import {addWorkExperience} from "../units/addWorkExperience";
+import React, { useContext } from 'react';
+import { ResumeContext } from '../../../../builder';
+import WorkExperience from '../components/WorkExperience';
+import { MdAddCircle } from 'react-icons/md';
+import { addWorkExperience } from '../units/addWorkExperience';
 
 const WorkExperiences = () => {
-  const {
-    resumeData,
-    setResumeData,
-  } = useContext(ResumeContext);
+  const { resumeData, setResumeData } = useContext(ResumeContext);
 
   return (
     <div className="flex-col-gap-2">
@@ -20,14 +17,16 @@ const WorkExperiences = () => {
           index={index}
         />
       ))}
-      <button type="button"
-              onClick={() => {
-                // TODO add index
-                addWorkExperience(resumeData, setResumeData)
-              }}
-              aria-label="Add"
-              className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl">
-        <MdAddCircle/>
+      <button
+        type="button"
+        onClick={() => {
+          // TODO add index
+          addWorkExperience(resumeData, setResumeData);
+        }}
+        aria-label="Add"
+        className="p-2 w-[37px] text-white bg-fuchsia-700 rounded text-xl"
+      >
+        <MdAddCircle />
       </button>
     </div>
   );

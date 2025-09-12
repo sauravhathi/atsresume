@@ -1,21 +1,20 @@
-import React, {useContext} from "react";
-import {ResumeContext} from "../../../../builder";
-import ParamBlock from "../components/ParamBlock";
-import PhotoUploader from "../components/PhotoUploader";
+import React, { useContext } from 'react';
+import { ResumeContext } from '../../../../builder';
+import ParamBlock from '../components/ParamBlock';
+import PhotoUploader from '../components/PhotoUploader';
 
-const PersonalInformation = ({}) => {
-  const {resumeData, setResumeData, handleChange} =
-    useContext(ResumeContext);
+const PersonalInformation = () => {
+  const { resumeData, handleChange } = useContext(ResumeContext);
 
   return (
     <div className="flex-col-gap-2">
       <h2 className="input-title">Personal Information</h2>
       <div className="flex flex-col gap-2">
-        <PhotoUploader/>
+        <PhotoUploader />
         <ParamBlock>
-          <label htmlFor={"personalInfo-fullName"}>Full name</label>
+          <label htmlFor={'personalInfo-fullName'}>Full name</label>
           <input
-            id={"personalInfo-fullName"}
+            id={'personalInfo-fullName'}
             type="text"
             placeholder="Full Name"
             name="name"
@@ -25,9 +24,9 @@ const PersonalInformation = ({}) => {
           />
         </ParamBlock>
         <ParamBlock>
-          <label htmlFor={"personalInfo-jobTitle"}>Job title</label>
+          <label htmlFor={'personalInfo-jobTitle'}>Job title</label>
           <input
-            id={"personalInfo-jobTitle"}
+            id={'personalInfo-jobTitle'}
             type="text"
             placeholder="Job Title"
             name="position"
@@ -37,9 +36,9 @@ const PersonalInformation = ({}) => {
           />
         </ParamBlock>
         <ParamBlock>
-          <label htmlFor={"personalInfo-phone"}>Phone</label>
+          <label htmlFor={'personalInfo-phone'}>Phone</label>
           <input
-            id={"personalInfo-phone"}
+            id={'personalInfo-phone'}
             type="text"
             placeholder="Phone number"
             name="contactInformation"
@@ -51,9 +50,9 @@ const PersonalInformation = ({}) => {
           />
         </ParamBlock>
         <ParamBlock>
-          <label htmlFor={"personalInfo-email"}>Email</label>
+          <label htmlFor={'personalInfo-email'}>Email</label>
           <input
-            id={"personalInfo-email"}
+            id={'personalInfo-email'}
             type="email"
             placeholder="Email"
             name="email"
@@ -65,7 +64,7 @@ const PersonalInformation = ({}) => {
         <ParamBlock>
           <label htmlFor="personalInfo-address">Address</label>
           <input
-            id={"personalInfo-address"}
+            id={'personalInfo-address'}
             type="text"
             placeholder="Address"
             name="address"

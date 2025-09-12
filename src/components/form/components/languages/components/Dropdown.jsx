@@ -1,7 +1,6 @@
-import React from "react";
+import React from 'react';
 
-const Dropdown = ({options, activeOption, onChange}) => {
-
+const Dropdown = ({ options, activeOption, onChange }) => {
   const handleChange = (e) => {
     const value = e.target.value;
     if (onChange) {
@@ -28,10 +27,7 @@ const Dropdown = ({options, activeOption, onChange}) => {
         required
       >
         {options.map((option, idx) => (
-          <option
-            key={idx}
-            value={option}
-          >
+          <option key={idx} value={option}>
             {option}
           </option>
         ))}

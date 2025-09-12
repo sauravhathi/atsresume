@@ -4,10 +4,10 @@ export const handleProfilePicture = (resumeData, setResumeData, e) => {
   if (file instanceof Blob) {
     const reader = new FileReader();
     reader.onload = (event) => {
-      setResumeData({...resumeData, profilePicture: event.target.result});
+      setResumeData({ ...resumeData, profilePicture: event.target.result });
     };
     reader.readAsDataURL(file);
   } else {
-    console.error("Invalid file type");
+    console.error('Invalid file type');
   }
 };
