@@ -3,7 +3,7 @@ export const addEducation = (resumeData, setResumeData) => {
     ...resumeData,
     education: [
       ...resumeData.education,
-      {school: "", degree: "", startYear: "", endYear: ""},
+      { school: '', degree: '', startYear: '', endYear: '' },
     ],
   });
 };

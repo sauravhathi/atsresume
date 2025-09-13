@@ -1,23 +1,18 @@
-import React, {useContext} from 'react';
-import {handleProject} from "../utils/handleProject";
-import {ResumeContext} from "../../../../builder";
-import {removeLanguage} from "../../languages/utils/removeLanguage";
-import {BsTrash3} from "react-icons/bs";
-import {removeProject} from "../utils/removeProject";
+import React, { useContext } from 'react';
+import { handleProject } from '../utils/handleProject';
+import { ResumeContext } from '../../../../builder';
+import { BsTrash3 } from 'react-icons/bs';
+import { removeProject } from '../utils/removeProject';
 
-const Project = ({project, index}) => {
-  const {resumeData, setResumeData} = useContext(ResumeContext);
+const Project = ({ project, index }) => {
+  const { resumeData, setResumeData } = useContext(ResumeContext);
   // TODO add a title for each input
   // TODO change the "start year" to the "start date" for clarity (also in the name of variable)
   // TODO change the "end year" to the "end date" for clarity  (also in the name of variable)
 
   return (
-    <div
-      className="flex w-fill gap-5 items-top"
-    >
-      <div
-        className="flex-1"
-      >
+    <div className="flex w-fill gap-5 items-top">
+      <div className="flex-1">
         {/* Project name */}
         <input
           type="text"
@@ -79,12 +74,12 @@ const Project = ({project, index}) => {
       <button
         type="button"
         onClick={() => {
-          removeProject(resumeData, setResumeData, index)
+          removeProject(resumeData, setResumeData, index);
         }}
         aria-label="Remove"
         className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
       >
-        <BsTrash3/>
+        <BsTrash3 />
       </button>
     </div>
   );

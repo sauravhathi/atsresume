@@ -1,13 +1,21 @@
-import "../styles/globals.css";
+import '../styles/globals.css';
 
-export default function RootLayout({children}) {
+export const metadata = {
+  icons: {
+    icon: '/favicon.png',
+    shortcut: '/favicon.png',
+    apple: '/favicon.png',
+  },
+  title: 'IU Resume Editor',
+  description: 'Create your resume with ease',
+};
+
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
-    <body>
-    <div className={'content'}>
-      {children}
-    </div>
-    </body>
+      <body>
+        <div className={'content'}>{children}</div>
+      </body>
     </html>
   );
 }

@@ -1,3 +1,12 @@
-export const addLanguage = (resumeData, setResumeData, languageType) => {
-  setResumeData({ ...resumeData, [languageType]: [...resumeData[languageType], ""] });
+export const addLanguage = (resumeData, setResumeData) => {
+  setResumeData({
+    ...resumeData,
+    languages: [
+      ...resumeData.languages,
+      {
+        name: '',
+        level: 'Native',
+      },
+    ],
+  });
 };

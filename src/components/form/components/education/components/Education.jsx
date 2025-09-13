@@ -1,28 +1,22 @@
-import React, {useContext} from 'react';
-import {handleEducation} from "../units/handleEducation";
-import {ResumeContext} from "../../../../builder";
-import {BsTrash3} from "react-icons/bs";
-import {removeEducation} from "../units/removeEducation";
+import React, { useContext } from 'react';
+import { handleEducation } from '../units/handleEducation';
+import { ResumeContext } from '../../../../builder';
+import { BsTrash3 } from 'react-icons/bs';
+import { removeEducation } from '../units/removeEducation';
 
-const Education = ({education, index}) => {
-  const {resumeData, setResumeData} = useContext(ResumeContext);
+const Education = ({ education, index }) => {
+  const { resumeData, setResumeData } = useContext(ResumeContext);
 
   return (
-    <div
-      className="flex w-fill gap-5 items-top"
-    >
-      <div
-        className="flex-1"
-      >
+    <div className="flex w-fill gap-5 items-top">
+      <div className="flex-1">
         <input
           type="text"
           placeholder="School"
           name="school"
           className="w-full other-input"
           value={education.school}
-          onChange={(e) =>
-            handleEducation(resumeData, setResumeData, e, index)
-          }
+          onChange={(e) => handleEducation(resumeData, setResumeData, e, index)}
         />
         <input
           type="text"
@@ -30,9 +24,7 @@ const Education = ({education, index}) => {
           name="degree"
           className="w-full other-input"
           value={education.degree}
-          onChange={(e) =>
-            handleEducation(resumeData, setResumeData, e, index)
-          }
+          onChange={(e) => handleEducation(resumeData, setResumeData, e, index)}
         />
         <div className="flex-wrap-gap-2">
           <input
@@ -60,12 +52,12 @@ const Education = ({education, index}) => {
       <button
         type="button"
         onClick={() => {
-          removeEducation(resumeData, setResumeData, index)
+          removeEducation(resumeData, setResumeData, index);
         }}
         aria-label="Remove"
         className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
       >
-        <BsTrash3/>
+        <BsTrash3 />
       </button>
     </div>
   );

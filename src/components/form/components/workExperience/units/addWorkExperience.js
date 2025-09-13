@@ -4,12 +4,12 @@ export const addWorkExperience = (resumeData, setResumeData) => {
     workExperience: [
       ...resumeData.workExperience,
       {
-        company: "",
-        position: "",
-        description: "",
-        keyAchievements: "",
-        startYear: "",
-        endYear: "",
+        company: '',
+        position: '',
+        description: '',
+        keyAchievements: '',
+        startYear: '',
+        endYear: '',
       },
     ],
   });

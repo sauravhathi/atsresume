@@ -1,5 +1,5 @@
 export const handleCertificate = (resumeData, setResumeData, e, index) => {
-  const newSkills = [...resumeData["certifications"]];
+  const newSkills = [...resumeData['certifications']];
   newSkills[index] = e.target.value;
-  setResumeData({ ...resumeData, ["certifications"]: newSkills });
+  setResumeData({ ...resumeData, ['certifications']: newSkills });
 };

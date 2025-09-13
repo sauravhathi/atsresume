@@ -1,5 +1,6 @@
-export const handleLanguage = (resumeData, setResumeData, e, index, languageType) => {
-  const newSkills = [...resumeData[languageType]];
-  newSkills[index] = e.target.value;
-  setResumeData({...resumeData, [languageType]: newSkills});
+export const handleLanguage = (resumeData, setResumeData, e, index) => {
+  console.log(index, e.target.value);
+  const newLanguages = [...resumeData.languages];
+  newLanguages[index].name = e.target.value;
+  setResumeData({ ...resumeData, languages: newLanguages });
 };
