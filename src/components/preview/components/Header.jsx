@@ -1,6 +1,6 @@
-import Image from "next/image";
-import ContactInfo from "../components/ContactInfo";
-import { MdPhone, MdEmail, MdLocationOn } from "react-icons/md";
+import Image from 'next/image';
+import ContactInfo from '../components/ContactInfo';
+import { MdPhone, MdEmail, MdLocationOn } from 'react-icons/md';
 
 const Header = ({ resumeData, icons }) => {
   return (

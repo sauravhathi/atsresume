@@ -1,15 +1,15 @@
-import React, {useContext} from 'react';
-import dynamic from "next/dynamic";
-import {ResumeContext} from "../../../../builder";
-import WorkExperience from "../components/WorkExperience";
+import React, { useContext } from 'react';
+import dynamic from 'next/dynamic';
+import { ResumeContext } from '../../../../builder';
+import WorkExperience from '../components/WorkExperience';
 
 const Droppable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Droppable),
-  {ssr: false}
+  () => import('react-beautiful-dnd').then((mod) => mod.Droppable),
+  { ssr: false },
 );
 
 const WorkExperiences = () => {
-  const {resumeData} = useContext(ResumeContext);
+  const { resumeData } = useContext(ResumeContext);
 
   return (
     <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
@@ -23,10 +23,7 @@ const WorkExperiences = () => {
             Work Experience
           </h2>
           {resumeData.workExperience.map((item, index) => (
-            <WorkExperience
-              key={index}
-              item={item}
-            />
+            <WorkExperience key={index} item={item} />
           ))}
           {provided.placeholder}
         </div>

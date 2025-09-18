@@ -1,17 +1,21 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-const A4PageWrapper = ({children}) => {
+const A4PageWrapper = ({ children }) => {
   const alertA4Size = () => {
-    const preview = document.querySelector(".preview");
+    const preview = document.querySelector('.preview');
     const previewHeight = preview.offsetHeight;
     console.log(previewHeight);
     if (previewHeight > 1122) {
-      alert("A4 size exceeded");
+      alert('A4 size exceeded');
     }
   };
 
+  useEffect(() => {
+    alertA4Size();
+  }, []);
+
   return (
-    <div className="w-8.5in" onLoad={alertA4Size}>
+    <div className="w-[210mm] min-h-[297mm] p-5 box-border mx-auto bg-amber-50">
       {children}
     </div>
   );

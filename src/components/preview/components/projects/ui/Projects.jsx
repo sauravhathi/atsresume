@@ -1,20 +1,20 @@
-import React, {useContext} from 'react';
-import DateRange from "../../../../utility/DateRange";
-import Link from "next/link";
-import dynamic from "next/dynamic";
-import {ResumeContext} from "../../../../builder";
+import React, { useContext } from 'react';
+import DateRange from '../../../../utility/DateRange';
+import Link from 'next/link';
+import dynamic from 'next/dynamic';
+import { ResumeContext } from '../../../../builder';
 
 const Droppable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Droppable),
-  {ssr: false}
+  () => import('react-beautiful-dnd').then((mod) => mod.Droppable),
+  { ssr: false },
 );
 const Draggable = dynamic(
-  () => import("react-beautiful-dnd").then((mod) => mod.Draggable),
-  {ssr: false}
+  () => import('react-beautiful-dnd').then((mod) => mod.Draggable),
+  { ssr: false },
 );
 
 const Projects = () => {
-  const {resumeData} = useContext(ResumeContext);
+  const { resumeData } = useContext(ResumeContext);
   return (
     <Droppable droppableId="projects" type="PROJECTS">
       {(provided) => (
@@ -39,7 +39,7 @@ const Projects = () => {
                   {...provided.dragHandleProps}
                   className={`mb-1 ${
                     snapshot.isDragging &&
-                    "outline-dashed outline-2 outline-gray-400 bg-white"
+                    'outline-dashed outline-2 outline-gray-400 bg-white'
                   }`}
                 >
                   <div className="flex flex-row justify-between space-y-1">
@@ -71,9 +71,9 @@ const Projects = () => {
                         {...provided.droppableProps}
                         ref={provided.innerRef}
                       >
-                        {typeof item.keyAchievements === "string" &&
+                        {typeof item.keyAchievements === 'string' &&
                           item.keyAchievements
-                            .split("\n")
+                            .split('\n')
                             .map((achievement, subIndex) => (
                               <Draggable
                                 key={`${item.name}-${index}-${subIndex}`}
@@ -88,9 +88,9 @@ const Projects = () => {
                                     className={`
                                           hover:outline-dashed hover:outline-2 hover:outline-gray-400
                                           ${
-                                      snapshot.isDragging &&
-                                      "outline-dashed outline-2 outline-gray-400 bg-white"
-                                    }`}
+                                            snapshot.isDragging &&
+                                            'outline-dashed outline-2 outline-gray-400 bg-white'
+                                          }`}
                                   >
                                     <div
                                       dangerouslySetInnerHTML={{

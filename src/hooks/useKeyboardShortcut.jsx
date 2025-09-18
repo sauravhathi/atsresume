@@ -3,7 +3,10 @@ import { useEffect } from 'react';
 const useKeyboardShortcut = (key, ctrlKey, callback) => {
   useEffect(() => {
     const handleKeyDown = (event) => {
-      if (event.key.toLowerCase() === key.toLowerCase() && event.ctrlKey === ctrlKey) {
+      if (
+        event.key.toLowerCase() === key.toLowerCase() &&
+        event.ctrlKey === ctrlKey
+      ) {
         event.preventDefault();
         callback();
       }
@@ -15,7 +18,5 @@ const useKeyboardShortcut = (key, ctrlKey, callback) => {
     };
   }, [key, ctrlKey, callback]);
 };
-
-
 
 export default useKeyboardShortcut;

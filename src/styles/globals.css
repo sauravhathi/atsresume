@@ -3,9 +3,13 @@
 @tailwind utilities;
 
 @layer base {
-    
     body {
         @apply font-[sans-serif];
+    }
+
+    :root {
+        --form-bg-main: rgba(17, 24, 39, 0.5);
+        --form-bg-secondary: rgba(17, 24, 39, 0.2);
     }
 
     ::-webkit-scrollbar {
@@ -28,91 +32,137 @@
         @apply focus:outline-none;
     }
 
-    .ul-padding{
+    .ul-padding {
         padding-inline-start: 0.9rem;
     }
 
-    .ul-padding-none{
+    .ul-padding-none {
         padding-inline-start: 0;
     }
 }
 
-@layer components{
-    .pi{
+@layer components {
+    .form label {
+        @apply block text-gray-200 font-medium;
+    }
+
+    .form input {
+        @apply w-full h-10 p-2 mb-2 text-slate-50 bg-transparent rounded-lg focus:placeholder-transparent border border-gray-300;
+    }
+
+    .form textarea {
+        @apply w-full min-h-10 p-2 mb-2 text-slate-50 bg-transparent rounded-lg focus:placeholder-transparent border border-gray-300;
+    }
+
+    .form select {
+        @apply w-full h-10 p-2 mb-2 text-slate-50 bg-transparent rounded-lg focus:placeholder-transparent border border-gray-300;
+    }
+
+    .form select option {
+        @apply text-black;
+    }
+
+    .pi {
         @apply p-2 mb-2 text-black bg-white rounded text-[0.9rem];
     }
 
-    .profileInput{
+    .profileInput {
         @apply pi file:border-0 file:bg-fuchsia-500 file:text-white file:rounded-sm;
     }
 
-    .flex-col-gap-2{
+    .flex-col-gap-2 {
         @apply flex flex-col gap-2;
     }
 
-    .flex-wrap-gap-2{
+    .flex-wrap-gap-2 {
         @apply flex flex-wrap gap-2;
     }
 
-    .other-input{
+    .other-input {
         @apply p-2 mb-2 text-black bg-white rounded focus:placeholder-transparent;
     }
 
-    .input-title{
+    .input-title {
         @apply text-[1rem] text-white font-semibold;
     }
 
-    .f-col{
+    .f-col {
         @apply flex flex-col;
     }
 
-    .grid-4{
+    .grid-4 {
         @apply grid grid-cols-[repeat(auto-fit,minmax(150px,1fr))] gap-4;
     }
 
-    .editable{
+    .editable {
         @apply hover:bg-gray-100 hover:cursor-text outline-none;
     }
 
 }
 
-.name{
+.name {
     font-size: 20px;
     font-weight: 700;
 }
 
-.profession{
+.profession {
     font-size: 16px;
     font-weight: 500;
 }
 
-.contact{
+.contact {
     font-size: 14px;
     font-weight: 400;
 }
 
-.social-media{
+.social-media {
     font-size: 12px;
     font-weight: 400;
 }
 
-.section-title{
+.section-title {
     font-size: 16px;
     font-weight: 700;
 }
 
-.content{
+.content {
     font-size: 14px;
     font-weight: 400;
 }
 
-.sub-content{
+.sub-content {
     font-size: 12px;
     font-weight: 400;
 }
 
-.i-bold{
+.i-bold {
     font-weight: 700 !important;
+}
+
+.menu {
+    ul, li {
+        font-size: 20px;
+        color: white;
+    }
+
+    ul {
+        display: flex;
+        flex-direction: column;
+    }
+
+    li {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+
+    li:hover {
+        background-color: rgba(23, 0, 92, 0.2);
+        color: #fdeeff;
+    }
 }
 
 @media print {
