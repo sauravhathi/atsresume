@@ -2,17 +2,16 @@ import React from 'react';
 import {handleLanguage} from "../utils/handleLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeLanguage} from "../utils/removeLanguage";
+import i18n from "../../../../../translations";
 
 const LanguageLine = ({resumeData, setResumeData, lang, index}) => {
-  // TODO replace hardcoded variables
-
   return (
     <div
       className="flex gap-5 items-center"
     >
       <input
         type="text"
-        placeholder={"Language"}
+        placeholder={i18n.t("languages.language")}
         name="language"
         className="w-full mb-0 other-input"
         value={lang}

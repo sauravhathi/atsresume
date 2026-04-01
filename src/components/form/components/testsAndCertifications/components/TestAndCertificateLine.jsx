@@ -3,6 +3,7 @@ import {handleCertificate} from "../utils/handleCertificate";
 import {removeLanguage} from "../../languages/utils/removeLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeCertificate} from "../utils/removeCertificate";
+import i18n from "../../../../../translations";
 
 const TestAndCertificateLine = ({resumeData, setResumeData, cert, index}) => {
   return (
@@ -11,7 +12,7 @@ const TestAndCertificateLine = ({resumeData, setResumeData, cert, index}) => {
     >
       <input
         type="text"
-        placeholder={"Test or certificate"}
+        placeholder={i18n.t("testsAndCertifications.testOrCertificate")}
         name={"Certificate"}
         className="w-full mb-0 other-input"
         value={cert}

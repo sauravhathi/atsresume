@@ -3,6 +3,7 @@ import {handleEducation} from "../units/handleEducation";
 import {ResumeContext} from "../../../../builder";
 import {BsTrash3} from "react-icons/bs";
 import {removeEducation} from "../units/removeEducation";
+import i18n from "../../../../../translations";
 
 const Education = ({education, index}) => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -16,7 +17,7 @@ const Education = ({education, index}) => {
       >
         <input
           type="text"
-          placeholder="School"
+          placeholder={i18n.t("education.school")}
           name="school"
           className="w-full other-input"
           value={education.school}
@@ -26,7 +27,7 @@ const Education = ({education, index}) => {
         />
         <input
           type="text"
-          placeholder="Degree"
+          placeholder={i18n.t("education.degree")}
           name="degree"
           className="w-full other-input"
           value={education.degree}
@@ -37,7 +38,7 @@ const Education = ({education, index}) => {
         <div className="flex-wrap-gap-2">
           <input
             type="date"
-            placeholder="Start Year"
+            placeholder={i18n.t("education.startYear")}
             name="startYear"
             className="flex-1 m-0 other-input"
             value={education.startYear}
@@ -47,7 +48,7 @@ const Education = ({education, index}) => {
           />
           <input
             type="date"
-            placeholder="End Year"
+            placeholder={i18n.t("education.endYear")}
             name="endYear"
             className="flex-1 m-0 other-input"
             value={education.endYear}

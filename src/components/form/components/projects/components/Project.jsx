@@ -4,12 +4,10 @@ import {ResumeContext} from "../../../../builder";
 import {removeLanguage} from "../../languages/utils/removeLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeProject} from "../utils/removeProject";
+import i18n from "../../../../../translations";
 
 const Project = ({project, index}) => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
-  // TODO add a title for each input
-  // TODO change the "start year" to the "start date" for clarity (also in the name of variable)
-  // TODO change the "end year" to the "end date" for clarity  (also in the name of variable)
 
   return (
     <div
@@ -21,7 +19,7 @@ const Project = ({project, index}) => {
         {/* Project name */}
         <input
           type="text"
-          placeholder="Project Name"
+          placeholder={i18n.t("projects.projectName")}
           name="name"
           className="w-full other-input"
           value={project.name}
@@ -30,7 +28,7 @@ const Project = ({project, index}) => {
         {/* Link */}
         <input
           type="text"
-          placeholder="Link"
+          placeholder={i18n.t("projects.link")}
           name="link"
           className="w-full other-input"
           value={project.link}
@@ -39,7 +37,7 @@ const Project = ({project, index}) => {
         {/* Description */}
         <textarea
           type="text"
-          placeholder="Description"
+          placeholder={i18n.t("projects.description")}
           name="description"
           className="w-full other-input h-32"
           value={project.description}
@@ -49,7 +47,7 @@ const Project = ({project, index}) => {
         {/* Key achievements */}
         <textarea
           type="text"
-          placeholder="Key Achievements"
+          placeholder={i18n.t("projects.keyAchievements")}
           name="keyAchievements"
           className="w-full other-input h-40"
           value={project.keyAchievements}
@@ -59,7 +57,7 @@ const Project = ({project, index}) => {
         <div className="flex-wrap-gap-2">
           <input
             type="date"
-            placeholder="Start Year"
+            placeholder={i18n.t("projects.startYear")}
             name="startYear"
             className="flex-1 m-0 other-input"
             value={project.startYear}
@@ -68,7 +66,7 @@ const Project = ({project, index}) => {
           {/* End data */}
           <input
             type="date"
-            placeholder="End Year"
+            placeholder={i18n.t("projects.endYear")}
             name="endYear"
             className="flex-1 m-0 other-input"
             value={project.endYear}

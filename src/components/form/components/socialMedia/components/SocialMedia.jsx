@@ -4,6 +4,7 @@ import {ResumeContext} from "../../../../builder";
 import {removeLanguage} from "../../languages/utils/removeLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeSocialMedia} from "../units/removeSocialMedia";
+import i18n from "../../../../../translations";
 
 const SocialMedia = ({socialMedia, index}) => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
@@ -14,7 +15,7 @@ const SocialMedia = ({socialMedia, index}) => {
       >
         <input
           type="text"
-          placeholder="Social Media"
+          placeholder={i18n.t("socialMedia.platform")}
           name="socialMedia"
           className="w-full mb-0 other-input"
           value={socialMedia.socialMedia}
@@ -22,7 +23,7 @@ const SocialMedia = ({socialMedia, index}) => {
         />
         <input
           type="text"
-          placeholder="Link"
+          placeholder={i18n.t("socialMedia.link")}
           name="link"
           className="w-full mb-0 other-input"
           value={socialMedia.link}

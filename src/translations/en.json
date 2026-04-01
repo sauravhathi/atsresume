@@ -1,0 +1,60 @@
+{
+  "personalInformation": {
+    "title": "Personal Information",
+    "fullName": "Full Name",
+    "jobTitle": "Job Title",
+    "contactInformation": "Contact Information",
+    "email": "Email",
+    "address": "Address",
+    "profilePicture": "Profile Picture"
+  },
+  "workExperience": {
+    "title": "Work Experience",
+    "company": "Company",
+    "jobTitle": "Job Title",
+    "description": "Description",
+    "keyAchievements": "Key Achievements",
+    "startYear": "Start Year",
+    "endYear": "End Year"
+  },
+  "projects": {
+    "title": "Projects",
+    "projectName": "Project Name",
+    "link": "Link",
+    "description": "Description",
+    "keyAchievements": "Key Achievements",
+    "startYear": "Start Year",
+    "endYear": "End Year"
+  },
+  "education": {
+    "title": "Education",
+    "school": "School",
+    "degree": "Degree",
+    "startYear": "Start Year",
+    "endYear": "End Year"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "languages": {
+    "title": "Languages",
+    "language": "Language"
+  },
+  "socialMedia": {
+    "title": "Social Media",
+    "platform": "Social Media",
+    "link": "Link"
+  },
+  "testsAndCertifications": {
+    "title": "Tests and Certifications",
+    "testOrCertificate": "Test or certificate"
+  },
+  "summary": {
+    "title": "Summary",
+    "placeholder": "Summary"
+  },
+  "loadUnload": {
+    "loadData": "Load Data",
+    "saveData": "Save Data"
+  }
+}

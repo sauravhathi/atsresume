@@ -3,6 +3,7 @@ import {ResumeContext} from "../../../../builder";
 import WorkExperience from "../components/WorkExperience";
 import {MdAddCircle} from "react-icons/md";
 import {addWorkExperience} from "../units/addWorkExperience";
+import i18n from "../../../../../translations";
 
 const WorkExperiences = () => {
   const {
@@ -12,7 +13,7 @@ const WorkExperiences = () => {
 
   return (
     <div className="flex-col-gap-2">
-      <h2 className="input-title">Work Experience</h2>
+      <h2 className="input-title">{i18n.t("workExperience.title")}</h2>
       {resumeData.workExperience.map((workExperience, index) => (
         <WorkExperience
           key={index}

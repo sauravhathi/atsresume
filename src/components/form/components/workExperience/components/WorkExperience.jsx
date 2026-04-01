@@ -3,6 +3,7 @@ import {handleWorkExperience} from "../units/handleWorkExperience";
 import {ResumeContext} from "../../../../builder";
 import {BsTrash3} from "react-icons/bs";
 import {removeWorkExperience} from "../units/removeResumeExperience";
+import i18n from "../../../../../translations";
 
 const WorkExperience = ({workExperience, index}) => {
   const {resumeData, setResumeData,} = useContext(ResumeContext);
@@ -16,7 +17,7 @@ const WorkExperience = ({workExperience, index}) => {
       >
         <input
           type="text"
-          placeholder="Company"
+          placeholder={i18n.t("workExperience.company")}
           name="company"
           className="w-full other-input"
           value={workExperience.company}
@@ -26,7 +27,7 @@ const WorkExperience = ({workExperience, index}) => {
         />
         <input
           type="text"
-          placeholder="Job Title"
+          placeholder={i18n.t("workExperience.jobTitle")}
           name="position"
           className="w-full other-input"
           value={workExperience.position}
@@ -36,7 +37,7 @@ const WorkExperience = ({workExperience, index}) => {
         />
         <textarea
           type="text"
-          placeholder="Description"
+          placeholder={i18n.t("workExperience.description")}
           name="description"
           className="w-full other-input h-32"
           value={workExperience.description}
@@ -47,7 +48,7 @@ const WorkExperience = ({workExperience, index}) => {
         />
         <textarea
           type="text"
-          placeholder="Key Achievements"
+          placeholder={i18n.t("workExperience.keyAchievements")}
           name="keyAchievements"
           className="w-full other-input h-40"
           value={workExperience.keyAchievements}
@@ -60,7 +61,7 @@ const WorkExperience = ({workExperience, index}) => {
         >
           <input
             type="date"
-            placeholder="Start Year"
+            placeholder={i18n.t("workExperience.startYear")}
             name="startYear"
             className="flex-1 m-0 other-input"
             value={workExperience.startYear}
@@ -70,7 +71,7 @@ const WorkExperience = ({workExperience, index}) => {
           />
           <input
             type="date"
-            placeholder="End Year"
+            placeholder={i18n.t("workExperience.endYear")}
             name="endYear"
             className="flex-1 m-0 other-input"
             value={workExperience.endYear}

@@ -1,6 +1,7 @@
 import { FaCloudUploadAlt, FaCloudDownloadAlt } from "react-icons/fa";
 import React, { useContext } from "react";
 import {ResumeContext} from "../../builder";
+import i18n from "../../../translations";
 
 const LoadUnload = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
@@ -30,7 +31,7 @@ const LoadUnload = () => {
   return (
     <div className="flex flex-wrap gap-4 mb-2 justify-center">
       <div className="inline-flex flex-row items-center gap-2">
-        <h2 className="text-[1.2rem] text-white">Load Data</h2>
+        <h2 className="text-[1.2rem] text-white">{i18n.t("loadUnload.loadData")}</h2>
         <label className="p-2 text-white bg-fuchsia-700 rounded cursor-pointer">
           <FaCloudUploadAlt className="text-[1.2rem] text-white" />
           <input
@@ -43,7 +44,7 @@ const LoadUnload = () => {
         </label>
       </div>
       <div className="inline-flex flex-row items-center gap-2">
-        <h2 className="text-[1.2rem] text-white">Save Data</h2>
+        <h2 className="text-[1.2rem] text-white">{i18n.t("loadUnload.saveData")}</h2>
         <button
           aria-label="Save Data"
           className="p-2 text-white bg-fuchsia-700 rounded"
