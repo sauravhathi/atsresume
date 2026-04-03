@@ -1,7 +1,10 @@
+"use client";
+
 import React, {useContext} from 'react';
 import dynamic from "next/dynamic";
 import {ResumeContext} from "../../../../builder";
 import WorkExperience from "../components/WorkExperience";
+import { useTranslations } from "../../../../../i18n/I18nProvider";
 
 const Droppable = dynamic(
   () => import("react-beautiful-dnd").then((mod) => mod.Droppable),
@@ -10,6 +13,7 @@ const Droppable = dynamic(
 
 const WorkExperiences = () => {
   const {resumeData} = useContext(ResumeContext);
+  const t = useTranslations();
 
   return (
     <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
@@ -20,7 +24,7 @@ const WorkExperiences = () => {
             contentEditable
             suppressContentEditableWarning
           >
-            Work Experience
+            {t("preview.workExperience")}
           </h2>
           {resumeData.workExperience.map((item, index) => (
             <WorkExperience

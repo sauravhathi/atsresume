@@ -1,0 +1,205 @@
+{
+  "common": {
+    "add": "Add",
+    "remove": "Remove",
+    "save": "Save",
+    "load": "Load",
+    "saveData": "Save Data",
+    "loadData": "Load Data",
+    "formOpen": "Form Open",
+    "formClose": "Form Close",
+    "formOpenClose": "Form Open/Close"
+  },
+  "nav": {
+    "builder": "Builder",
+    "templates": "Templates",
+    "examples": "Examples"
+  },
+  "hero": {
+    "title": "Get hired with an ATS",
+    "titleHighlight": {
+      "optimized": "optimized",
+      "perfect": "Perfect",
+      "professional": "Professional"
+    },
+    "titleSuffix": "Resume.",
+    "subtitle": "ATSResume is an innovative resume builder that helps job seekers create a professional and optimized resume for applicant tracking systems. Our platform uses cutting-edge technology to analyze and optimize your resume for maximum visibility and success. Say goodbye to manual formatting frustration and wasted time, and Create your winning resume with ATSResume today and get noticed by employers.",
+    "cta": "Make My Resume"
+  },
+  "about": {
+    "features": "Features",
+    "atsOptimized": {
+      "title": "ATS-optimized",
+      "description": "Our platform uses cutting-edge technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems."
+    },
+    "easyToUse": {
+      "title": "Easy to use",
+      "description": "Our user-friendly interface makes it easy to build a professional, ATS-friendly resume in minutes. No more frustration or wasted time spent on manual formatting."
+    },
+    "free": {
+      "title": "Free",
+      "description": "Our platform is completely free to use. No hidden fees or subscriptions. Just create an account and start building your dream resume today!"
+    },
+    "mobileFriendly": {
+      "title": "Mobile-friendly",
+      "description": "Our platform is fully responsive and mobile-friendly, so you can build your resume on the go. No more waiting until you get home to work on your resume."
+    },
+    "downloadBackup": {
+      "title": "Download Backup Data",
+      "description": "Download your resume data in JSON format and store it in a safe place. You can use this data to restore your resume in the future."
+    },
+    "uploadBackup": {
+      "title": "Upload Backup Data",
+      "description": "Upload your resume data in JSON format to restore your resume. This is useful if you accidentally delete your resume or if you want to switch devices."
+    }
+  },
+  "personalInformation": {
+    "title": "Personal Information",
+    "fullName": "Full Name",
+    "jobTitle": "Job Title",
+    "contactInformation": "Contact Information",
+    "email": "Email",
+    "address": "Address",
+    "profilePicture": "Profile Picture"
+  },
+  "workExperience": {
+    "title": "Work Experience",
+    "company": "Company",
+    "jobTitle": "Job Title",
+    "description": "Description",
+    "keyAchievements": "Key Achievements",
+    "startYear": "Start Year",
+    "endYear": "End Year"
+  },
+  "projects": {
+    "title": "Projects",
+    "projectName": "Project Name",
+    "link": "Link",
+    "description": "Description",
+    "keyAchievements": "Key Achievements",
+    "startYear": "Start Year",
+    "endYear": "End Year"
+  },
+  "education": {
+    "title": "Education",
+    "school": "School",
+    "degree": "Degree",
+    "startYear": "Start Year",
+    "endYear": "End Year"
+  },
+  "skills": {
+    "title": "Skills"
+  },
+  "languages": {
+    "title": "Languages",
+    "language": "Language"
+  },
+  "socialMedia": {
+    "title": "Social Media",
+    "platform": "Social Media",
+    "link": "Link"
+  },
+  "testsAndCertifications": {
+    "title": "Tests and Certifications",
+    "testOrCertificate": "Test or certificate"
+  },
+  "summary": {
+    "title": "Summary",
+    "placeholder": "Summary"
+  },
+  "loadUnload": {
+    "loadData": "Load Data",
+    "saveData": "Save Data"
+  },
+  "preview": {
+    "summary": "Summary",
+    "education": "Education",
+    "languages": "Languages",
+    "certifications": "Certifications",
+    "workExperience": "Work Experience",
+    "projects": "Projects"
+  },
+  "a11y": {
+    "phoneNumber": "Phone Number",
+    "emailAddress": "Email Address",
+    "address": "Address",
+    "profile": "profile",
+    "socialMediaPlatform": "Social Media Platform"
+  },
+  "editor": {
+    "bold": "Bold (Ctrl+B)",
+    "italic": "Italic (Ctrl+I)",
+    "underline": "Underline (Ctrl+U)",
+    "increaseFontSize": "Increase Font Size",
+    "decreaseFontSize": "Decrease Font Size",
+    "alignLeft": "Align Left",
+    "alignCenter": "Align Center",
+    "alignRight": "Align Right"
+  },
+  "defaultResume": {
+    "name": "MARCUS HALL",
+    "position": "Developer",
+    "contactInformation": "+1-555-0100",
+    "email": "beddylea@gmail.com",
+    "address": "San Francisco, CA",
+    "summary": "Resourceful Developer with 11 years of experience in designing and developing user interfaces, testing and training employees. Skilled at utilizing a wide variety of tools and programs to provide effective applications.",
+    "socialMedia": {
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "website": "Website"
+    },
+    "education": {
+      "school": "New York University",
+      "degree": "Bachelor of Computer Science"
+    },
+    "workExperience": [
+      {
+        "company": "Torph TTC",
+        "position": "Developer",
+        "description": "Torph TTC is a global software company that offers user interface UI development tools and components for a range of developer applications across all platforms.",
+        "keyAchievements": "Created and maintained 10 web applications for numerous national and foreign clients.\nEnsured that the user interfaces and user experience of the software applications developed by the team met at least 80% of users expectations.\nCreated and analyzed 500 unit test cases.\nDeveloped python scripts to automate image's noise-reduction process which helped improve research analysis time by 40%.\nEstablished and lead a team of 10 people; covering every key role in the early stages.",
+        "startYear": "2023-02-16",
+        "endYear": "2025-08-21"
+      },
+      {
+        "company": "Reilty Group",
+        "position": "Front End Web Developer",
+        "description": "Reilty Group is an industry-leading provider of online gambling software and solutions.",
+        "keyAchievements": "Increased by 35% the reach of users to the platform, over the installation of the web platform in mobile devices.\nDelivered 30 web solutions.\nReplaced 1 full-time web developer under part-time employment achieving a productivity gain of over 60% as measured by working hours.\nWorked with more than 4 different teams at different points of time and provided end-to-end solutions for clients.",
+        "startYear": "2021-02-16",
+        "endYear": "2023-02-15"
+      },
+      {
+        "company": "HellX",
+        "position": "Python Developer",
+        "description": "Heller is a Software Editor specialized in logistics management.",
+        "keyAchievements": "Developed several automation systems - saved over $50,000 annually.\nJoined the team as #10 employee as a developer working directly with the biggest customers.\nInvolved in coding as per the requirement, delivered well ahead of time which saved project cost by 20%.\nReduced database size by nearly 50% and improved its performance by 20%.\nDelivery time of good reduced by 50%.",
+        "startYear": "2020-05-02",
+        "endYear": "2021-02-16"
+      }
+    ],
+    "skills": {
+      "technicalSkills": "Technical Skills",
+      "softSkills": "Soft Skills",
+      "additionalSkills": "Additional Skills",
+      "technical": ["JavaScript", "Python", "Web Services", "C++", "HTML5", "CSS", "SQL", "User Interface", "Creativity"],
+      "soft": ["Collaboration", "Problem-solving", "Communication", "Time management", "Result-oriented"],
+      "additional": ["Public Speaking", "Writing", "Research"]
+    },
+    "languages": ["English", "Hindi"],
+    "certifications": [
+      "Certified Web Professional-Web Developer",
+      "Java Development Certified Professional"
+    ]
+  },
+  "languageSelector": {
+    "warning": "Changing language will reset your resume data",
+    "aria-label": "Select Language",
+    "en": "English",
+    "fr": "French"
+  },
+  "date": {
+    "locale": "en-US",
+    "present": "Present"
+  }
+}

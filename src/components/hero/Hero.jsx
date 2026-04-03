@@ -1,3 +1,5 @@
+"use client";
+
 import Link from "next/link";
 import { GrOptimize, GrFingerPrint } from "react-icons/gr";
 import { MdMoneyOff } from "react-icons/md";
@@ -5,8 +7,11 @@ import { DiResponsive } from "react-icons/di";
 import { FcDataBackup, FcUpload } from "react-icons/fc";
 import Image from "next/image";
 import { Typewriter } from 'react-simple-typewriter'
+import { useTranslations } from "../../i18n/I18nProvider";
 
 export default function Hero() {
+    const { t } = useTranslations();
+    
     return (
         <>
             <section className="bg-gray-100">
@@ -20,23 +25,27 @@ export default function Hero() {
                             </div>
                             <div className="hidden md:flex items-center space-x-1">
                                 <Link href="/builder" className="py-4 px-2 text-gray-700 hover:text-gray-900">
-                                    Builder
+                                    {t("nav.builder")}
                                 </Link>
                                 <Link href="/templates" className="py-4 px-2 text-gray-700 hover:text-gray-900">
-                                    Templates
+                                    {t("nav.templates")}
                                 </Link>
                                 <Link href="/examples" className="py-4 px-2 text-gray-700 hover:text-gray-900">
-                                    Examples
+                                    {t("nav.examples")}
                                 </Link>
                             </div>
                         </div>
                     </div>
                     <div className="flex flex-col justify-center items-center h-full text-center">
                         <h1 className="text-6xl font-bold text-gray-800 mb-2">
-                            Get hired with an ATS <br />
+                            {t("hero.title")} <br />
                             <span className="text-fuchsia-700">
                                 <Typewriter
-                                    words={['optimized', 'Perfect', 'Professional']}
+                                    words={[
+                                        t("hero.titleHighlight.optimized"),
+                                        t("hero.titleHighlight.perfect"),
+                                        t("hero.titleHighlight.professional")
+                                    ]}
                                     loop={0}
                                     cursor
                                     cursorStyle='_'
@@ -46,13 +55,13 @@ export default function Hero() {
                                 />
                             </span>
                             <br />
-                            Resume.
+                            {t("hero.titleSuffix")}
                         </h1>
                         <p className="text-gray-600 mb-4">
-                            ATSResume is an innovative resume builder that helps job seekers create a professional and optimized resume for applicant tracking systems. Our platform uses cutting-edge technology to analyze and optimize your resume for maximum visibility and success. Say goodbye to manual formatting frustration and wasted time, and Create your winning resume with ATSResume today and get noticed by employers.
+                            {t("hero.subtitle")}
                         </p>
                         <Link href="/builder" className="inline-block bg-fuchsia-700 text-fuchsia-600 px-6 py-3 rounded-lg font-bold text-lg hover:bg-fuchsia-600 transition duration-200 hover:-translate-y-1 transform hover:shadow-lg">
-                            Make My Resume
+                            {t("hero.cta")}
                         </Link>
                     </div>
                 </div>
@@ -63,22 +72,24 @@ export default function Hero() {
 }
 
 const About = () => {
+    const { t } = useTranslations();
+    
     return (
         <section className="bg-gray-100">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="mt-12">
                     <h1 className="text-4xl font-bold text-gray-800 mb-2">
-                        Features
+                        {t("about.features")}
                     </h1>
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                         <div className="flex bg-fuchsia-600 rounded-lg shadow-lg p-4">
                             <GrOptimize className="text-8xl text-gray-800 mr-4" />
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-2xl font-bold text-gray-800">
-                                    ATS-optimized
+                                    {t("about.atsOptimized.title")}
                                 </h1>
                                 <p className="text-gray-600">
-                                    Our platform uses cutting-edge technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems.
+                                    {t("about.atsOptimized.description")}
                                 </p>
                             </div>
                         </div>
@@ -86,10 +97,10 @@ const About = () => {
                             <GrFingerPrint className="text-8xl text-gray-800 mr-4" />
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-2xl font-bold text-gray-800">
-                                    Easy to use
+                                    {t("about.easyToUse.title")}
                                 </h1>
                                 <p className="text-gray-600">
-                                    Our user-friendly interface makes it easy to build a professional, ATS-friendly resume in minutes. No more frustration or wasted time spent on manual formatting.
+                                    {t("about.easyToUse.description")}
                                 </p>
                             </div>
                         </div>
@@ -97,10 +108,10 @@ const About = () => {
                             <MdMoneyOff className="text-8xl text-gray-800 mr-4" />
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-2xl font-bold text-gray-800">
-                                    Free
+                                    {t("about.free.title")}
                                 </h1>
                                 <p className="text-gray-600">
-                                    Our platform is completely free to use. No hidden fees or subscriptions. Just create an account and start building your dream resume today!
+                                    {t("about.free.description")}
                                 </p>
                             </div>
                         </div>
@@ -108,10 +119,10 @@ const About = () => {
                             <DiResponsive className="text-8xl text-gray-800 mr-4" />
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-2xl font-bold text-gray-800">
-                                    Mobile-friendly
+                                    {t("about.mobileFriendly.title")}
                                 </h1>
                                 <p className="text-gray-600">
-                                    Our platform is fully responsive and mobile-friendly, so you can build your resume on the go. No more waiting until you get home to work on your resume.
+                                    {t("about.mobileFriendly.description")}
                                 </p>
                             </div>
                         </div>
@@ -119,10 +130,10 @@ const About = () => {
                             <FcDataBackup className="text-8xl text-gray-800 mr-4" />
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-2xl font-bold text-gray-800">
-                                    Download Backup Data
+                                    {t("about.downloadBackup.title")}
                                 </h1>
                                 <p className="text-gray-600">
-                                    Download your resume data in JSON format and store it in a safe place. You can use this data to restore your resume in the future.
+                                    {t("about.downloadBackup.description")}
                                 </p>
                             </div>
                         </div>
@@ -130,10 +141,10 @@ const About = () => {
                             <FcUpload className="text-8xl text-gray-800 mr-4" />
                             <div className="flex flex-col gap-2">
                                 <h1 className="text-2xl font-bold text-gray-800">
-                                    Upload Backup Data
+                                    {t("about.uploadBackup.title")}
                                 </h1>
                                 <p className="text-gray-600">
-                                    Upload your resume data in JSON format to restore your resume. This is useful if you accidentally delete your resume or if you want to switch devices.
+                                    {t("about.uploadBackup.description")}
                                 </p>
                             </div>
                         </div>
@@ -143,4 +154,3 @@ const About = () => {
         </section>
     );
 };
-

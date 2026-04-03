@@ -1,13 +1,15 @@
+"use client";
+
 import React, {useContext} from 'react';
 import {handleProject} from "../utils/handleProject";
 import {ResumeContext} from "../../../../builder";
-import {removeLanguage} from "../../languages/utils/removeLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeProject} from "../utils/removeProject";
-import i18n from "../../../../../translations";
+import { useTranslations } from "../../../../../i18n/I18nProvider";
 
 const Project = ({project, index}) => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
+  const { t } = useTranslations();
 
   return (
     <div
@@ -19,7 +21,7 @@ const Project = ({project, index}) => {
         {/* Project name */}
         <input
           type="text"
-          placeholder={i18n.t("projects.projectName")}
+          placeholder={t("projects.projectName")}
           name="name"
           className="w-full other-input"
           value={project.name}
@@ -28,7 +30,7 @@ const Project = ({project, index}) => {
         {/* Link */}
         <input
           type="text"
-          placeholder={i18n.t("projects.link")}
+          placeholder={t("projects.link")}
           name="link"
           className="w-full other-input"
           value={project.link}
@@ -37,7 +39,7 @@ const Project = ({project, index}) => {
         {/* Description */}
         <textarea
           type="text"
-          placeholder={i18n.t("projects.description")}
+          placeholder={t("projects.description")}
           name="description"
           className="w-full other-input h-32"
           value={project.description}
@@ -47,7 +49,7 @@ const Project = ({project, index}) => {
         {/* Key achievements */}
         <textarea
           type="text"
-          placeholder={i18n.t("projects.keyAchievements")}
+          placeholder={t("projects.keyAchievements")}
           name="keyAchievements"
           className="w-full other-input h-40"
           value={project.keyAchievements}
@@ -57,7 +59,7 @@ const Project = ({project, index}) => {
         <div className="flex-wrap-gap-2">
           <input
             type="date"
-            placeholder={i18n.t("projects.startYear")}
+            placeholder={t("projects.startYear")}
             name="startYear"
             className="flex-1 m-0 other-input"
             value={project.startYear}
@@ -66,7 +68,7 @@ const Project = ({project, index}) => {
           {/* End data */}
           <input
             type="date"
-            placeholder={i18n.t("projects.endYear")}
+            placeholder={t("projects.endYear")}
             name="endYear"
             className="flex-1 m-0 other-input"
             value={project.endYear}
@@ -79,7 +81,7 @@ const Project = ({project, index}) => {
         onClick={() => {
           removeProject(resumeData, setResumeData, index)
         }}
-        aria-label="Remove"
+        aria-label={t("common.remove")}
         className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
       >
         <BsTrash3/>

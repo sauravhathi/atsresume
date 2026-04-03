@@ -1,18 +1,21 @@
+"use client";
+
 import React, {useContext} from "react";
 import { ResumeContext } from "../../builder";
-import i18n from "../../../translations";
+import { useTranslations } from "../../../i18n/I18nProvider";
 
 const PersonalInformation = ({}) => {
   const {resumeData, setResumeData, handleProfilePicture, handleChange} =
     useContext(ResumeContext);
+  const t = useTranslations();
 
   return (
     <div className="flex-col-gap-2">
-      <h2 className="input-title">{i18n.t("personalInformation.title")}</h2>
+      <h2 className="input-title">{t("personalInformation.title")}</h2>
       <div className="grid-4">
         <input
           type="text"
-          placeholder={i18n.t("personalInformation.fullName")}
+          placeholder={t("personalInformation.fullName")}
           name="name"
           className="pi"
           value={resumeData.name}
@@ -20,7 +23,7 @@ const PersonalInformation = ({}) => {
         />
         <input
           type="text"
-          placeholder={i18n.t("personalInformation.jobTitle")}
+          placeholder={t("personalInformation.jobTitle")}
           name="position"
           className="pi"
           value={resumeData.position}
@@ -28,7 +31,7 @@ const PersonalInformation = ({}) => {
         />
         <input
           type="text"
-          placeholder={i18n.t("personalInformation.contactInformation")}
+          placeholder={t("personalInformation.contactInformation")}
           name="contactInformation"
           className="pi"
           value={resumeData.contactInformation}
@@ -38,7 +41,7 @@ const PersonalInformation = ({}) => {
         />
         <input
           type="email"
-          placeholder={i18n.t("personalInformation.email")}
+          placeholder={t("personalInformation.email")}
           name="email"
           className="pi"
           value={resumeData.email}
@@ -46,7 +49,7 @@ const PersonalInformation = ({}) => {
         />
         <input
           type="text"
-          placeholder={i18n.t("personalInformation.address")}
+          placeholder={t("personalInformation.address")}
           name="address"
           className="pi"
           value={resumeData.address}
@@ -58,7 +61,7 @@ const PersonalInformation = ({}) => {
           accept="image/*"
           className="profileInput"
           onChange={handleProfilePicture}
-          placeholder={i18n.t("personalInformation.profilePicture")}
+          placeholder={t("personalInformation.profilePicture")}
         />
       </div>
     </div>

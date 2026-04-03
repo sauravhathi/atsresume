@@ -1,13 +1,16 @@
+"use client";
+
 import React, {useContext} from 'react';
 import {handleSocialMedia} from "../units/handleSocialMedia";
 import {ResumeContext} from "../../../../builder";
-import {removeLanguage} from "../../languages/utils/removeLanguage";
 import {BsTrash3} from "react-icons/bs";
 import {removeSocialMedia} from "../units/removeSocialMedia";
-import i18n from "../../../../../translations";
+import { useTranslations } from "../../../../../i18n/I18nProvider";
 
-const SocialMedia = ({socialMedia, index}) => {
+const SocialMediaComponent = ({socialMedia, index}) => {
   const {resumeData, setResumeData} = useContext(ResumeContext);
+  const t = useTranslations();
+
   return (
     <div className="flex w-fill gap-5 items-top">
       <div
@@ -15,7 +18,7 @@ const SocialMedia = ({socialMedia, index}) => {
       >
         <input
           type="text"
-          placeholder={i18n.t("socialMedia.platform")}
+          placeholder={t("socialMedia.platform")}
           name="socialMedia"
           className="w-full mb-0 other-input"
           value={socialMedia.socialMedia}
@@ -23,7 +26,7 @@ const SocialMedia = ({socialMedia, index}) => {
         />
         <input
           type="text"
-          placeholder={i18n.t("socialMedia.link")}
+          placeholder={t("socialMedia.link")}
           name="link"
           className="w-full mb-0 other-input"
           value={socialMedia.link}
@@ -35,7 +38,7 @@ const SocialMedia = ({socialMedia, index}) => {
         onClick={() => {
           removeSocialMedia(resumeData, setResumeData, index)
         }}
-        aria-label="Remove"
+        aria-label={t("common.remove")}
         className="p-2 text-white h-fit bg-fuchsia-700 rounded text-xl"
       >
         <BsTrash3/>
@@ -44,4 +47,4 @@ const SocialMedia = ({socialMedia, index}) => {
   );
 };
 
-export default SocialMedia;
+export default SocialMediaComponent;

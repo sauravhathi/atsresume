@@ -1,6 +1,6 @@
 import Head from "next/head";
 
-export default function Meta({ title, keywords, description }) {
+export default function Meta({ title, keywords, description, locale = "en" }) {
     const homepage = "https://atsresume.vercel.app/";
     const logo = "https://atsresume.vercel.app/assets/logo.png";
     const fevicon = "https://atsresume.vercel.app/assets/favicon.ico";
@@ -43,11 +43,16 @@ export default function Meta({ title, keywords, description }) {
             <meta name="viewport" content="width=device-width, initial-scale=1" />
             <meta name="keywords" content={keywords} />
             <meta name="description" content={description} />
+            <meta name="language" content={locale} />
             <meta charSet="utf-8" />
             <link rel="icon" href={fevicon} />
             <title>{title}</title>
             <meta type="copyright" content="ATSResume" />
             <meta type="author" content="Saurav Hathi" />
+            {/* hreflang for multilingual SEO */}
+            <link rel="alternate" hrefLang="en" href={homepage} />
+            <link rel="alternate" hrefLang="fr" href={`${homepage}fr/`} />
+            <link rel="alternate" hrefLang="x-default" href={homepage} />
             {/* Open Graph */}
             <meta property="og:type" content="website" />
             <meta property="og:url" content={homepage} />
@@ -56,6 +61,7 @@ export default function Meta({ title, keywords, description }) {
                 property="og:description"
                 content={description} />
             <meta property="og:image" content={logo} />
+            <meta property="og:locale" content={locale === "fr" ? "fr_FR" : "en_US"} />
             {/* Twitter */}
             <meta property="twitter:card" content="summary_large_image" />
             <meta property="twitter:url" content={homepage} />
