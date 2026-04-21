@@ -1,0 +1,205 @@
+{
+  "common": {
+    "add": "Ajouter",
+    "remove": "Supprimer",
+    "save": "Enregistrer",
+    "load": "Charger",
+    "saveData": "Enregistrer les données",
+    "loadData": "Charger les données",
+    "formOpen": "Formulaire ouvert",
+    "formClose": "Formulaire fermé",
+    "formOpenClose": "Ouvrir/Fermer le formulaire"
+  },
+  "nav": {
+    "builder": "Constructeur",
+    "templates": "Modèles",
+    "examples": "Exemples"
+  },
+  "hero": {
+    "title": "Embauché avec un ATS",
+    "titleHighlight": {
+      "optimized": "optimisé",
+      "perfect": "Parfait",
+      "professional": "Professionnel"
+    },
+    "titleSuffix": "CV.",
+    "subtitle": "ATSResume est un constructeur de CV innovant qui aide les chercheurs d'emploi à créer un CV professionnel et optimisé pour les systèmes de suivi des candidats. Notre plateforme utilise une technologie de pointe pour analyser et optimiser votre CV pour une visibilité et un succès maximum. Dites adieu à la frustration du formatage manuel et au temps perdu, et créez votre CV gagnant avec ATSResume aujourd'hui pour être remarqué par les employeurs.",
+    "cta": "Créer mon CV"
+  },
+  "about": {
+    "features": "Fonctionnalités",
+    "atsOptimized": {
+      "title": "Optimisé ATS",
+      "description": "Notre plateforme utilise une technologie de pointe pour analyser et optimiser votre CV pour une visibilité et un succès maximum avec les systèmes de suivi des candidats."
+    },
+    "easyToUse": {
+      "title": "Facile à utiliser",
+      "description": "Notre interface conviviale permet de créer facilement un CV professionnel et compatible ATS en quelques minutes. Plus de frustration ou de temps perdu sur le formatage manuel."
+    },
+    "free": {
+      "title": "Gratuit",
+      "description": "Notre plateforme est complètement gratuite. Pas de frais cachés ou d'abonnements. Créez simplement un compte et commencez à construire votre CV de rêve aujourd'hui!"
+    },
+    "mobileFriendly": {
+      "title": "Compatible mobile",
+      "description": "Notre plateforme est entièrement réactive et compatible mobile, vous pouvez donc créer votre CV en déplacement. Plus besoin d'attendre d'être chez vous pour travailler sur votre CV."
+    },
+    "downloadBackup": {
+      "title": "Télécharger les données de sauvegarde",
+      "description": "Téléchargez vos données de CV au format JSON et conservez-les en lieu sûr. Vous pouvez utiliser ces données pour restaurer votre CV à l'avenir."
+    },
+    "uploadBackup": {
+      "title": "Télécharger les données de sauvegarde",
+      "description": "Téléchargez vos données de CV au format JSON pour restaurer votre CV. Ceci est utile si vous supprimez accidentellement votre CV ou si vous souhaitez changer d'appareil."
+    }
+  },
+  "personalInformation": {
+    "title": "Informations personnelles",
+    "fullName": "Nom complet",
+    "jobTitle": "Titre du poste",
+    "contactInformation": "Coordonnées",
+    "email": "E-mail",
+    "address": "Adresse",
+    "profilePicture": "Photo de profil"
+  },
+  "workExperience": {
+    "title": "Expérience professionnelle",
+    "company": "Entreprise",
+    "jobTitle": "Titre du poste",
+    "description": "Description",
+    "keyAchievements": "Réalisations clés",
+    "startYear": "Année de début",
+    "endYear": "Année de fin"
+  },
+  "projects": {
+    "title": "Projets",
+    "projectName": "Nom du projet",
+    "link": "Lien",
+    "description": "Description",
+    "keyAchievements": "Réalisations clés",
+    "startYear": "Année de début",
+    "endYear": "Année de fin"
+  },
+  "education": {
+    "title": "Éducation",
+    "school": "École",
+    "degree": "Diplôme",
+    "startYear": "Année de début",
+    "endYear": "Année de fin"
+  },
+  "skills": {
+    "title": "Compétences"
+  },
+  "languages": {
+    "title": "Langues",
+    "language": "Langue"
+  },
+  "socialMedia": {
+    "title": "Réseaux sociaux",
+    "platform": "Réseau social",
+    "link": "Lien"
+  },
+  "testsAndCertifications": {
+    "title": "Tests et certifications",
+    "testOrCertificate": "Test ou certification"
+  },
+  "summary": {
+    "title": "Résumé",
+    "placeholder": "Résumé"
+  },
+  "loadUnload": {
+    "loadData": "Charger les données",
+    "saveData": "Enregistrer les données"
+  },
+  "preview": {
+    "summary": "Résumé",
+    "education": "Éducation",
+    "languages": "Langues",
+    "certifications": "Certifications",
+    "workExperience": "Expérience professionnelle",
+    "projects": "Projets"
+  },
+  "a11y": {
+    "phoneNumber": "Numéro de téléphone",
+    "emailAddress": "Adresse e-mail",
+    "address": "Adresse",
+    "profile": "profil",
+    "socialMediaPlatform": "Plateforme de réseau social"
+  },
+  "editor": {
+    "bold": "Gras (Ctrl+B)",
+    "italic": "Italique (Ctrl+I)",
+    "underline": "Souligné (Ctrl+U)",
+    "increaseFontSize": "Augmenter la taille de police",
+    "decreaseFontSize": "Diminuer la taille de police",
+    "alignLeft": "Aligner à gauche",
+    "alignCenter": "Centrer",
+    "alignRight": "Aligner à droite"
+  },
+  "defaultResume": {
+    "name": "MARCUS HALL",
+    "position": "Développeur",
+    "contactInformation": "+1-555-0100",
+    "email": "beddylea@gmail.com",
+    "address": "San Francisco, CA",
+    "summary": "Développeur créatif avec 11 ans d'expérience dans la conception et le développement d'interfaces utilisateur, les tests et la formation des employés. Compétent dans l'utilisation d'une grande variété d'outils et de programmes pour fournir des applications efficaces.",
+    "socialMedia": {
+      "github": "Github",
+      "linkedin": "LinkedIn",
+      "website": "Site web"
+    },
+    "education": {
+      "school": "Université de New York",
+      "degree": "Licence en Informatique"
+    },
+    "workExperience": [
+      {
+        "company": "Torph TTC",
+        "position": "Développeur",
+        "description": "Torph TTC est une entreprise mondiale de logiciels qui offre des outils et composants de développement d'interfaces utilisateur pour une gamme d'applications pour développeurs sur toutes les plateformes.",
+        "keyAchievements": "Créé et maintenu 10 applications web pour de nombreux clients nationaux et internationaux.\nAssuré que les interfaces utilisateur et l'expérience utilisateur des applications logicielles développées par l'équipe répondent aux attentes d'au moins 80% des utilisateurs.\nCréé et analysé 500 cas de test unitaires.\nDéveloppé des scripts Python pour automatiser le processus de réduction du bruit des images, ce qui a permis d'améliorer le temps d'analyse de recherche de 40%.\nÉtabli et dirigé une équipe de 10 personnes; couvrant tous les rôles clés aux premiers stades.",
+        "startYear": "2023-02-16",
+        "endYear": "2025-08-21"
+      },
+      {
+        "company": "Reilty Group",
+        "position": "Développeur Web Front-end",
+        "description": "Reilty Group est un leader de l'industrie des logiciels et solutions de jeux d'argent en ligne.",
+        "keyAchievements": "Augmenté de 35% la portée des utilisateurs vers la plateforme, grâce à l'installation de la plateforme web sur les appareils mobiles.\nLivré 30 solutions web.\nRemplacé 1 développeur web à temps plein par un emploi à temps partiel avec un gain de productivité de plus de 60% mesuré par les heures de travail.\nTravaillé avec plus de 4 équipes différentes à différents moments et fourni des solutions de bout en bout pour les clients.",
+        "startYear": "2021-02-16",
+        "endYear": "2023-02-15"
+      },
+      {
+        "company": "HellX",
+        "position": "Développeur Python",
+        "description": "Heller est un éditeur de logiciels spécialisé dans la gestion logistique.",
+        "keyAchievements": "Développé plusieurs systèmes d'automatisation - économisé plus de 50 000 $ par an.\nA rejoint l'équipe comme 10e employé en tant que développeur travaillant directement avec les plus gros clients.\nImpliqué dans le codage selon les exigences, livré bien avant le temps ce qui a économisé 20% du coût du projet.\nRéduit la taille de la base de données de près de 50% et amélioré ses performances de 20%.\nTemps de livraison des marchandises réduit de 50%.",
+        "startYear": "2020-05-02",
+        "endYear": "2021-02-16"
+      }
+    ],
+    "skills": {
+      "technicalSkills": "Compétences Techniques",
+      "softSkills": "Compétences Douces",
+      "additionalSkills": "Compétences Complémentaires",
+      "technical": ["JavaScript", "Python", "Services Web", "C++", "HTML5", "CSS", "SQL", "Interface Utilisateur", "Créativité"],
+      "soft": ["Collaboration", "Résolution de problèmes", "Communication", "Gestion du temps", "Orientation résultats"],
+      "additional": ["Présentation orale", "Écriture", "Recherche"]
+    },
+    "languages": ["Anglais", "Hindi"],
+    "certifications": [
+      "Professionnel Web Certifié-Développeur Web",
+      "Professionnel Certifié en Développement Java"
+    ]
+  },
+  "languageSelector": {
+    "warning": "Changer de langue réinitialise les données du CV",
+    "aria-label": "Sélectionner la langue",
+    "en": "Anglais",
+    "fr": "Français"
+  },
+  "date": {
+    "locale": "fr-FR",
+    "present": "Présent"
+  }
+}

@@ -1,9 +1,13 @@
+"use client";
+
 import { FaCloudUploadAlt, FaCloudDownloadAlt } from "react-icons/fa";
 import React, { useContext } from "react";
 import {ResumeContext} from "../../builder";
+import { useTranslations } from "../../../i18n/I18nProvider";
 
 const LoadUnload = () => {
   const { resumeData, setResumeData } = useContext(ResumeContext);
+  const t = useTranslations();
 
   // load backup resume data
   const handleLoad = (event) => {
@@ -28,13 +32,13 @@ const LoadUnload = () => {
   };
 
   return (
-    <div className="flex flex-wrap gap-4 mb-2 justify-center">
+    <div className="flex flex-col flex-wrap w-full gap-4 mb-2 items-center justify-center">
       <div className="inline-flex flex-row items-center gap-2">
-        <h2 className="text-[1.2rem] text-white">Load Data</h2>
+        <h2 className="text-[1.2rem] text-white">{t("loadUnload.loadData")}</h2>
         <label className="p-2 text-white bg-fuchsia-700 rounded cursor-pointer">
           <FaCloudUploadAlt className="text-[1.2rem] text-white" />
           <input
-            aria-label="Load Data"
+            aria-label={t("common.loadData")}
             type="file"
             className="hidden"
             onChange={handleLoad}
@@ -43,9 +47,9 @@ const LoadUnload = () => {
         </label>
       </div>
       <div className="inline-flex flex-row items-center gap-2">
-        <h2 className="text-[1.2rem] text-white">Save Data</h2>
+        <h2 className="text-[1.2rem] text-white">{t("loadUnload.saveData")}</h2>
         <button
-          aria-label="Save Data"
+          aria-label={t("common.saveData")}
           className="p-2 text-white bg-fuchsia-700 rounded"
           onClick={(event) =>
             handleDownload(

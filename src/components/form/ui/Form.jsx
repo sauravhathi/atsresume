@@ -1,5 +1,6 @@
 import React from 'react';
 import LoadUnload from "../components/LoadUnload";
+import LanguageSelector from "../components/languageSelector/components/LanguageSelector";
 import PersonalInformation from "../components/PersonalInformation";
 import SocialMedias from "../components/socialMedia/ui/SocialMedias";
 import Summary from "../components/Summary";
@@ -13,7 +14,10 @@ import TestsAndCertifications from "../components/testsAndCertifications/ui/Test
 const Form = () => {
   return (
     <form className="p-4 bg-fuchsia-600 exclude-print md:max-w-[40%] md:h-screen md:overflow-y-scroll">
-      <LoadUnload/>
+      <div className="flex flex-wrap gap-4 justify-center items-center">
+        <LanguageSelector/>
+        <LoadUnload/>
+      </div>
       <PersonalInformation/>
       <SocialMedias/>
       <Summary/>

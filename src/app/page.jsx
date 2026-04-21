@@ -1,12 +1,5 @@
-import React from 'react';
-import Builder from "../components/builder";
+import { redirect } from 'next/navigation';
 
-const Page = () => {
-  return (
-    <div>
-      <Builder/>
-    </div>
-  );
-};
-
-export default Page;
+export default function RootPage() {
+  redirect('/en');
+}

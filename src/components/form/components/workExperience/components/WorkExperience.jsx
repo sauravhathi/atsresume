@@ -1,11 +1,15 @@
+"use client";
+
 import React, {useContext} from 'react';
 import {handleWorkExperience} from "../units/handleWorkExperience";
 import {ResumeContext} from "../../../../builder";
 import {BsTrash3} from "react-icons/bs";
 import {removeWorkExperience} from "../units/removeResumeExperience";
+import { useTranslations } from "../../../../../i18n/I18nProvider";
 
 const WorkExperience = ({workExperience, index}) => {
   const {resumeData, setResumeData,} = useContext(ResumeContext);
+  const t = useTranslations();
 
   return (
     <div
@@ -16,7 +20,7 @@ const WorkExperience = ({workExperience, index}) => {
       >
         <input
           type="text"
-          placeholder="Company"
+          placeholder={t("workExperience.company")}
           name="company"
           className="w-full other-input"
           value={workExperience.company}
@@ -26,7 +30,7 @@ const WorkExperience = ({workExperience, index}) => {
         />
         <input
           type="text"
-          placeholder="Job Title"
+          placeholder={t("workExperience.jobTitle")}
           name="position"
           className="w-full other-input"
           value={workExperience.position}
@@ -36,7 +40,7 @@ const WorkExperience = ({workExperience, index}) => {
         />
         <textarea
           type="text"
-          placeholder="Description"
+          placeholder={t("workExperience.description")}
           name="description"
           className="w-full other-input h-32"
           value={workExperience.description}
@@ -47,7 +51,7 @@ const WorkExperience = ({workExperience, index}) => {
         />
         <textarea
           type="text"
-          placeholder="Key Achievements"
+          placeholder={t("workExperience.keyAchievements")}
           name="keyAchievements"
           className="w-full other-input h-40"
           value={workExperience.keyAchievements}
@@ -60,7 +64,7 @@ const WorkExperience = ({workExperience, index}) => {
         >
           <input
             type="date"
-            placeholder="Start Year"
+            placeholder={t("workExperience.startYear")}
             name="startYear"
             className="flex-1 m-0 other-input"
             value={workExperience.startYear}
@@ -70,7 +74,7 @@ const WorkExperience = ({workExperience, index}) => {
           />
           <input
             type="date"
-            placeholder="End Year"
+            placeholder={t("workExperience.endYear")}
             name="endYear"
             className="flex-1 m-0 other-input"
             value={workExperience.endYear}
@@ -85,7 +89,7 @@ const WorkExperience = ({workExperience, index}) => {
         onClick={() => {
           removeWorkExperience(resumeData, setResumeData, index)
         }}
-        aria-label="Remove"
+        aria-label={t("common.remove")}
         className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
       >
         <BsTrash3/>

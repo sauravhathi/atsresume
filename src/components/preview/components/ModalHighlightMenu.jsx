@@ -1,9 +1,14 @@
+"use client";
+
 import React from "react";
 import {HighlightMenu} from "react-highlight-menu";
 import {FaAlignCenter, FaAlignLeft, FaAlignRight, FaBold, FaItalic, FaMinus, FaPlus, FaUnderline} from "react-icons/fa";
 import useKeyboardShortcut from "../../../hooks/useKeyboardShortcut";
+import { useTranslations } from "next-intl";
 
 const ModalHighlightMenu = () => {
+  const t = useTranslations();
+
   const formatText = (command, value = null) => {
     document.execCommand(command, false, value);
   };
@@ -42,14 +47,14 @@ const ModalHighlightMenu = () => {
       target="body"
       menu={() => (
         <>
-          <MenuButton title="Bold (Ctrl+B)" icon={<FaBold/>} onClick={toggleBold}/>
-          <MenuButton title="Italic (Ctrl+I)" icon={<FaItalic/>} onClick={toggleItalic}/>
-          <MenuButton title="Underline (Ctrl+U)" icon={<FaUnderline/>} onClick={toggleUnderline}/>
-          <MenuButton title="Increase Font Size" icon={<FaPlus/>} onClick={() => changeFontSize(4)}/>
-          <MenuButton title="Decrease Font Size" icon={<FaMinus/>} onClick={() => changeFontSize(2)}/>
-          <MenuButton title="Align Left" icon={<FaAlignLeft/>} onClick={() => alignText("Left")}/>
-          <MenuButton title="Align Center" icon={<FaAlignCenter/>} onClick={() => alignText("Center")}/>
-          <MenuButton title="Align Right" icon={<FaAlignRight/>} onClick={() => alignText("Right")}/>
+          <MenuButton title={t("editor.bold")} icon={<FaBold/>} onClick={toggleBold}/>
+          <MenuButton title={t("editor.italic")} icon={<FaItalic/>} onClick={toggleItalic}/>
+          <MenuButton title={t("editor.underline")} icon={<FaUnderline/>} onClick={toggleUnderline}/>
+          <MenuButton title={t("editor.increaseFontSize")} icon={<FaPlus/>} onClick={() => changeFontSize(4)}/>
+          <MenuButton title={t("editor.decreaseFontSize")} icon={<FaMinus/>} onClick={() => changeFontSize(2)}/>
+          <MenuButton title={t("editor.alignLeft")} icon={<FaAlignLeft/>} onClick={() => alignText("Left")}/>
+          <MenuButton title={t("editor.alignCenter")} icon={<FaAlignCenter/>} onClick={() => alignText("Center")}/>
+          <MenuButton title={t("editor.alignRight")} icon={<FaAlignRight/>} onClick={() => alignText("Right")}/>
         </>
       )}
     />

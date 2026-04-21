@@ -1,14 +1,15 @@
-"use client"
+"use client";
 
-import React, {createContext, useState} from "react";
+import React, { createContext, useState, useEffect } from "react";
 import Meta from "../components/meta/Meta";
 import FormCloseOpenBtn from "../components/FormCloseOpenBtn";
 import Preview from "../components/preview/ui/Preview";
-import DefaultResumeData from "../components/utility/DefaultResumeData";
+import { getDefaultResumeData } from "../components/utility/DefaultResumeData";
 import dynamic from "next/dynamic";
 import Form from "../components/form/ui/Form";
+import { useLocale } from "next-intl";
 
-const ResumeContext = createContext(DefaultResumeData);
+const ResumeContext = createContext(null);
 
 // server side rendering false
 const Print = dynamic(() => import("../components/utility/WinPrint"), {
@@ -16,8 +17,20 @@ const Print = dynamic(() => import("../components/utility/WinPrint"), {
 });
 
 export default function Builder() {
-  // resume data
-  const [resumeData, setResumeData] = useState(DefaultResumeData);
+  // Use next-intl hook for locale
+  const locale = useLocale();
+
+  // Initialize with fallback data - will be reset after mount with proper translations
+  const [resumeData, setResumeData] = useState(() => getDefaultResumeData());
+
+  // Sync resume data when locale changes
+  useEffect(() => {
+    // Only reset if we have default data that needs translation
+    const storedData = localStorage.getItem('atsresume-data');
+    if (!storedData) {
+      setResumeData(getDefaultResumeData(locale));
+    }
+  }, [locale]);
 
   // form hide/show
   const [formClose, setFormClose] = useState(false);
@@ -29,7 +42,7 @@ export default function Builder() {
     if (file instanceof Blob) {
       const reader = new FileReader();
       reader.onload = (event) => {
-        setResumeData({...resumeData, profilePicture: event.target.result});
+        setResumeData({ ...resumeData, profilePicture: event.target.result });
       };
       reader.readAsDataURL(file);
     } else {
@@ -38,35 +51,39 @@ export default function Builder() {
   };
 
   const handleChange = (e) => {
-    setResumeData({...resumeData, [e.target.name]: e.target.value});
-    console.log(resumeData);
+    setResumeData({ ...resumeData, [e.target.name]: e.target.value });
   };
 
   return (
-    <>
-      <ResumeContext.Provider
-        value={{
-          resumeData,
-          setResumeData,
-          handleProfilePicture,
-          handleChange,
-        }}
-      >
-        <Meta
-          title="ATSResume | Get hired with an ATS-optimized resume"
-          description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
-          keywords="ATS-friendly, Resume optimization, Keyword-rich resume, Applicant Tracking System, ATS resume builder, ATS resume templates, ATS-compliant resume, ATS-optimized CV, ATS-friendly format, ATS resume tips, Resume writing services, Career guidance, Job search in India, Resume tips for India, Professional resume builder, Cover letter writing, Interview preparation, Job interview tips, Career growth, Online job applications, resume builder, free resume builder, resume ats, best free resume builder, resume creator, resume cv, resume design, resume editor, resume maker"
-        />
-        <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
-          {!formClose && (
-            <Form/>
-          )}
-          <Preview/>
-        </div>
-        <FormCloseOpenBtn formClose={formClose} setFormClose={setFormClose}/>
-        <Print/>
-      </ResumeContext.Provider>
-    </>
+    <ResumeContext.Provider
+      value={{
+        resumeData,
+        setResumeData,
+        handleProfilePicture,
+        handleChange,
+      }}
+    >
+      {/* English Meta */}
+      <Meta
+        title="ATSResume | Get hired with an ATS-optimized resume"
+        description="ATSResume is a cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers."
+        keywords="ATS-friendly, Resume optimization, Keyword-rich resume, Applicant Tracking System, ATS resume builder, ATS resume templates, ATS-compliant resume, ATS-optimized CV, ATS-friendly format, ATS resume tips, Resume writing services, Career guidance, Job search in India, Resume tips for India, Professional resume builder, Cover letter writing, Interview preparation, Job interview tips, Career growth, Online job applications, resume builder, free resume builder, resume ats, best free resume builder, resume creator, resume cv, resume design, resume editor, resume maker"
+        locale="en"
+      />
+      {/* French Meta */}
+      <Meta
+        title="ATSResume | Être embauché avec un CV optimisé ATS"
+        description="ATSResume est un constructeur de CV de pointe qui aide les chercheurs d'emploi à créer un CV professionnel et compatible ATS en quelques minutes. Notre plateforme utilise la dernière technologie pour analyser et optimiser votre CV pour une visibilité et un succès maximum avec les systèmes de suivi des candidats."
+        keywords="Compatible ATS, Optimisation de CV, Système de suivi des candidats, Constructeur de CV ATS, Modèles de CV ATS, CV conforme ATS, CV optimisé ATS, Constructeur de CV professionnel, Recherche d'emploi, Embauche"
+        locale="fr"
+      />
+      <div className="f-col gap-4 md:flex-row justify-evenly max-w-7xl md:mx-auto md:h-screen">
+        {!formClose && <Form />}
+        <Preview />
+      </div>
+      <FormCloseOpenBtn formClose={formClose} setFormClose={setFormClose} />
+      <Print />
+    </ResumeContext.Provider>
   );
 }
-export {ResumeContext};
+export { ResumeContext };
