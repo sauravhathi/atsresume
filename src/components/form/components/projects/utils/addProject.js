@@ -1,7 +1,7 @@
 export const addProject = (resumeData, setResumeData) => {
   console.log("add project")
   const emptyProject = {
-    title: "",
+    name: "",
     link: "",
     description: "",
     keyAchievements: "",

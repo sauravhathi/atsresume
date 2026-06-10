@@ -42,6 +42,9 @@ const WorkExperience = ({item, index}) => {
           <Droppable
             droppableId={`WORK_EXPERIENCE_KEY_ACHIEVEMENT-${index}`}
             type="WORK_EXPERIENCE_KEY_ACHIEVEMENT"
+            isDropDisabled={false}
+            isCombineEnabled={false}
+            ignoreContainerClipping={false}
           >
             {(provided) => (
               <ul

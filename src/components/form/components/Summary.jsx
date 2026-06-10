@@ -11,7 +11,7 @@ const Summary = () => {
           placeholder="Summary"
           name="summary"
           className="w-full other-input h-40"
-          value={resumeData.summary}
+          value={resumeData.summary || ""}
           onChange={handleChange}
           maxLength="500"
         />

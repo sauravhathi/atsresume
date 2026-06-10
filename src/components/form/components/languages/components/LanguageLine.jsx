@@ -24,7 +24,7 @@ const LanguageLine = ({resumeData, setResumeData, lang, index}) => {
           removeLanguage(resumeData, setResumeData, index)
         }}
         aria-label="Remove"
-        className="p-2 text-white bg-fuchsia-700 rounded text-xl"
+        className="p-2 text-white bg-indigo-700 rounded text-xl"
       >
         <BsTrash3/>
       </button>

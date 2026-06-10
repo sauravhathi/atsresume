@@ -12,7 +12,7 @@ const WorkExperiences = () => {
   const {resumeData} = useContext(ResumeContext);
 
   return (
-    <Droppable droppableId="work-experience" type="WORK_EXPERIENCE">
+    <Droppable droppableId="work-experience" type="WORK_EXPERIENCE" isDropDisabled={false} isCombineEnabled={false} ignoreContainerClipping={false}>
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef}>
           <h2
@@ -26,6 +26,7 @@ const WorkExperiences = () => {
             <WorkExperience
               key={index}
               item={item}
+              index={index}
             />
           ))}
           {provided.placeholder}

@@ -16,7 +16,7 @@ const Draggable = dynamic(
 const Projects = () => {
   const {resumeData} = useContext(ResumeContext);
   return (
-    <Droppable droppableId="projects" type="PROJECTS">
+    <Droppable droppableId="projects" type="PROJECTS" isDropDisabled={false} isCombineEnabled={false} ignoreContainerClipping={false}>
       {(provided) => (
         <div {...provided.droppableProps} ref={provided.innerRef}>
           <h2
@@ -51,19 +51,24 @@ const Projects = () => {
                     />
                   </div>
 
-                  <Link
-                    href={item.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="content"
-                  >
-                    {item.link}
-                  </Link>
+                  {item.link && (
+                    <Link
+                      href={item.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="content"
+                    >
+                      {item.link}
+                    </Link>
+                  )}
                   <p className="content">{item.description}</p>
 
                   <Droppable
                     droppableId={`PROJECTS_KEY_ACHIEVEMENT-${index}`}
                     type="PROJECTS_KEY_ACHIEVEMENT"
+                    isDropDisabled={false}
+                    isCombineEnabled={false}
+                    ignoreContainerClipping={false}
                   >
                     {(provided) => (
                       <ul

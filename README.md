@@ -109,7 +109,7 @@ Key achievements are the most important part of your resume.
 
 ## License
 
-[MIT](https://github.com/sauravhathi/atsresume/blob/main/LICENSE.md)
+[MIT](https://github.com/sundar-prakash/atsresume/blob/main/LICENSE.md)
 
 ## Contributing
 
@@ -119,4 +119,5 @@ Please make sure to update tests as appropriate.
 
 ## Authors and acknowledgment
 
-- [Saurav Hathi](https://github.com/sauravhathi)
+- [Sundar Prakash](https://github.com/sundar-prakash)
+\n## Original Creator\n\nThis project is a fork of ATSResume originally created by [Saurav Hathi](https://github.com/sauravhathi).

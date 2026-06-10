@@ -19,7 +19,7 @@ const WorkExperience = ({workExperience, index}) => {
           placeholder="Company"
           name="company"
           className="w-full other-input"
-          value={workExperience.company}
+          value={workExperience.company || ""}
           onChange={(e) =>
             handleWorkExperience(resumeData, setResumeData, e, index)
           }
@@ -29,7 +29,7 @@ const WorkExperience = ({workExperience, index}) => {
           placeholder="Job Title"
           name="position"
           className="w-full other-input"
-          value={workExperience.position}
+          value={workExperience.position || ""}
           onChange={(e) =>
             handleWorkExperience(resumeData, setResumeData, e, index)
           }
@@ -39,7 +39,7 @@ const WorkExperience = ({workExperience, index}) => {
           placeholder="Description"
           name="description"
           className="w-full other-input h-32"
-          value={workExperience.description}
+          value={workExperience.description || ""}
           maxLength="250"
           onChange={(e) =>
             handleWorkExperience(resumeData, setResumeData, e, index)
@@ -50,7 +50,7 @@ const WorkExperience = ({workExperience, index}) => {
           placeholder="Key Achievements"
           name="keyAchievements"
           className="w-full other-input h-40"
-          value={workExperience.keyAchievements}
+          value={workExperience.keyAchievements || ""}
           onChange={(e) =>
             handleWorkExperience(resumeData, setResumeData, e, index)
           }
@@ -63,7 +63,7 @@ const WorkExperience = ({workExperience, index}) => {
             placeholder="Start Year"
             name="startYear"
             className="flex-1 m-0 other-input"
-            value={workExperience.startYear}
+            value={workExperience.startYear || ""}
             onChange={(e) =>
               handleWorkExperience(resumeData, setResumeData, e, index)
             }
@@ -73,7 +73,7 @@ const WorkExperience = ({workExperience, index}) => {
             placeholder="End Year"
             name="endYear"
             className="flex-1 m-0 other-input"
-            value={workExperience.endYear}
+            value={workExperience.endYear || ""}
             onChange={(e) =>
               handleWorkExperience(resumeData, setResumeData, e, index)
             }
@@ -86,7 +86,7 @@ const WorkExperience = ({workExperience, index}) => {
           removeWorkExperience(resumeData, setResumeData, index)
         }}
         aria-label="Remove"
-        className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
+        className="p-2 h-fit text-white bg-indigo-700 rounded text-xl"
       >
         <BsTrash3/>
       </button>

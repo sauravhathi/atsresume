@@ -44,7 +44,7 @@ const LeftSide = ({ resumeData }) => {
         </div>
       )}
 
-      <Droppable droppableId="skills" type="SKILLS">
+      <Droppable droppableId="skills" type="SKILLS" isDropDisabled={false} isCombineEnabled={false} ignoreContainerClipping={false}>
         {(provided) => (
           <div {...provided.droppableProps} ref={provided.innerRef}>
             {resumeData.skills.map((skill, index) => (

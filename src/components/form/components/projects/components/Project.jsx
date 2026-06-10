@@ -24,7 +24,7 @@ const Project = ({project, index}) => {
           placeholder="Project Name"
           name="name"
           className="w-full other-input"
-          value={project.name}
+          value={project.name || ""}
           onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
         />
         {/* Link */}
@@ -33,7 +33,7 @@ const Project = ({project, index}) => {
           placeholder="Link"
           name="link"
           className="w-full other-input"
-          value={project.link}
+          value={project.link || ""}
           onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
         />
         {/* Description */}
@@ -42,7 +42,7 @@ const Project = ({project, index}) => {
           placeholder="Description"
           name="description"
           className="w-full other-input h-32"
-          value={project.description}
+          value={project.description || ""}
           maxLength="250"
           onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
         />
@@ -52,7 +52,7 @@ const Project = ({project, index}) => {
           placeholder="Key Achievements"
           name="keyAchievements"
           className="w-full other-input h-40"
-          value={project.keyAchievements}
+          value={project.keyAchievements || ""}
           onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
         />
         {/* Start date */}
@@ -62,7 +62,7 @@ const Project = ({project, index}) => {
             placeholder="Start Year"
             name="startYear"
             className="flex-1 m-0 other-input"
-            value={project.startYear}
+            value={project.startYear || ""}
             onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
           {/* End data */}
@@ -71,7 +71,7 @@ const Project = ({project, index}) => {
             placeholder="End Year"
             name="endYear"
             className="flex-1 m-0 other-input"
-            value={project.endYear}
+            value={project.endYear || ""}
             onChange={(e) => handleProject(resumeData, setResumeData, e, index)}
           />
         </div>
@@ -82,7 +82,7 @@ const Project = ({project, index}) => {
           removeProject(resumeData, setResumeData, index)
         }}
         aria-label="Remove"
-        className="p-2 h-fit text-white bg-fuchsia-700 rounded text-xl"
+        className="p-2 h-fit text-white bg-indigo-700 rounded text-xl"
       >
         <BsTrash3/>
       </button>
