@@ -2,6 +2,15 @@
 
 A cutting-edge resume builder that helps job seekers create a professional, ATS-friendly resume in minutes. Our platform uses the latest technology to analyze and optimize your resume for maximum visibility and success with applicant tracking systems. Say goodbye to frustration and wasted time spent on manual resume formatting. Create your winning resume with ATSResume today and get noticed by employers.
 
+> ## 🚀 Supercharge Your ATS Resume with AI
+> Love this template but don't want to write it manually? I've partnered with **[CVInsight](https://www.cvinsight.me/)** to give you the ultimate AI-powered career toolkit:
+> 
+> * 📄 **[AI Resume Studio](https://www.cvinsight.me/resume-preview):** Generate beautiful, ATS-optimized PDFs instantly without fighting with margins.
+> * 🎯 **[1-Click Job Tailoring](https://www.cvinsight.me/job-tailored-resume):** Paste a Job Description and let AI automatically rewrite your resume to perfectly match it.
+> * 🔥 **[AI Resume Roaster](https://www.cvinsight.me/resume-roast):** Get brutally honest, recruiter-level feedback on exactly why you are getting rejected.
+> 
+> 👉 **[Explore all CVInsight features](https://www.cvinsight.me/)** and use code **SAURAV15** at checkout for **15% off**
+
 ## Demo
 
 #### [https://atsresume.vercel.app/](https://atsresume.vercel.app/)
